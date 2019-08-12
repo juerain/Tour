@@ -17,38 +17,40 @@
         </mt-tab-container>
 
         <!-- 底部导航列表 -->
+        <!--为每个按钮绑定点击事件-->
+        <!--当前按钮isSelect:true-->
+        <!--其它按钮isSelect:false-->
         <mt-tabbar v-model="active" fixed>
             <mt-tab-item id="a1" @click.native="changeState(0)">
                 <tabbaricon
                 :selectedImage="require('../../assets/home_selected .png')"
                 :normalImage="require('../../assets/home_normal.png')"
-                :focused="currentIndex[0].isSelect">
-                
+                :focused="currentIndex[0].isSelect">               
                 </tabbaricon>
                 a
             </mt-tab-item>
             <mt-tab-item id="a2" @click.native="changeState(1)">
                 <tabbaricon
-         :normalImage="require('../../assets/search_normal.png')"
-         :selectedImage="require('../../assets/search_selected.png')"
-         :focused="currentIndex[1].isSelect">
-         </tabbaricon>
+                :normalImage="require('../../assets/search_normal.png')"
+                :selectedImage="require('../../assets/search_selected.png')"
+                :focused="currentIndex[1].isSelect">
+                </tabbaricon>
                 b
             </mt-tab-item>
             <mt-tab-item id="a3" @click.native="changeState(2)">
                 <tabbaricon
-          :normalImage="require('../../assets/love_normal.png')"
-          :selectedImage="require('../../assets/love_selected.png')"
-          :focused="currentIndex[2].isSelect">
-          </tabbaricon>
+                :normalImage="require('../../assets/love_normal.png')"
+                :selectedImage="require('../../assets/love_selected.png')"
+                :focused="currentIndex[2].isSelect">
+                </tabbaricon>
                 c
             </mt-tab-item>
             <mt-tab-item id="a4" @click.native="changeState(3)">
                 <tabbaricon
-           :normalImage="require('../../assets/me_normal.png')"
-           :selectedImage="require('../../assets/me_selected.png')"
-           :focused="currentIndex[3].isSelect"
-          ></tabbaricon>
+                :normalImage="require('../../assets/me_normal.png')"
+                :selectedImage="require('../../assets/me_selected.png')"
+                :focused="currentIndex[3].isSelect">
+                </tabbaricon>
                 d
             </mt-tab-item>
         </mt-tabbar>
@@ -58,10 +60,13 @@
 <script>
 // 引入子组件
 import tabbaricon from "./common/TabBarIcon.vue"
+
 export default {
     data(){
         return{
+            //面板中显示子组件id
             active:"a1",
+            //创建数组保存图片焦点状态
             currentIndex:[
                 {isSelect:true},
                 {isSelect:false},
@@ -71,22 +76,20 @@ export default {
         }
     },methods: {
         changeState(n){
-      //函数功能:将当前参数下标
-      //对应数组值修改true其它修改false
-      //1:创建循环,循环数组中内容
-      for(var i=0;i<this.currentIndex.length;i++){
-       //2:判断如果循环下标与n相等 20
-       if(n==i){
-        //3:当前下标元素true 10:22
-        this.currentIndex[i].isSelect=true;
-       }else{
-        //4:其它元素修改false
-        this.currentIndex[i].isSelect=false;
-       }
-       
-      }
-
-    }
+            //函数功能:将当前参数下标
+            //对应数组值修改true其它修改false
+            //1:创建循环,循环数组中内容
+            for(var i=0;i<this.currentIndex.length;i++){
+                //2:判断如果循环下标与n相等 20
+                if(n==i){
+                //3:当前下标元素true 10:22
+                this.currentIndex[i].isSelect=true;
+                }else{
+                    //4:其它元素修改false
+                    this.currentIndex[i].isSelect=false;
+                }
+            }
+        }
     },
     components:{
         "tabbaricon":tabbaricon
