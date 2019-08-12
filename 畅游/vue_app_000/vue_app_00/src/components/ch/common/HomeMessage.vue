@@ -1,0 +1,80 @@
+<template>
+    <div>
+        <div id="head-1">
+            <div>
+                <img :src="photoiconImg" class="photoimgstyle" @click="photoimg"/>
+                <span class="span-1">Instagram</span>
+                <img :src="tviconImg" class="tvimgstyle" @click="tvimg"/>
+                <img :src="sendiconImg" class="sendimgstyle"/>
+            </div>
+        </div>
+        <div id="head-2">
+            <img :src="headiconImg" class="headimgstyle"/>
+            <img :src="joiniconImg" class="joinimgstyle"/>
+            <span class="span-2">你的快拍</span>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    props:{//接收 Home.vue 父组件数据
+        headiconImg:{default:""},//headiconImg 默认空字符串
+        joiniconImg:{default:""},//joiniconImg 默认空字符串
+        photoiconImg:{default:""},//photoiconImg 默认空字符串
+        tviconImg:{default:""},//tviconImg 默认空字符串
+        sendiconImg:{default:""},//sendiconImg 默认空字符串
+        photoimg:{type:Function},//函数
+        tvimg:{type:Function}//函数
+    },
+    
+}
+</script>
+
+<style>
+    #head-1{
+        position: relative;
+        height:60px;
+        background: #f3f1f1;
+    }
+    #head-2{
+        position: relative;
+        height:80px;
+        padding: 10px;
+    }
+    .photoimgstyle{
+        position: absolute;
+        top:14px;
+        left:10px;
+    }
+    .headimgstyle{
+        width:50px;
+        height:50px;
+    }
+    .joinimgstyle{
+        position: absolute;
+        top:44px;
+        left:52px;
+    }
+    .span-1{
+        position: absolute;
+        top:10px;
+        left:119px;
+        font-size:25px;
+    }
+    .span-2{
+        position: absolute;
+        display: block;
+        font-size: 16px;
+    }
+    .tvimgstyle{
+        position: absolute;
+        top:14px;
+        right:50px;
+    }
+    .sendimgstyle{
+        position: absolute;
+        top:14px;
+        right:10px;
+    }
+</style>

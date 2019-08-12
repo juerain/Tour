@@ -3,7 +3,16 @@
         <!-- 面板列表 -->
         <mt-tab-container v-model="active">
             <mt-tab-container-item id="a1">
-                <h1>a</h1>
+                <!-- 顶部栏 -->
+                <homemessage
+                :headiconImg="require('../../img/head-icon.png')"
+                :joiniconImg="require('../../img/join-icon.png')"
+                :photoiconImg="require('../../img/photo-icon.png')"
+                :tviconImg="require('../../img/tv-icon.png')"
+                :sendiconImg="require('../../img/send-icon.png')"
+                :photoimg="photoimg"
+                :tvimg="tvimg"
+                ></homemessage>
             </mt-tab-container-item>
             <mt-tab-container-item id="a2">
                 <h1>b</h1>
@@ -25,7 +34,7 @@
                 <tabbaricon
                 :selectedImage="require('../../assets/home_selected .png')"
                 :normalImage="require('../../assets/home_normal.png')"
-                :focused="currentIndex[0].isSelect">               
+                :focused="currentIndex[0].isSelect">              
                 </tabbaricon>
                 a
             </mt-tab-item>
@@ -59,7 +68,8 @@
 
 <script>
 // 引入子组件
-import tabbaricon from "./common/TabBarIcon.vue"
+import TabBaricon from "./common/TabBarIcon.vue"//底部导航栏子组件
+import HomeMessage from "./common/HomeMessage.vue"//主页面子组件
 
 export default {
     data(){
@@ -74,7 +84,9 @@ export default {
                 {isSelect:false}
             ]
         }
-    },methods: {
+    },
+    //集中存放事件处理函数
+    methods: {
         changeState(n){
             //函数功能:将当前参数下标
             //对应数组值修改true其它修改false
@@ -89,10 +101,21 @@ export default {
                     this.currentIndex[i].isSelect=false;
                 }
             }
+        },
+        photoimg(){
+            // 点击进入到相机模式页面
+            this.$router.push("/Photo")
+        },
+        tvimg(){
+            // 点击进入tv视频页面
+            this.$router.push("/Tv")
         }
     },
+    //注册子组件并且给子组起一个名字
     components:{
-        "tabbaricon":tabbaricon
+        // "字符串"：子组件对象名称
+        "tabbaricon":TabBaricon,
+        "homemessage":HomeMessage
     }
 }
 </script>
