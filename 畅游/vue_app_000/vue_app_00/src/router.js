@@ -1,24 +1,27 @@
+// 引入文件
 import Vue from 'vue'
 import Router from 'vue-router'
 import HelloContainer from "./components/HelloWorld.vue"
-import Home from "./components/weixin/Home.vue"
-
-// 引入文件
-import Home3 from "./components/ch/Home.vue"
-import Photo from "./components/ch/common/Photo.vue"
-import PhotoInstall from "./components/ch/common/PhotoInstall.vue"
-import Tv from "./components/ch/common/Tv.vue"
-import AddTv from "./components/ch/common/AddTv.vue"
+import Home3 from "./components/ch/Home.vue"//项目主页面
+import Photo from "./components/ch/common/Photo.vue"//开启相机功能页面
+import PhoneInstall from "./components/ch/common/PhotoInstall.vue"//开启相机功能
+import Tv from "./components/ch/common/Tv.vue"//IGTV视频页面
+import AddTv from "./components/ch/common/AddTv.vue" //添加视频及照片页面
+import Search from "./components/ch/common/Search.vue"//搜索用户视频界面
+import AddTv1 from "./components/ch/common/AddTv-1.vue"//开启相册功能页面
+import Camera from "./components/ch/common/Camera.vue"//开启相机功能
 
 Vue.use(Router)
 export default new Router({
   routes: [
-    {path:'/Home',component:Home},
-    {path:'/',component:HelloContainer},
-    {path:'/cy',component:Home3},
-    {path:'/Photo',component:Photo},
-    {path:"/PhotoInstall",component:PhotoInstall},
-    {path:"/Tv",component:Tv},
-    {path:"/AddTv",component:AddTv}
+    {path:'/',component:HelloContainer},//vue页面
+    {path:'/Cy',component:Home3},//主页面
+    {path:'/Photo',component:Photo},//访问手机相机页面
+    {path:"/PhoneInstall",component:PhoneInstall},//相机权限页面
+    {path:"/Tv",component:Tv},//TV视频页面
+    {path:"/AddTv",component:AddTv},//上传视频相册页面
+    {path:"/AddTv-1",component:AddTv1},//访问手机内视频的权限
+    {path:"/Search",component:Search},//搜索用户视频界面
+    {path:"/Camera",component:Camera}//开启照相直播页面
   ]
 })

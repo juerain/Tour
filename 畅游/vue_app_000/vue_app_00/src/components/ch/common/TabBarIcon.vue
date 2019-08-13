@@ -1,7 +1,7 @@
 <!--TabBarIcon.vue-->
 <template>
   <div>
-   <img :src="focused?selectedImage:normalImage" alt="" class="imgstyle"/>
+   <img :src="focused?selectedImage:normalImage" class="imgstyle"/>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
   /* 图片样式 */
   .imgstyle{
     width:30px;

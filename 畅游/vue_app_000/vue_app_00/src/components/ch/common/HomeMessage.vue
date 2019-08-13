@@ -1,14 +1,12 @@
 <template>
     <div>
-        <div id="head-1">
-            <div>
-                <img :src="photoiconImg" class="photoimgstyle" @click="photoimg"/>
-                <span class="span-1">Instagram</span>
-                <img :src="tviconImg" class="tvimgstyle" @click="tvimg"/>
-                <img :src="sendiconImg" class="sendimgstyle"/>
-            </div>
+        <div id="head-1" fixed>
+            <img :src="photoiconImg" class="photoimgstyle" @click="photoimg"/>
+            <span class="span-1">Instagram</span>
+            <img :src="tviconImg" class="tvimgstyle" @click="tvimg"/>
+            <img :src="sendiconImg" class="sendimgstyle"/>
         </div>
-        <div id="head-2">
+        <div id="head-2" @click="myphotos">
             <img :src="headiconImg" class="headimgstyle"/>
             <img :src="joiniconImg" class="joinimgstyle"/>
             <span class="span-2">你的快拍</span>
@@ -24,8 +22,9 @@ export default {
         photoiconImg:{default:""},//photoiconImg 默认空字符串
         tviconImg:{default:""},//tviconImg 默认空字符串
         sendiconImg:{default:""},//sendiconImg 默认空字符串
-        photoimg:{type:Function},//函数
-        tvimg:{type:Function}//函数
+        photoimg:{type:Function},//进入相机界面 
+        tvimg:{type:Function},//函数
+        myphotos:{type:Function}//进入拍汇总啊
     },
     
 }
@@ -65,7 +64,7 @@ export default {
     .span-2{
         position: absolute;
         display: block;
-        font-size: 16px;
+        font-size: 13px;
     }
     .tvimgstyle{
         position: absolute;

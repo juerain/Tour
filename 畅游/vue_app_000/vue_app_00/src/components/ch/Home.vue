@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="home">
         <!-- 面板列表 -->
         <mt-tab-container v-model="active">
             <mt-tab-container-item id="a1">
@@ -12,6 +12,7 @@
                 :sendiconImg="require('../../img/send-icon.png')"
                 :photoimg="photoimg"
                 :tvimg="tvimg"
+                :myphotos="myphotos"
                 ></homemessage>
             </mt-tab-container-item>
             <mt-tab-container-item id="a2">
@@ -36,7 +37,6 @@
                 :normalImage="require('../../assets/home_normal.png')"
                 :focused="currentIndex[0].isSelect">              
                 </tabbaricon>
-                a
             </mt-tab-item>
             <mt-tab-item id="a2" @click.native="changeState(1)">
                 <tabbaricon
@@ -109,6 +109,10 @@ export default {
         tvimg(){
             // 点击进入tv视频页面
             this.$router.push("/Tv")
+        },
+        myphotos(){
+            // 点击进入到相机模式页面
+            this.$router.push("/Photo")
         }
     },
     //注册子组件并且给子组起一个名字
