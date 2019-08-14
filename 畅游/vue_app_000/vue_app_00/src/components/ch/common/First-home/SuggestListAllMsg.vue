@@ -2,6 +2,7 @@
     <div id="suggestlistallmsg">
         <suggestlistallmsg1
         :suggestlistallmsgquit="require('../../../../img/suggestlistallmsgquit.png')"
+        :suggestquit="suggestquit"
         ></suggestlistallmsg1>
     </div>
 </template>
@@ -12,7 +13,9 @@ import SuggestListAllMsg1 from "./SuggestListAllMsg-1"
 
 export default {
     methods: {
-        
+        suggestquit(){
+            this.$router.push("/Cy");
+        }
     },
     //注册子组件并且给子组起一个名字
     components:{
