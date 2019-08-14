@@ -1,6 +1,8 @@
 <template>
     <div id="suggestlistallmsg-2">
-        sdffd
+        <div>
+            
+        </div>
     </div>
 </template>
 
