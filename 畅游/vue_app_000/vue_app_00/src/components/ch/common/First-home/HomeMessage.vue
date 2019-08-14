@@ -24,7 +24,7 @@ export default {
         sendiconImg:{default:""},//sendiconImg 默认空字符串
         photoimg:{type:Function},//进入相机界面 
         tvimg:{type:Function},//函数
-        myphotos:{type:Function}//进入拍汇总啊
+        myphotos:{type:Function}//进入相机界面
     },
     
 }
@@ -32,7 +32,7 @@ export default {
 
 <style>
     #head-1{
-        position: relative;
+        position: relative;/*相对定位*/
         height:60px;
         background: #f3f1f1;
     }
@@ -40,6 +40,7 @@ export default {
         position: relative;
         height:80px;
         padding: 10px;
+        display: inline-block;/*变为行内块*/
     }
     .photoimgstyle{
         position: absolute;

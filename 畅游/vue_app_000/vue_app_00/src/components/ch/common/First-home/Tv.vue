@@ -1,9 +1,9 @@
 <template>
     <div id="tv">
         <tv-nav
-        :quiticon="require('../../../img/quit-icon1.png')"
-        :searchicon="require('../../../img/search-icon.png')"
-        :joinicon="require('../../../img/join-icon1.png')"
+        :quiticon="require('../../../../img/quit-icon1.png')"
+        :searchicon="require('../../../../img/search-icon.png')"
+        :joinicon="require('../../../../img/join-icon1.png')"
         :quit1="quit1"
         :addInstall="addInstall"
         :searchmsg="searchmsg"

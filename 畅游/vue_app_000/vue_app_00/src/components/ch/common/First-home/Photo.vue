@@ -1,7 +1,7 @@
 <template>
     <div id="photo">
         <photo1
-        :quitimg="require('../../../img/quit-icon.png')"
+        :quitimg="require('../../../../img/quit-icon.png')"
         :quit="quit"
         :photoInstall="photoInstall"
         ></photo1>

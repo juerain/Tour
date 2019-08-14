@@ -2,6 +2,7 @@
     <div id="home">
         <!-- 面板列表 -->
         <mt-tab-container v-model="active">
+            <!-- 第一主页面-home -->
             <mt-tab-container-item id="a1">
                 <!-- 顶部栏 -->
                 <homemessage
@@ -14,6 +15,10 @@
                 :tvimg="tvimg"
                 :myphotos="myphotos"
                 ></homemessage>
+                <!-- 推荐网友列表 -->
+                <suggestlist
+                
+                ></suggestlist>
             </mt-tab-container-item>
             <mt-tab-container-item id="a2">
                 <h1>b</h1>
@@ -69,7 +74,8 @@
 <script>
 // 引入子组件
 import TabBaricon from "./common/TabBarIcon.vue"//底部导航栏子组件
-import HomeMessage from "./common/HomeMessage.vue"//主页面子组件
+import HomeMessage from "./common/First-home/HomeMessage.vue"//主页面子组件
+import SuggestList from "./common/First-home/SuggestList.vue"//推荐网友列表
 
 export default {
     data(){
@@ -118,8 +124,9 @@ export default {
     //注册子组件并且给子组起一个名字
     components:{
         // "字符串"：子组件对象名称
-        "tabbaricon":TabBaricon,
-        "homemessage":HomeMessage
+        "tabbaricon":TabBaricon,//底部导航栏组件
+        "homemessage":HomeMessage,//第一主页面组件
+        "suggestlist":SuggestList//推荐网友列表组件
     }
 }
 </script>

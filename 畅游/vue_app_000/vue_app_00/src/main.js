@@ -13,7 +13,7 @@ Vue.use(MintUI)
 // 引入axios第三方ajax模块
 import axios from "axios"
 // 配置axios基础路径
-axios.defaults.baseURL="http://127.0.0.1:3001"
+axios.defaults.baseURL="http://127.0.0.1:3000"
 // 配置axios保存seesion信息
 axios.defaults.withCredentials=true
 // 将axios注册vue示例中

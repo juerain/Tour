@@ -1,7 +1,7 @@
 <template>
     <div id="search">
         <searchnav
-        :searchicon="require('../../../img/search-icon1.png')"
+        :searchicon="require('../../../../img/search-icon1.png')"
         :searchquit="searchquit"
         ></searchnav>
         <searchlikemsg

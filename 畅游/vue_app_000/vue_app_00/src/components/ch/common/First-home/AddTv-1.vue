@@ -1,8 +1,8 @@
 <template>
     <div id="addtv-1">
         <addtv11
-        :addtv11downimg="require('../../../img/down-icon.png')"
-        :addtv11upimg="require('../../../img/up-icon.png')"
+        :addtv11downimg="require('../../../../img/down-icon.png')"
+        :addtv11upimg="require('../../../../img/up-icon.png')"
         :addtvquit="addtvquit"
         ></addtv11>
     </div>
