@@ -21,7 +21,7 @@
                 ></suggestlist>
             </mt-tab-container-item>
             <mt-tab-container-item id="a2">
-                <h1>b</h1>
+                <sea></sea>
             </mt-tab-container-item>
             <mt-tab-container-item id="a3">
                 <h1>c</h1>
@@ -72,6 +72,9 @@
 </template>
 
 <script>
+// 搜索子组件
+import sea from "./common/second-search/Search.vue"
+
 // 引入子组件
 import TabBaricon from "./common/TabBarIcon.vue"//底部导航栏子组件
 import HomeMessage from "./common/First-home/HomeMessage.vue"//主页面子组件
@@ -126,7 +129,10 @@ export default {
         // "字符串"：子组件对象名称
         "tabbaricon":TabBaricon,//底部导航栏组件
         "homemessage":HomeMessage,//第一主页面组件
-        "suggestlist":SuggestList//推荐网友列表组件
+        "suggestlist":SuggestList,//推荐网友列表组件
+
+        // 李
+        "sea":sea,
     }
 }
 </script>
