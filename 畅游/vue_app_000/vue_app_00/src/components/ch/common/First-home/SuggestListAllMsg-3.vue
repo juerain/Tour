@@ -10,9 +10,9 @@
         </div>
         <div class="suggestlistallmsg-3-content">
             <img :src="addresslistimg1">
-            <span class="span-suggestlist-1">绑定通讯率</span>
-            <span class="span-suggestlist-2">查找你在 Instagram 认识的用户并选择关注</span>
-            <a class="mt-button-suggestlist" href="javascript:;">绑定通讯录</a>
+            <span class="span-suggestlist-1">{{suggest3}}</span>
+            <span class="span-suggestlist-2">{{suggest4}}</span>
+            <a class="mt-button-suggestlist" href="javascript:;">{{suggest5}}</a>
         </div>
     </div>
 </template>
@@ -23,6 +23,9 @@ export default {
         return{
             suggest1:"推荐",
             suggest2:"联系人",
+            suggest3:"绑定通讯率",
+            suggest4:"查找你在 Instagram 认识的用户并选择关注",
+            suggest5:"绑定通讯录"
         }
     },
     methods: {
