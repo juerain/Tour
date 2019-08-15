@@ -45,7 +45,7 @@ server.get("/login",(req,res)=>{
     // 获取密码
     var upwd=req.query.upwd;
     // 创建sql语句
-    var sql="SELECT id FROM cy_user WHERE phone=? AND upwd=md5(?)";
+    var sql="SELECT uid FROM cy_user WHERE uphone=? AND upwd=md5(?)";
     pool.query(sql,[phone,upwd],(err,result)=>{
         if(err) throw err;
         if(result.length==0){
@@ -93,38 +93,7 @@ server.get("/regist",(req,res)=>{
         if(result.length>0){
             result.find={code:-1,"msg":"邮箱或手机已经被注册"}
             console.log(result.find)
-            return;
-        // }else{
-        //     // result.find={code:1,"msg":"注册成功"}
-        //     // console.log(result.find)
-        //     // 判断用户名或者邮箱是否为空
-        //     var sql2;
-        //     var msg;
-        //     // 如果手机号为空
-        //     if((phone==="")==false){
-        //         // 创建sql语句
-        //         msg=phone;
-        //         sql2="INSERT INTO cy_user VALUES(null,?,email,md5(?))";
-        //         // console.log(a);
-        //     }
-        //     // 如果邮箱为空
-        //     if((email==="")==false){
-        //         // 创建sql语句
-        //         msg=email;
-        //         sql2="INSERT INTO cy_user VALUES(null,phone,?,md5(?))";
-        //     }
-            
-        //     pool.query(sql2,[msg,upwd],(err,result)=>{
-        //         if(err) throw err;
-        //         // console.log(result);
-        //         if(result.affectedRows>0){
-        //             result.reg={code:2,msg:"添加成功"};
-        //         }else{
-        //             result.reg={code:-2,msg:"添加成功"};
-        //         }
-        //         // 返回总的结果
-        //         res.send(result);
-        //     });
+        
             
          }
         
@@ -134,47 +103,14 @@ server.get("/regist",(req,res)=>{
 
 
 
-// 首页名片
+// 搜索页图片
 server.get("/cy",(req,res)=>{
     // 创建sql语句
-    var sql="SELECT * FROM cy_home_card";
+    var sql="SELECT * FROM user_img";
     pool.query(sql,(err,result)=>{
         if(err) throw err;
         res.send(result);
+        console.log(result);
     });
 })
 
-// 搜索页
-server.get("/cy",(req,res)=>{
-
-    // 创建sql语句
-    var sql="SELECT * FROM cy_search_img";
-    pool.query(sql,(err,result)=>{
-        if(err) throw err;
-        res.send(result);
-    });
-})
-
-// 搜索页
-server.get("/cy",(req,res)=>{
-
-    // 创建sql语句
-    var sql="SELECT * FROM cy_fu_recommend";
-    pool.query(sql,(err,result)=>{
-        if(err) throw err;
-        res.send(result);
-    });
-})
-
-
-
-
-server.get("/cy",(req,res)=>{
-    // 数据库获取用户的名字和头像照片地址
-    var sql="SELECT lid,lname,img_url,attention FROM xz_laptop";
-    pool.query(sql,(err,result)=>{
-        if(err) throw err;
-        console.log(result)
-        res.send({code:1,data:result});
-    })
-})
