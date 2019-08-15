@@ -155,4 +155,13 @@ server.get("/cy",(req,res)=>{
     });
 })
 
+// 搜索页
+server.get("/cy",(req,res)=>{
 
+    // 创建sql语句
+    var sql="SELECT * FROM cy_fu_recommend";
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        res.send(result);
+    });
+})

@@ -57,7 +57,7 @@ export default {
       addFiend(e){
           var addImg=document.getElementById("addImg");
           if(e.target==addImg){
-          this.$router.push("/finduser");
+          this.$router.push("/SuggestListAllMsg");
         }
       },
       search(e){
