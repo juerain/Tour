@@ -29,7 +29,7 @@ import regist from "./components/ch/common/second-search/Regist.vue"
 import login from "./components/ch/common/second-search/Login.vue"
 
 // // 陶
-import Follow from "./components/ch/common/Follow/Follow.vue"//关注页
+import follow from "./components/ch/common/Follow/Follow.vue"//关注页
 
 
 
@@ -58,7 +58,7 @@ export default new Router({
     {path:'/regist',component:regist},
     {path:'/login',component:login},
 
-    {path:"/follow",component:Follow},
+    {path:"/follow",component:follow},
 
   ]
 })
