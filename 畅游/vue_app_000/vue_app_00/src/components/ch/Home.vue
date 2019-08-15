@@ -24,7 +24,7 @@
                 <sea></sea>
             </mt-tab-container-item>
             <mt-tab-container-item id="a3">
-                <h1>c</h1>
+                <follow></follow>
             </mt-tab-container-item>
             <mt-tab-container-item id="a4">
                 <h1>d</h1>
@@ -57,7 +57,7 @@
                 :selectedImage="require('../../assets/love_selected.png')"
                 :focused="currentIndex[2].isSelect">
                 </tabbaricon>
-                c
+                关注
             </mt-tab-item>
             <mt-tab-item id="a4" @click.native="changeState(3)">
                 <tabbaricon
@@ -79,7 +79,7 @@ import sea from "./common/second-search/Search.vue"
 import TabBaricon from "./common/TabBarIcon.vue"//底部导航栏子组件
 import HomeMessage from "./common/First-home/HomeMessage.vue"//主页面子组件
 import SuggestList from "./common/First-home/SuggestList.vue"//推荐网友列表
-
+import Follow from "./common/Follow.vue"//关注页
 export default {
     data(){
         return{
@@ -131,8 +131,12 @@ export default {
         "homemessage":HomeMessage,//第一主页面组件
         "suggestlist":SuggestList,//推荐网友列表组件
 
+
         // 李
         "sea":sea,
+
+        "follow":Follow
+
     }
 }
 </script>
