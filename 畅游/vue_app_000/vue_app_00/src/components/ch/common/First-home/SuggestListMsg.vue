@@ -9,7 +9,10 @@
                 <img class="suggestdel" :src="suggestdelicon" />
                 <img class="msgimg" :src="'http://127.0.0.1:3000/img/'+item.img_url" />
                 <span class="msgname">{{item.lname}}</span>
-                <a class="suggest-a" href="javascript:;" :data-id="item.lid" :data-attention="item.attention" @click="attentions" >{{attentiontext}}</a>
+                <a class="suggest-a" @click="attentions(i)">
+                    <span v-if="item.attention">已关注</span>
+                    <span v-else>关注</span>
+                </a>
             </div>
         </div>
     </div>
@@ -19,8 +22,7 @@
 export default {
     data(){// 存入初始数据，以便ajax请求发送接收
         return{       
-            list:[],// 创建一个空数组，接收后台传回的所需用户的数据
-            attentiontext:"关注"
+            list:[]// 创建一个空数组，接收后台传回的所需用户的数据
         }
     },
     props:{//接收 SuggestList.vue 父组件数据
@@ -38,10 +40,8 @@ export default {
                 this.list=list;
             })
         },
-        attentions(e){
-            // 阻止a标签默认行为
-            e.preventDefault();
-
+        attentions(index){//判断是否已关注
+            this.list[index].attention = !this.list[index].attention
         }
     },
     // 加载页面
@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
     /* 主背景色 */
     #suggestlistmsg{
         background: #f3f1f1;

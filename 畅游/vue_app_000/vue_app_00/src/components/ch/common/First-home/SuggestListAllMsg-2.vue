@@ -1,11 +1,11 @@
 <template>
     <div id="suggestlistallmsg-2">
         <div class="suggestlistallmsg-2-nav">
-            <div class="suggestlistallmsg-2-nav-1">
-                <span>{{suggest1}}</span>
+            <div class="suggestlistallmsg-2-nav-1" >
+                <span >{{suggest1}}</span>
             </div>
-            <div class="suggestlistallmsg-2-nav-2">
-                <span>{{suggest2}}</span>
+            <div class="suggestlistallmsg-2-nav-2" @click="liaison2">
+                <span class="span-suggestlist-3">{{suggest2}}</span>
             </div>
         </div>
         <div id="addresslist">
@@ -15,6 +15,22 @@
                 <h5>{{suggest4}}</h5>
             </div>
             <a href="javascript:;" class="addresslista">{{suggest5}}</a>
+        </div>
+        <div id="allsuggestlist">
+            <h4>所有推荐</h4>
+            <div id="suggest-msg-1" v-for="(item,i) of list" :key="i">
+                <img class="suggestdel-1" :src="suggestdelicon" />
+                <img class="msgimg-1" :src="'http://127.0.0.1:3000/img/'+item.img_url" />
+                <span class="msgname-1">{{item.lname}}</span>
+                <!-- <a class="suggest-a" href="javascript:;" 
+                :data-id="item.lid" 
+                :data-attention="item.attention" 
+                @click="attentions" >{{attentiontext}}</a> -->
+                <a class="suggest-a-1" @click="attentions(i)">
+                    <span v-if="item.attention">已关注</span>
+                    <span v-else>关注</span>
+                </a>
+            </div>
         </div>
     </div>
 </template>
@@ -27,11 +43,32 @@ export default {
             suggest2:"联系人",
             suggest3:"绑定通讯录",
             suggest4:"关注认识的用户",
-            suggest5:"绑定"
+            suggest5:"绑定",
+            list:[]// 创建一个空数组，接收后台传回的所需用户的数据
+        }
+    },
+    methods: {
+        loadmore(){
+            // 请求服务器网址
+            var url="cy";
+            // 发送ajax请求获取数据
+            this.axios.get(url).then(result=>{
+                var list=result.data.data;
+                this.list=list;
+            })
+        },
+        attentions(index){//判断是否已关注
+            this.list[index].attention = !this.list[index].attention
         }
     },
     props:{
         addresslistimg:{default:""},//通讯录图
+        suggestdelicon:{default:""},//删除图
+        liaison2:{type:Function}//联系人点击事件
+    },
+    // 加载页面
+    created(){
+        this.loadmore();
     }
 }
 </script>
@@ -47,15 +84,17 @@ export default {
         line-height: 50px;
         font-size: 16px;
         font-weight: 700;
-        border-bottom: 1px solid #000;
         background: #f3f1f1;
+    }
+    .suggestlistallmsg-2-nav-1{
+        border-bottom: 1px solid #000;
     }
     h5,h4{
         margin: 1px 0;
     }
     #addresslist{
         position: relative;
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid #0000003d;
         height:65px;
     }
     #addresslist-h5{
@@ -78,7 +117,64 @@ export default {
         line-height: 30px;
         text-align: center;
         color: #fff;
-        background:#2c76d9;
+        background:#038fff;
         border-radius: 3px;
+    }
+    #allsuggestlist{
+        padding:10px;
+    }
+    /* 推荐网友信息 */
+    #suggest-msg-1{
+        position: relative;/*相对定位*/
+        width:100%;
+        height:80px;
+        background: #fff;
+        margin-top:15px;
+        margin-bottom:10px;
+        border-radius: 5px;
+        border: 1px solid #0000003d;
+    }
+    /* 用户头像 */
+    .msgimg-1{
+        position: absolute;/*绝对定位*/
+        top:10px;
+        left:10px;;
+        width:60px;
+        height:60px;
+        border-radius: 50%;/*画圆*/
+
+    }
+    /* 关注按钮样式 */
+    .suggest-a-1{
+        position: absolute;/*绝对定位*/
+        top:25px;
+        left:242px;
+        width:55px;
+        height:30px;
+        border-radius: 3px;/*圆角*/
+        background: #038fff;/*背景色*/
+        text-align: center;/*文字水平居中*/
+        font-size: 16px;/*字体大小*/
+        line-height: 30px;/*行高*/
+        color:#fff;/*字体颜色*/
+    }
+    /* 用户姓名 */
+    .msgname-1{
+        position: absolute;
+        top:24px;
+        left:70px;
+        width:95px;;
+        height:32px;
+        padding: 2px;
+        overflow: hidden;
+        font-size: 12px;
+    }
+    /* 删除图片 */
+    .suggestdel-1{
+        position: absolute;
+        top:6px;
+        right:6px;
+        width:16px;
+        height:16px;
     }
 </style>

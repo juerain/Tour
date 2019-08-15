@@ -11,7 +11,7 @@ import Search from "./components/ch/common/First-home/Search.vue"//搜索用户�
 import AddTv1 from "./components/ch/common/First-home/AddTv-1.vue"//开启相册功能页面
 import Camera from "./components/ch/common/First-home/Camera.vue"//开启相机功能
 import SuggestListAllMsg from "./components/ch/common/First-home/SuggestListAllMsg.vue"//推荐网友列表主页面
-import Follow from "./components/ch/common/Follow.vue"//关注页
+import Follow from "./components/ch/common/Follow/Follow.vue"//关注页
 
 // // 李
 // // 引入Home.vue
