@@ -2,11 +2,11 @@
     <div id="suggestlistallmsg-1">
         <div id="suggestlistallmsg-1-nav">
             <img class="suggestlistallmsg-1-img" :src="suggestlistallmsgquit" @click="suggestquit"/>
-            <span class="suggestlistallmsg-1-span">发现用户</span>
+            <span class="suggestlistallmsg-1-span">{{suggesttext}}</span>
         </div>
         <div id="suggestlistallmsg-1-msg">
             <suggestlistallmsg2
-            
+            :addresslistimg="require('../../../../img/addresslist-icon.png')"
             ></suggestlistallmsg2>
         </div>
     </div>
@@ -17,6 +17,11 @@
 import SuggestListAllMsg2 from "./SuggestListAllMsg-2"
 
 export default {
+    data(){
+        return{
+            suggesttext:"发现用户"
+        }
+    },
     props:{
         suggestlistallmsgquit:{default:""},//退出界面图
         suggestquit:{type:Function}
