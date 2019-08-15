@@ -101,7 +101,7 @@ import TabBaricon from "../TabBarIcon.vue"//底部导航栏子组件
 import SuggestListAllMsg2 from "./SuggestListAllMsg-2"
 import SuggestListAllMsg3 from "./SuggestListAllMsg-3"
 import sea from "../second-search/Search.vue"//查找子组件
-import Follow from "../Follow.vue"//关注页
+import Follow from "../Follow/Follow.vue"//关注页
 import ConnectionAddress from "./ConnectionAddress.vue"//绑定联系人组件
 import ConnectionAddress1 from "./ConnectionAddress-1.vue"//绑定手机添加通讯录组件
 
