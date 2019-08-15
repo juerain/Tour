@@ -57,7 +57,7 @@
                 :selectedImage="require('../../assets/love_selected.png')"
                 :focused="currentIndex[2].isSelect">
                 </tabbaricon>
-                c
+                关注
             </mt-tab-item>
             <mt-tab-item id="a4" @click.native="changeState(3)">
                 <tabbaricon
