@@ -7,11 +7,11 @@
                 <img class="connectionimg3" :src="connectionicon3" />
             </div>
             <div id="connetcionaddress-text">
-                <span class="connection-span-1">查找用户并关注</span>
-                <span class="connection-span-2">为帮助用户在 Instagram 建立联系，你的通讯录将定期同步并储存到我们的服务器上。你可以从中选择想要关注的对象，也可以随时停止同步。</span>
-                <a @click="routerlink11" class="router-link1" href="javascript:;">详细了解</a>
-                <a @click="routerlink22" class="router-link2" href="javascript:;">允许访问</a>
-                <a @click="routerlink33"  class="router-link3" href="javascript:;">以后再说</a>
+                <span class="connection-span-1">{{text1}}</span>
+                <span class="connection-span-2">{{text2}}</span>
+                <a @click="routerlink11" class="router-link1" href="javascript:;">{{text3}}</a>
+                <a @click="routerlink22" class="router-link2" href="javascript:;">{{text4}}</a>
+                <a @click="routerlink33"  class="router-link3" href="javascript:;">{{text5}}</a>
             </div>
         </div>
     </div>
@@ -19,6 +19,15 @@
 
 <script>
 export default {
+    data(){
+        return{
+            text1:"查找用户并关注",
+            text2:"为帮助用户在 Instagram 建立联系，你的通讯录将定期同步并储存到我们的服务器上。你可以从中选择想要关注的对象，也可以随时停止同步。",
+            text3:"详细了解",
+            text4:"允许访问",
+            text5:"以后再说"
+        }
+    },
     props:{//接收 SuggestListMsg-1.vue 父组件数据
         connectionicon1:{default:""},
         connectionicon2:{default:""},
@@ -43,7 +52,7 @@ export default {
     }
     #connetcionaddress-content{
         position: absolute;
-        top:128px;
+        top:195px;
         left:53px;
         z-index: 999;
         background: #fff;

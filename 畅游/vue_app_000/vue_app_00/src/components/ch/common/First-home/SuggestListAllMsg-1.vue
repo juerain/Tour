@@ -17,7 +17,7 @@
                     :addresslistimg="require('../../../../img/addresslist-icon.png')"
                     :suggestdelicon="require('../../../../img/suggest-del-icon.png')"
                     :liaison2="liaison2"
-                    v-show="!showhide2"
+                    v-show="showhide2"
                     :connection="connection"
                     ></suggestlistallmsg2>
                     <!-- 联系人 -->
@@ -39,7 +39,9 @@
                     ></connectionaddress>
                     <!-- 手机设置添加联系人 -->
                     <connectionaddress1
-                    
+                    id="connectionaddressid1"
+                    :connectionquit="connectionquit"
+                    v-show="showhide4"
                     ></connectionaddress1>
                 </div>
             </mt-tab-container-item>
@@ -162,6 +164,12 @@ export default {
         routerlink22(e){
             // 默认阻止
             e.preventDefault(); 
+            var suggestlistallmsg2id=document.getElementById("suggestlistallmsg2id");
+            var connectionaddressid=document.getElementById("connectionaddressid");
+            var connectionaddressid1=document.getElementById("connectionaddressid1")
+            suggestlistallmsg2id.style="opacity: .2;"
+            connectionaddressid.style="display:none;"
+            connectionaddressid1.style="display:block"
         },
         routerlink33(e){
             // 默认阻止
@@ -170,6 +178,16 @@ export default {
             var connectionaddressid=document.getElementById("connectionaddressid");
             suggestlistallmsg2id.style="opacity: 1;"
             connectionaddressid.style="display:none;"
+        },
+        connectionquit(e){
+            // 默认阻止
+            e.preventDefault(); 
+            var suggestlistallmsg2id=document.getElementById("suggestlistallmsg2id");
+            var connectionaddressid=document.getElementById("connectionaddressid");
+            var connectionaddressid1=document.getElementById("connectionaddressid1")
+            suggestlistallmsg2id.style="opacity: 1;"
+            connectionaddressid.style="display:none;"
+            connectionaddressid1.style="display:none"
         }
     },
     props:{
