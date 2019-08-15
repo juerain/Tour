@@ -5,13 +5,43 @@ USE cy;
 
 #????
 CREATE TABLE cy_user(
-  id INT(11) PRIMARY KEY not NULL auto_increment,
+  uid INT(11) PRIMARY KEY not NULL auto_increment,
   phone VARCHAR(65),   #???
   email VARCHAR(65),   #??
-  upwd VARCHAR(128)    #??
+  upwd VARCHAR(128),    #??
+  sex BOOLEAN,        #性别
+  age INT(11),      #年龄
+  headurl VARCHAR(65),  #头像路径
+  attention BOOLEAN,    #关注标识
+  attents INT,          #关注人数
+  dizhi VARCHAR       #地址
+
+);
+INSERT INTO cy_user VALUES(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),1,22,"image/head1.jpg",0,66,"北京");
+
+
+CREATE TABLE cy_attent_user(
+  uid INT(11) PRIMARY KEY not NULL auto_increment,
+  phone VARCHAR(65),   #???
+  email VARCHAR(65),   #??
+  upwd VARCHAR(128),    #??
+  sex BOOLEAN,        #性别
+  age INT(11),      #年龄
+  headurl VARCHAR(65),  #头像路径
+  attention BOOLEAN,    #关注标识
+  attents INT,          #关注人数
+  dizhi VARCHAR       #地址
 );
 
-INSERT INTO cy_user VALUES(null,"15555555555","123456@qq.com",md5('123456'));
+
 
 #??
 #?????
