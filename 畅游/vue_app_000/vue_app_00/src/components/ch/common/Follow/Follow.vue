@@ -11,7 +11,7 @@
     <div id="user">
         <div class="content">
            <div class="gz">
-            <img src="../../../assets/关注.png" alt="">
+            <img src="../../../../assets/关注.png" alt="">
           </div>
           <div style="text-align:center">
             <p style="font-size:30px" class="gz2">关注用户的动态</p>

@@ -1,8 +1,8 @@
 <template>
     <div id="connectionaddress1">
         <div id="connectionaddress1text">
-            <span>无法加载用户</span>
-            <span>请进“设置”>“隐私”>“联系人”，允许 Instagram 访问你的联系人</span>
+            <span class="">无法加载用户</span>
+            <span class="">请进“设置”>“隐私”>“联系人”，允许 Instagram 访问你的联系人</span>
             <a href="javascript:;">取消</a>
             <a href="javascript:;">设置</a>
         </div>
