@@ -5,7 +5,7 @@
             <h2>畅游</h2>
         </div>
         <div class="login_fld">
-            <mt-field v-model="uname" class="phone" placeholder="请输入手机号或邮箱"></mt-field>
+            <mt-field v-model="phone" class="phone" placeholder="请输入手机号或邮箱"></mt-field>
             <mt-field v-model="upwd" class="pwd" placeholder="请输入密码"></mt-field>
         </div>
         <div class="login_btn">
@@ -25,7 +25,7 @@
 export default {
     data(){
         return{
-            uname:"",
+            phone:"",
             upwd:""
         }
     },
@@ -40,21 +40,22 @@ export default {
         // 登录
         login(){
             // 获取用户名
-            var uname=this.uname;
+            var phone=this.phone;
             // 获取用户密码
             var upwd=this.upwd;
             // 传递的参数
-            var obj={uname:uname,upwd:upwd};
+            var obj={phone:phone,upwd:upwd};
             // 发送ajax请求
-            // this.axios("login",{params:obj})
-            // .then(res=>{
-            //     // 获取服务器返回结果
-            //     if(res.data.code==-1){
-            //         this.$toast("用户名或密码错误");
-            //     }else{
-            //         this.$router.push("/cy");
-            //     }
-            // })
+            this.axios("login",{params:obj})
+            .then(res=>{
+                console.log(res);
+                // 获取服务器返回结果
+                if(res.data.code==-1){
+                    this.$toast("用户名或密码错误");
+                }else{
+                    this.$router.push("/cy");
+                }
+            })
         }
     },
 }

@@ -82,17 +82,17 @@ export default {
             if(regPhone.test(this.phone)===true&&regPwd.test(this.upwd)==true){
             // 发送ajax请求
 
-            // this.axios("regist",{params:obj})
-            // .then(res=>{
-            //     // 获取服务器返回结果
-            //     if(res.data.code==-1){
-            //         this.$toast("用户名或密码错误");
-            //     }else{
-            //         this.$router.push("/login");
-            //     }
-            // })
-            // }else{
-            //     this.$toast("密码格式不正确");
+            this.axios("regist",{params:obj})
+            .then(res=>{
+                // 获取服务器返回结果
+                if(res.data.code==-1){
+                    this.$toast("用户名或密码错误");
+                }else{
+                    this.$router.push("/login");
+                }
+            })
+            }else{
+                this.$toast("密码格式不正确");
             }
         }
     },
