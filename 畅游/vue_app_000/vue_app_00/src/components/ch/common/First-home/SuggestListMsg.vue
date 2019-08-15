@@ -44,7 +44,7 @@ export default {
             this.list[index].attention = !this.list[index].attention
         }
     },
-    // 加载页面
+    // 自动加载页面
     created(){
         this.loadmore();
     }

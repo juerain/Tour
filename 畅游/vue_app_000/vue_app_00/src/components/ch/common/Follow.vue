@@ -52,7 +52,7 @@ export default {
       
     },
     you(){
-       var div=document.getElementsByClassName("div");
+      var div=document.getElementsByClassName("div");
       var user=document.getElementById("user");
       var you=document.getElementById("you");
       if(you.style="display:none"){

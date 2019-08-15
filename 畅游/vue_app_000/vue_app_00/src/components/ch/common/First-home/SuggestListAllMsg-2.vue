@@ -14,7 +14,7 @@
                 <h4>{{suggest3}}</h4>
                 <h5>{{suggest4}}</h5>
             </div>
-            <a href="javascript:;" class="addresslista">{{suggest5}}</a>
+            <a href="javascript:;" class="addresslista" @click="connection">{{suggest5}}</a>
         </div>
         <div id="allsuggestlist">
             <h4>所有推荐</h4>
@@ -64,7 +64,8 @@ export default {
     props:{
         addresslistimg:{default:""},//通讯录图
         suggestdelicon:{default:""},//删除图
-        liaison2:{type:Function}//联系人点击事件
+        liaison2:{type:Function},//联系人点击事件
+        connection:{type:Function}
     },
     // 加载页面
     created(){
@@ -74,11 +75,15 @@ export default {
 </script>
 
 <style>
+    #suggestlistallmsg-2{
+        float: left;
+        /* opacity: .2; */
+    }
     .suggestlistallmsg-2-nav{
-        display: flex;
+        position: relative;
     }
     .suggestlistallmsg-2-nav-1,.suggestlistallmsg-2-nav-2{
-        width:50%;
+        width:180px;
         height:50px;
         text-align: center;
         line-height: 50px;
@@ -87,18 +92,27 @@ export default {
         background: #f3f1f1;
     }
     .suggestlistallmsg-2-nav-1{
+        position: absolute;
         border-bottom: 1px solid #000;
     }
+    .suggestlistallmsg-2-nav-2{
+        position: absolute;
+        left:180px;
+    }
     h5,h4{
+        width:200px;
         margin: 1px 0;
     }
     #addresslist{
         position: relative;
         border-bottom: 1px solid #0000003d;
+        width:359px;
         height:65px;
+        top:60px;
     }
     #addresslist-h5{
         position: absolute;
+        width:30px;
         top:10px;
         left: 70px;;
     }
@@ -121,6 +135,8 @@ export default {
         border-radius: 3px;
     }
     #allsuggestlist{
+        position: relative;
+        top:60px;
         padding:10px;
     }
     /* 推荐网友信息 */

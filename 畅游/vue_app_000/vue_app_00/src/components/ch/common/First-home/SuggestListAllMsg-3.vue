@@ -38,10 +38,10 @@ export default {
 
 <style>
     .suggestlistallmsg-3-nav{
-        display: flex;
+        position: relative;
     }
     .suggestlistallmsg-3-nav-1,.suggestlistallmsg-3-nav-2{
-        width:50%;
+        width:180px;
         height:50px;
         text-align: center;
         line-height: 50px;
@@ -50,6 +50,9 @@ export default {
         background: #f3f1f1;
     }
     .suggestlistallmsg-3-nav-2{
+        position: absolute;
+        left:180px;
+        top:0px;
         border-bottom: 1px solid #000;
     }
     .suggestlistallmsg-3-content{
