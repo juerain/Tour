@@ -14,8 +14,17 @@ import AddTv1 from "./components/ch/common/First-home/AddTv-1.vue"//开启相册
 import Camera from "./components/ch/common/First-home/Camera.vue"//开启相机功能
 import SuggestListAllMsg from "./components/ch/common/First-home/SuggestListAllMsg.vue"//推荐网友列表主页面
 
+<<<<<<< HEAD
 import Follow from "./components/ch/common/Follow/Follow.vue"//关注页
 
+=======
+
+// 淘
+import Follow from "./components/ch/common/Follow/Follow.vue"//关注页
+
+
+
+>>>>>>> 34d73fc25a00c8b23f03526c5286c4a2ef237095
 
 // // 李
 // // 引入Home.vue
@@ -31,6 +40,14 @@ import regist from "./components/ch/common/second-search/Regist.vue"
 // 引入登录组件
 import login from "./components/ch/common/second-search/Login.vue"
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 34d73fc25a00c8b23f03526c5286c4a2ef237095
 
 
 
