@@ -78,7 +78,7 @@ import sea from "./common/second-search/Search.vue"
 import TabBaricon from "./common/TabBarIcon.vue"//底部导航栏子组件
 import HomeMessage from "./common/First-home/HomeMessage.vue"//主页面子组件
 import SuggestList from "./common/First-home/SuggestList.vue"//推荐网友列表
-import Follow from "./common/Follow/Follow.vue"//关注页
+import Follow from "./common/Follow/Follow.vue" //
 export default {
     data(){
         return{
