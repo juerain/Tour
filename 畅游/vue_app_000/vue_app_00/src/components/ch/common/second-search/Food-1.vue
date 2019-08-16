@@ -94,7 +94,7 @@ export default {
     },
     load() {
       this.axios("cy").then(res => {
-        // console.log(res);
+        console.log(res);
         this.imglist = res.data.slice(0,9);
         // console.log(this.imglist[0]);
       });
