@@ -43,11 +43,11 @@ CREATE TABLE cy_attent_user(
   uattents INT,          #关注人数
   uaddress VARCHAR(65)      #地址
 );
-INSERT INTO cy_attent_user VALUES(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",0,78,"北京"),
-(null,"15555555555","123456@qq.com",md5('123456'),"tom",1,22,"image/head2.jpg",0,66,"河南"),
-(null,"15555555555","123456@qq.com",md5('123456'),"jack1",1,25,"image/head3.jpg",0,44,"上海"),
-(null,"15555555555","123456@qq.com",md5('123456'),"jack2",1,55,"image/head4.jpg",0,102,"广州"),
-(null,"15555555555","123456@qq.com",md5('123456'),"jack3",1,23,"image/head5.jpg",0,64,"天津");
+INSERT INTO cy_attent_user VALUES(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",1,78,"北京"),
+(null,"15555555555","123456@qq.com",md5('123456'),"tom",1,22,"image/head2.jpg",1,66,"河南"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack1",1,25,"image/head3.jpg",1,44,"上海"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack2",1,55,"image/head4.jpg",1,102,"广州"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack3",1,23,"image/head5.jpg",1,64,"天津");
 
 
 #用户上传图片表
