@@ -11,7 +11,7 @@ const session=require("express-session");
         user:"root",
         password:"",
         port:3306,
-        database:"xz",
+        database:"cy",
         connectionLimit:20  
     });
 
@@ -43,10 +43,21 @@ server.listen(3000);
 //获取推荐用户的信息
 server.get("/cy",(req,res)=>{
     // 数据库获取用户的名字和头像照片地址
-    var sql="SELECT lid,lname,img_url,attention FROM xz_laptop";
+    var sql="SELECT uid,uname,uheadurl,uattention FROM cy_user";
     pool.query(sql,(err,result)=>{
         if(err) throw err;
-        console.log(result)
+        // console.log(result)
         res.send({code:1,data:result});
     })
 })
+
+server.get("/SuggestListAllMsg",(req,res)=>{
+    // 数据库获取用户的名字和头像照片地址
+    var sql="SELECT uid,uname,uheadurl,uattention FROM cy_attent_user";
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        // console.log(result)
+        res.send({code:1,data:result});
+    })
+})
+

@@ -7,10 +7,10 @@
         <div id="suggestlist-list">
             <div id="suggest-msg" v-for="(item,i) of list" :key="i">
                 <img class="suggestdel" :src="suggestdelicon" />
-                <img class="msgimg" :src="'http://127.0.0.1:3000/img/'+item.img_url" />
-                <span class="msgname">{{item.lname}}</span>
+                <img class="msgimg" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
+                <span class="msgname">{{item.uname}}</span>
                 <a class="suggest-a" @click="attentions(i)">
-                    <span v-if="item.attention">已关注</span>
+                    <span v-if="item.uattention">已关注</span>
                     <span v-else>关注</span>
                 </a>
             </div>
@@ -41,7 +41,7 @@ export default {
             })
         },
         attentions(index){//判断是否已关注
-            this.list[index].attention = !this.list[index].attention
+            this.list[index].uattention = !this.list[index].uattention
         }
     },
     // 自动加载页面
