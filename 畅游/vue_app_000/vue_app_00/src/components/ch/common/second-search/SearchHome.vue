@@ -8,13 +8,13 @@
             <mt-tab-container-item id="a2">
                 <!-- 查找页 -->
                 <!-- <sea></sea> -->
-                <food
+                <searchhome
                 :leftImg="require('../../../../assets/search_normal.png')"
                 leftTitle="搜索"
                 rightTitle="+"
                 :rightImg="require('../../../../assets/me_normal.png')"
                 :imgs="require('../../../../assets/1.jpg')"
-                ></food>
+                ></searchhome>
             </mt-tab-container-item>
             <mt-tab-container-item id="a3">
                 
@@ -66,7 +66,8 @@
 
 <script>
 // 搜索子组件
-import food from "./Food-1.vue"
+
+import searchhome from "./SearchHome-1.vue"
 import TabBaricon from "./TabBarIcon.vue"//底部导航栏子组件
 // 引入子组件
 
@@ -114,7 +115,7 @@ export default {
 
         // 李
         // "sea":sea,
-        "food":food,
+        "searchhome":searchhome,
         "tabbaricon":TabBaricon,//底部导航栏组件
 
 
