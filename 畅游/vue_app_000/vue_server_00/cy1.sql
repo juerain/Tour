@@ -50,6 +50,7 @@ INSERT INTO cy_attent_user VALUES(null,"15555555555","123456@qq.com",md5('123456
 (null,"15555555555","123456@qq.com",md5('123456'),"jack3",1,23,"image/head5.jpg",1,64,"天津");
 
 
+
 #推荐用户表
 CREATE TABLE cy_user_recommend(
   urid INT PRIMARY KEY auto_increment,
@@ -75,6 +76,7 @@ INSERT INTO cy_user VALUES(null,"15555555555","123456@qq.com",md5('123456'),"jac
 (null,"15555555555","123456@qq.com",md5('123456'),"jack5",1,45,"image/head7.jpg",0,5,"新疆"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack6",1,43,"image/head8.jpg",0,99,"湖南"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack7",1,29,"image/head9.jpg",0,75,"湖北");
+
 
 
 #用户上传图片表
