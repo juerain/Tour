@@ -50,10 +50,10 @@ export default {
     methods: {
         loadmore(){
             // 请求服务器网址
-            var url="SuggestListAllMsg";
+            var url="cy";
             // 发送ajax请求获取数据
             this.axios.get(url).then(result=>{
-                var list=result.data.data;
+                var list=result.data.data.result2;
                 this.list=list;
             })
         },

@@ -36,7 +36,7 @@ export default {
             var url="cy";
             // 发送ajax请求获取数据
             this.axios.get(url).then(result=>{
-                var list=result.data.data;
+                var list=result.data.data.result2;
                 this.list=list;
             })
         },
