@@ -42,7 +42,7 @@ import igtv from "./components/ch/common/second-search/IGTV.vue"
 import account from "./components/ch/common/second-search/Account.vue"
 import label from "./components/ch/common/second-search/Label.vue"
 import place from "./components/ch/common/second-search/Place.vue"
-
+import theuser from "./components/ch/common/The-user/Theuser.vue"
 
 
 
@@ -85,6 +85,6 @@ export default new Router({
     {path:'/place',component:place},
 
     {path:"/follow",component:Follow},
-
+    {path:"/theuser",component:theuser}
   ]
 })

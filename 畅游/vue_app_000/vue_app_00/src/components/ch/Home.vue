@@ -28,7 +28,7 @@
                 <follow></follow>
             </mt-tab-container-item>
             <mt-tab-container-item id="a4">
-                <h1>d</h1>
+               <theuser></theuser>
             </mt-tab-container-item>
         </mt-tab-container>
 
@@ -58,7 +58,6 @@
                 :selectedImage="require('../../assets/love_selected.png')"
                 :focused="currentIndex[2].isSelect">
                 </tabbaricon>
-                关注
             </mt-tab-item>
             <mt-tab-item id="a4" @click.native="changeState(3)">
                 <tabbaricon
@@ -66,7 +65,6 @@
                 :selectedImage="require('../../assets/me_selected.png')"
                 :focused="currentIndex[3].isSelect">
                 </tabbaricon>
-                d
             </mt-tab-item>
         </mt-tabbar>
     </div>
@@ -80,7 +78,8 @@ import sea from "./common/second-search/Search.vue"//查找子组件
 import TabBaricon from "./common/TabBarIcon.vue"//底部导航栏子组件
 import HomeMessage from "./common/First-home/HomeMessage.vue"//主页面子组件
 import SuggestList from "./common/First-home/SuggestList.vue"//推荐网友列表
-import Follow from "./common/Follow/Follow.vue" //
+import Follow from "./common/Follow/Follow.vue" //关注页
+import Theuser from "./common/The-user/Theuser.vue"//个人信息页
 export default {
     data(){
         return{
@@ -136,7 +135,8 @@ export default {
         // 李
         "sea":sea,
 
-        "follow":Follow
+        "follow":Follow,
+        "theuser":Theuser
 
     }
 }

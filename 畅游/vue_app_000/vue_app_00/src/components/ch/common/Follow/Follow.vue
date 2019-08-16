@@ -21,9 +21,30 @@
         </div>
     </div>
     <div id="you">
+      <p>今天</p>
+      <div class="today">
+        <div class="touxiang">
+          <img width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
+        </div>
+        <div>
+          <p>michelleobama 开始关注你了哦</p>
+          <p>时间</p>
+        </div>
+        <button class="btn">关注</button>
+      </div>
       <p>为你推荐</p>
-      <div>
-        
+      <div class="today">
+        <div class="touxiang">
+          <img width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
+        </div>
+        <div>
+          <p>michelleobama</p>
+          <p>Michelle Obama</p>
+          <p>热门</p>
+        </div>
+        <div>
+          <button class="btn">关注</button><a style="margin-left:20px" href="javascript;">X</a>
+        </div>
       </div>
     </div>
   </div>
@@ -66,6 +87,9 @@ export default {
 }
 </script>
 <style scoped>
+  p{
+   margin:0; 
+  }
   .title{
     display: flex;
   }
@@ -75,6 +99,7 @@ export default {
     text-align: center;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
+    padding:18px 0;
   }
   .active{
     border-bottom: 1px solid #000 !important;
@@ -99,5 +124,27 @@ export default {
      justify-content: center;
      align-items: center;
    }
-  
+  .today{
+    width:100%;height:80px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+  }
+  .btn{
+    background: #2E9AFE;
+    padding:0;
+    width:80px;height: 40px;
+    border-radius:5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color:#fff;
+    font-size:18px;
+  }
+  .touxiang{
+    width:50px;;height:50px;
+    border-radius:50%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+  }
 </style>
