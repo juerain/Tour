@@ -31,7 +31,7 @@ export default {
         arrows(e){
             var img=document.getElementById("img");
             if(e.target==img){
-                this.$router.push("sea");
+                this.$router.push("shop");
             }
         }
     },

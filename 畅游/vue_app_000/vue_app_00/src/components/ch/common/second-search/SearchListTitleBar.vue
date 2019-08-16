@@ -8,12 +8,11 @@
             </div>
             <div class="down_head">
                 <!-- 右侧图片与文字 -->
-                <span>{{downHotSearch}}</span>
-                <span>{{downAccount}}</span>
-                <span>{{downLable}}</span>
-                <span>{{downPlace}}</span>
+                <span @click="hotSearch">{{downHotSearch}}</span>
+                <span @click="account">{{downAccount}}</span>
+                <span @click="label">{{downLable}}</span>
+                <span @click="place">{{downPlace}}</span>
             </div>
-            
         </div>
 </template>
 
@@ -35,8 +34,20 @@ export default {
         arrows(e){
             var img=document.getElementById("arrowsImg");
             if(e.target==img){
-                this.$router.push("/sea");
+                this.$router.push("/shop");
             }
+        },
+        hotSearch(){
+            this.$router.push("hotsearch");
+        },
+        account(){
+            this.$router.push("account");
+        },
+        label(){
+            this.$router.push("label");
+        },
+        place(){
+            this.$router.push("place");
         }
     },
 }

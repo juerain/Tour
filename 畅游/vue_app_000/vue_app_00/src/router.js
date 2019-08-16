@@ -34,6 +34,16 @@ import hotsearch from "./components/ch/common/second-search/SearchList.vue"
 import regist from "./components/ch/common/second-search/Regist.vue"
 // 引入登录组件
 import login from "./components/ch/common/second-search/Login.vue"
+<<<<<<< HEAD
+=======
+import houseandhome from "./components/ch/common/second-search/HouseAndHome.vue"
+import build from "./components/ch/common/second-search/Build.vue"
+import food from "./components/ch/common/second-search/Food.vue"
+import igtv from "./components/ch/common/second-search/IGTV.vue"
+import account from "./components/ch/common/second-search/Account.vue"
+import label from "./components/ch/common/second-search/Label.vue"
+import place from "./components/ch/common/second-search/Place.vue"
+>>>>>>> 24891dd31d83bba9ef40386d163ec6f3bf852d8d
 
 
 
@@ -63,10 +73,24 @@ export default new Router({
     // // 李
     {path:'/home',component:home},
     {path:'/finduser',component:finduser},
+<<<<<<< HEAD
     {path:'/sea',component:search},
     {path:'/hotsearch',component:hotsearch},
     {path:'/regist',component:regist},
     {path:'/login',component:login},
+=======
+    {path:'/shop',component:search},
+    {path:'/hotsearch',component:hotsearch},
+    {path:'/regist',component:regist},
+    {path:'/login',component:login},
+    {path:'/houseandhome',component:houseandhome},
+    {path:'/build',component:build},
+    {path:'/food',component:food},
+    {path:'/igtv',component:igtv},
+    {path:'/account',component:account},
+    {path:'/label',component:label},
+    {path:'/place',component:place},
+>>>>>>> 24891dd31d83bba9ef40386d163ec6f3bf852d8d
 
     {path:"/follow",component:Follow},
 

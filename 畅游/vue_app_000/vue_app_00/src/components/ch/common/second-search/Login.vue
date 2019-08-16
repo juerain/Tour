@@ -48,7 +48,7 @@ export default {
             // 发送ajax请求
             this.axios("login",{params:obj})
             .then(res=>{
-                console.log(res);
+                // console.log(res);
                 // 获取服务器返回结果
                 if(res.data.code==-1){
                     this.$toast("用户名或密码错误");

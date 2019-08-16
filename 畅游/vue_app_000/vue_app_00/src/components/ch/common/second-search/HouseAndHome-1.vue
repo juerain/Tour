@@ -15,38 +15,31 @@
             
         </div>
         <div class="btn"  >
-            <mt-button  @click="change(0)">
+            <mt-button  @click="igtv">
                 IGTV
             </mt-button>
-            <mt-button id="shop1" @click="change(1)">
+            <mt-button id="shop1" @click="shop">
                 购物
             </mt-button>
             <mt-button id="search1" @click="change(2)">
                 家居
             </mt-button>
-            <mt-button id="build1" @click="change(3)">
+            <mt-button id="build1" @click="build">
                 建筑
             </mt-button>
-            <mt-button id="food1" @click="change(4)">
+            <mt-button id="food1" @click="food">
                 美食
             </mt-button>
-            <!-- <mt-button>
-                艺术
-            </mt-button> -->
         </div>
     </div>
 
     <!-- 搜索面板图像列表子组件 -->
     <div class="imgs_list">
-        <div :data-box="bar" class="search_img" id="2" style="display:block">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.imgsrc" alt="">
-            <!-- <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.imgsrc" alt="">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.imgsrc" alt="">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.imgsrc" alt="">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.imgsrc" alt=""> -->
+        <div  class="search_img" id="2" style="display:block">
+            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
         </div>
         <div class="search_img" id="1" style="display:none">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.imgsrc" alt="">
+            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
             <h1>111</h1>
         </div>
     </div>
@@ -59,7 +52,6 @@ export default {
   data() {
     return {
       imglist: [],
-      bar:[{"a":0},{"b":1},{"c":2},{"d":3},{"e":4}]
     };
   },
   // 接收父组件传来的数据
@@ -76,6 +68,18 @@ export default {
     addfiend: { default: "" }
   },
   methods: {
+    shop(){
+      this.$router.push("shop");
+    },
+    build(){
+      this.$router.push("build");
+    },
+    food(){
+      this.$router.push("food");
+    },
+    igtv(){
+      this.$router.push("igtv");
+    },
     addFiend(e) {
       var addImg = document.getElementById("addImg");
       if (e.target == addImg) {
@@ -91,7 +95,8 @@ export default {
     load() {
       this.axios("cy").then(res => {
         // console.log(res);
-        this.imglist = res.data;
+        this.imglist = res.data.slice(10,18);
+        // console.log(this.imglist[0]);
       });
     },
     change(e,i) {
@@ -99,7 +104,7 @@ export default {
       var shop = document.getElementById("1");
       var search = document.getElementById("2");
       var search1 = document.getElementById("search1");
-      console.log(i);
+    //   console.log(i);
         // console.log(search1)
         // console.log(e.target)
       if (e.target == shop1) {
