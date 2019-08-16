@@ -27,6 +27,7 @@ import Follow from "./components/ch/common/Follow/Follow.vue"//关注页
 // // 引入Home.vue
 import home from "./components/ch/Home.vue"
 // // 引入搜索页面组件
+import searchhome from "./components/ch/common/second-search/SearchHome.vue"
 import search from "./components/ch/common/second-search/Search.vue"
 // 引入查找用户组件
 import finduser from "./components/ch/common/second-search/FindUser.vue"
@@ -43,7 +44,7 @@ import igtv from "./components/ch/common/second-search/IGTV.vue"
 import account from "./components/ch/common/second-search/Account.vue"
 import label from "./components/ch/common/second-search/Label.vue"
 import place from "./components/ch/common/second-search/Place.vue"
-
+import theuser from "./components/ch/common/The-user/Theuser.vue"
 
 
 
@@ -71,6 +72,7 @@ export default new Router({
 
     // // 李
     {path:'/home',component:home},
+    {path:'/searchhome',component:searchhome},
     {path:'/finduser',component:finduser},
     {path:'/shop',component:search},
     {path:'/hotsearch',component:hotsearch},
@@ -85,6 +87,6 @@ export default new Router({
     {path:'/place',component:place},
 
     {path:"/follow",component:Follow},
-
+    {path:"/theuser",component:theuser}
   ]
 })
