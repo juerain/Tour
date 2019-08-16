@@ -14,6 +14,7 @@
                 :photoimg="photoimg"
                 :tvimg="tvimg"
                 :myphotos="myphotos"
+                :sendimg="sendimg"
                 ></homemessage>
                 <!-- 推荐网友列表 -->
                 <suggestlist
@@ -123,6 +124,10 @@ export default {
         myphotos(){
             // 点击进入到相机模式页面
             this.$router.push("/Photo")
+        },
+        sendimg(){
+            //点击进入搜索好友聊天页面
+            this.$router.push("/ChatFunction")
         }
     },
     //注册子组件并且给子组起一个名字

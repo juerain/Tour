@@ -24,3 +24,9 @@ export default {
     }
 }
 </script>
+
+<style>
+    #suggestlistallmsg{
+        margin-bottom: 0px;
+    }
+</style>

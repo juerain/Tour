@@ -53,7 +53,7 @@ INSERT INTO cy_attent_user VALUES(null,"15555555555","123456@qq.com",md5('123456
 
 #推荐用户表
 CREATE TABLE cy_user_recommend(
-  urid INT PRIMARY KEY auto_increment,
+  uid INT PRIMARY KEY auto_increment,
   uphone VARCHAR(65),   #???
   uemail VARCHAR(65),   #??
   upwd VARCHAR(128),    #??
