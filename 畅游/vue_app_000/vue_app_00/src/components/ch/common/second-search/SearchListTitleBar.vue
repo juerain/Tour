@@ -4,7 +4,7 @@
             <div class="up_head">
                 <!-- 左侧图片与文字 -->
                 <img :src="upImg" id="arrowsImg">
-                <h2>{{upTitle}}</h2>
+                <mt-field placeholder="搜索" style="background:#eee; width:100%; padding-left:px;"></mt-field>
             </div>
             <div class="down_head">
                 <!-- 右侧图片与文字 -->

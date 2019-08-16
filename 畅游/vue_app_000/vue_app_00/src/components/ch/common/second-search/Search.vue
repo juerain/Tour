@@ -66,7 +66,7 @@
 
 <script>
 // 搜索子组件
-// import sea from "./common/Search.vue"//查找子组件
+
 import shop from "./Shop-1.vue"
 import TabBaricon from "./TabBarIcon.vue"//底部导航栏子组件
 // 引入子组件
