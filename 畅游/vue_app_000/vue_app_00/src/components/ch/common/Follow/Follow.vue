@@ -21,9 +21,23 @@
         </div>
     </div>
     <div id="you">
+      <p>今天</p>
+      <div>
+        <div>
+          <img src="" alt="">
+        </div>
+        <div>msg</div>
+        <button>关注</button>
+      </div>
       <p>为你推荐</p>
       <div>
-        
+        <div>
+          <img src="" alt="">
+        </div>
+        <div>mgs</div>
+        <div>
+          <button></button><i>x</i>
+        </div>
       </div>
     </div>
   </div>
