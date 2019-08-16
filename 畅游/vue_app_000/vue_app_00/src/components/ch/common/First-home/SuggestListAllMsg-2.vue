@@ -20,14 +20,14 @@
             <h4>所有推荐</h4>
             <div id="suggest-msg-1" v-for="(item,i) of list" :key="i">
                 <img class="suggestdel-1" :src="suggestdelicon" />
-                <img class="msgimg-1" :src="'http://127.0.0.1:3000/img/'+item.img_url" />
-                <span class="msgname-1">{{item.lname}}</span>
+                <img class="msgimg-1" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
+                <span class="msgname-1">{{item.uname}}</span>
                 <!-- <a class="suggest-a" href="javascript:;" 
                 :data-id="item.lid" 
                 :data-attention="item.attention" 
                 @click="attentions" >{{attentiontext}}</a> -->
                 <a class="suggest-a-1" @click="attentions(i)">
-                    <span v-if="item.attention">已关注</span>
+                    <span v-if="item.uattention">已关注</span>
                     <span v-else>关注</span>
                 </a>
             </div>
@@ -53,12 +53,12 @@ export default {
             var url="cy";
             // 发送ajax请求获取数据
             this.axios.get(url).then(result=>{
-                var list=result.data.data;
+                var list=result.data.data.result2;
                 this.list=list;
             })
         },
         attentions(index){//判断是否已关注
-            this.list[index].attention = !this.list[index].attention
+            this.list[index].uattention = !this.list[index].uattention
         }
     },
     props:{
@@ -178,7 +178,7 @@ export default {
     .msgname-1{
         position: absolute;
         top:24px;
-        left:70px;
+        left:86px;
         width:95px;;
         height:32px;
         padding: 2px;

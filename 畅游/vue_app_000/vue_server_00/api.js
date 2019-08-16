@@ -106,11 +106,37 @@ server.get("/regist",(req,res)=>{
 // 搜索页图片
 server.get("/cy",(req,res)=>{
     // 创建sql语句
+    var results={
+        result1:[],
+        result2:[],//获取所有推荐用户信息数组
+    };
     var sql="SELECT * FROM user_img";
     pool.query(sql,(err,result)=>{
         if(err) throw err;
-        res.send(result);
+        results.result1=result;
+        
         console.log(result);
+
+        // 数据库获取用户的名字和头像照片地址
+        var sql="SELECT uid,uname,uheadurl,uattention FROM cy_user";
+        pool.query(sql,(err,result)=>{
+            if(err) throw err;
+            results.result2=result;
+            // console.log(result)
+
+            //返回results
+            res.send({code:1,data:results});
+        })
     });
 })
 
+
+//贾
+
+
+
+
+
+
+
+// 陶

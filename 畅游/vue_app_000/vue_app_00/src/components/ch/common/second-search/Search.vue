@@ -126,7 +126,9 @@ export default {
 
 
 <style scoped>
-    
+    *{
+        margin: 0;
+    }
 </style>
 
 
