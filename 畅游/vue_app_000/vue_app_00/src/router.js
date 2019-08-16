@@ -43,6 +43,8 @@ import account from "./components/ch/common/second-search/Account.vue"
 import label from "./components/ch/common/second-search/Label.vue"
 import place from "./components/ch/common/second-search/Place.vue"
 import theuser from "./components/ch/common/The-user/Theuser.vue"
+// 用户图片详情
+import userdetailes from "./components/ch/common/second-search/UserDetailes.vue"
 
 
 
@@ -83,6 +85,7 @@ export default new Router({
     {path:'/account',component:account},
     {path:'/label',component:label},
     {path:'/place',component:place},
+    {path:'/userdetailes',component:userdetailes},
 
     {path:"/follow",component:Follow},
     {path:"/theuser",component:theuser}

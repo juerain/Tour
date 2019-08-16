@@ -10,7 +10,7 @@
                 <!-- 查找页 -->
                 <searchlisttitlebar
                 :upImg="require('../../../../assets/arrows.png')"
-                upTitle="搜索"
+                upTitle="搜索账户"
                 downHotSearch="热门搜索"
                 downAccount="账户"
                 downLable="标签"

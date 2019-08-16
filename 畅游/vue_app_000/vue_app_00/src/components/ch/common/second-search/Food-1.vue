@@ -5,7 +5,7 @@
             <div class="left_head" @click="search">
                 <!-- 左侧图片与文字 -->
                 <img :src=leftImg id="searchImg">
-                <span>{{leftTitle}}</span>
+                <mt-field placeholder="搜索" style="background:#eee;"></mt-field>
             </div>
             <div class="right_head" @click="addFiend">
                 <!-- 右侧图片与文字 -->

@@ -29,7 +29,7 @@ export default {
 </script>
 <style scoped>
   .alert{
-    width:400px;
+    width:100%;
     height: 300px;
   }
 </style>
