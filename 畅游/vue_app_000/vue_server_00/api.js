@@ -106,12 +106,20 @@ server.get("/regist",(req,res)=>{
 // 搜索页图片
 server.get("/cy",(req,res)=>{
     // 创建sql语句
+    var results={
+        result1:[],
+
+    };
     var sql="SELECT * FROM user_img";
     pool.query(sql,(err,result)=>{
         if(err) throw err;
-        res.send(result);
+        results.result1=result;
+        
         console.log(result);
+        res.send({"code":1,data:results});
     });
+    
+    
 })
 
 

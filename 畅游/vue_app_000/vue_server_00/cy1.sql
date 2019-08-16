@@ -67,7 +67,7 @@ CREATE TABLE cy_user_recommend(
 );
 
 
-INSERT INTO cy_user VALUES(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",0,78,"北京"),
+INSERT INTO cy_user_recommend VALUES(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",0,78,"北京"),
 (null,"15555555555","123456@qq.com",md5('123456'),"tom",1,22,"image/head2.jpg",0,66,"河南"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack1",1,25,"image/head3.jpg",0,44,"上海"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack2",1,55,"image/head4.jpg",0,102,"广州"),
