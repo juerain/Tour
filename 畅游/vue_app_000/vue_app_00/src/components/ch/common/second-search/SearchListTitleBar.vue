@@ -39,6 +39,7 @@ export default {
         },
         hotSearch(){
             this.$router.push("hotsearch");
+
         },
         account(){
             this.$router.push("account");

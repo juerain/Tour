@@ -36,7 +36,7 @@
         <!--当前按钮isSelect:true-->
         <!--其它按钮isSelect:false-->
         <mt-tabbar v-model="active" fixed>
-            <mt-tab-item id="a1" @click.native="changeState(0)">
+            <mt-tab-item id="a1" @click.native="home">
                 <tabbaricon
                 :selectedImage="require('../../../../assets/home_selected .png')"
                 :normalImage="require('../../../../assets/home_normal.png')"
@@ -51,7 +51,7 @@
                 </tabbaricon>
                 搜索
             </mt-tab-item>
-            <mt-tab-item id="a3" @click.native="changeState(2)">
+            <mt-tab-item id="a3" @click.native="love">
                 <tabbaricon
                 :normalImage="require('../../../../assets/love_normal.png')"
                 :selectedImage="require('../../../../assets/love_selected.png')"
@@ -59,7 +59,7 @@
                 </tabbaricon>
                 关注
             </mt-tab-item>
-            <mt-tab-item id="a4" @click.native="changeState(3)">
+            <mt-tab-item id="a4" @click.native="me">
                 <tabbaricon
                 :normalImage="require('../../../../assets/me_normal.png')"
                 :selectedImage="require('../../../../assets/me_selected.png')"
@@ -97,6 +97,15 @@ export default {
     },
     //集中存放事件处理函数
     methods: {
+        home(){
+            this.$router.push("/cy");
+        },
+        love(){
+            this.$router.push("/cy");
+        },
+        me(){
+            this.$router.push("/cy");
+        },
         changeState(n){
             //函数功能:将当前参数下标
             //对应数组值修改true其它修改false

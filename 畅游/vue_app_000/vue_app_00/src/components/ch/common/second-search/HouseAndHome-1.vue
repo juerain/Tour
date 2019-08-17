@@ -38,10 +38,6 @@
         <div  class="search_img" id="2" style="display:block">
             <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
         </div>
-        <div class="search_img" id="1" style="display:none">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
-            <h1>111</h1>
-        </div>
     </div>
     </div>
 </template>
@@ -95,7 +91,7 @@ export default {
     load() {
       this.axios("cy").then(res => {
         // console.log(res);
-        this.imglist = res.data.data.result1.slice(10,18);
+        this.imglist = res.data.data.result1.slice(19,28);
         // console.log(this.imglist[0]);
       });
     },

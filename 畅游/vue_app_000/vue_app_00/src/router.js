@@ -53,6 +53,8 @@ import userdetailes from "./components/ch/common/second-search/UserDetailes.vue"
 
 
 
+
+
 Vue.use(Router)
 export default new Router({
   routes: [
@@ -85,7 +87,8 @@ export default new Router({
     {path:'/account',component:account},
     {path:'/label',component:label},
     {path:'/place',component:place},
-    {path:'/userdetailes',component:userdetailes},
+    {path:'/userdetailes/:uid/:umid',component:userdetailes,props:true},
+    // {path:"/details/:lid",component:Details,props:true},
 
     {path:"/follow",component:Follow},
     {path:"/theuser",component:theuser}

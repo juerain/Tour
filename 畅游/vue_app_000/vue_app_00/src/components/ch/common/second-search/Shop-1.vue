@@ -18,7 +18,7 @@
             <mt-button  @click="igtv">
                 IGTV
             </mt-button>
-            <mt-button id="shop1" @click="change(1)">
+            <mt-button id="shop1">
                 购物
             </mt-button>
             <mt-button id="search1" @click="house">
@@ -35,12 +35,12 @@
 
     <!-- 搜索面板图像列表子组件 -->
     <div class="imgs_list">
-        <div  class="search_img" id="2" style="display:block">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
-        </div>
-        <div class="search_img" id="1" style="display:none">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
-            <h1>111</h1>
+        <div  class="search_img"  v-for="(item,i) of imglist" :key="i">
+            <!-- 从地址栏传参数过去 -->
+            <router-link :to="`userdetailes/${item.uid}/${item.umid}`">
+            <img :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
+            </router-link>
+            
         </div>
     </div>
     </div>
@@ -56,6 +56,7 @@ export default {
   },
   // 接收父组件传来的数据
   props: {
+    
     imgs: { default: "" },
     // 左侧图片
     leftImg: { default: "" },
@@ -93,28 +94,14 @@ export default {
       }
     },
     load() {
+      
       this.axios("cy").then(res => {
         // console.log(res);
-        this.imglist = res.data.data.result1.slice(28,37);
+        this.imglist = res.data.data.result1.slice(9,18);
         // console.log(this.imglist[0]);
       });
     },
-    change(e,i) {
-      var shop1 = document.getElementById("shop1");
-      var shop = document.getElementById("1");
-      var search = document.getElementById("2");
-      var search1 = document.getElementById("search1");
-    //   console.log(i);
-        // console.log(search1)
-        // console.log(e.target)
-      if (e.target == shop1) {
-        shop.style.display = "block";
-        search.style.display = "none";
-      }else{
-          shop.style.display = "none";
-        search.style.display = "block";
-      }
-    }
+    
   },
   created() {
     this.load();
@@ -172,6 +159,7 @@ div.btn {
 /* 外层容器样式 */
 div.search_img {
   width: 100%;
+  display: inline;
 }
 /* 图片样式 */
 div.search_img img {
