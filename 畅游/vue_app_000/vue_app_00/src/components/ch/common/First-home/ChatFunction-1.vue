@@ -12,7 +12,7 @@
             <img class="searchiconimg" :src="searchiconimg" />
         </div>
         <div id="allsuggestlist11">
-            <h4>所有推荐</h4>
+            <h4>{{attentiontext}}</h4>
             <div id="suggest-msg-1" v-for="(item,i) of list" :key="i">
                 <img class="phonesearch" :src="phonesearchicon" />
                 <img class="msgimg-1" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
@@ -31,6 +31,7 @@ export default {
             placeholder:"搜索",
             text1:"Direct",
             list:[],
+            attentiontext:"已关注",
         }
     },
     props:{//接收 ChatFunction.vue 父组件数据

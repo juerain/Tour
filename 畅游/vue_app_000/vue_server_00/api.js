@@ -92,7 +92,7 @@ server.get("/regist",(req,res)=>{
         if(err) throw err;
         if(result.length>0){
             result.find={code:-1,"msg":"邮箱或手机已经被注册"}
-            console.log(result.find)
+            // console.log(result.find)
         
             
          }
@@ -110,23 +110,33 @@ server.get("/cy",(req,res)=>{
         result1:[],
         result2:[],//获取所有推荐用户信息数组
     };
+
+    var uid3=req.query.uid; //获取删除推荐用户列表 // 贾
+
     var sql="SELECT * FROM user_img";
     pool.query(sql,(err,result)=>{
         if(err) throw err;
         results.result1=result;
         
-        console.log(result);
+        // console.log(result);
 
+        // 贾  《---
         // 数据库获取用户的名字和头像照片地址
         var sql1="SELECT * FROM cy_user_recommend";
         pool.query(sql1,(err,result)=>{
             if(err) throw err;
             results.result2=result;
-            // console.log(result)
+            // console.log(result)  
 
+            var sql3="DELETE FROM cy_user_recommend WHERE uid=?";
+            pool.query(sql3,[uid3],(err,result)=>{
+                if(err) throw err;
+
+            //---》
             
-            //返回results
-            res.send({code:1,data:results});
+                //返回results
+                res.send({code:1,data:results});
+            })    
         })
     });
 })
@@ -175,12 +185,11 @@ server.get("/SuggestListAllMsg",(req,res)=>{
                 if(err) throw err;
                 
                 
-                res.send({code:1,msg:"添加成功"})
-                })
+                res.send({code:1,msg:"添加成功"})               
             })
         })
     })
-
+})
 
 
 
