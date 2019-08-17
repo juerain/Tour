@@ -196,13 +196,20 @@ server.get("/regist", (req, res) => {
         //获取已关注用户的信息 -- 聊天页面
         server.get("/ChatFunction", (req, res) => {
             // 数据库获取用户的名字和头像照片地址
-            var sql = "SELECT uid,uname,uheadurl,uattention FROM cy_attent_user";
-            pool.query(sql, (err, result) => {
-                if (err) throw err;
-                // console.log(result)
-                res.send({ code: 1, data: result });
+            
+            var uname=req.query.uname;//条件搜索用户
+            if(!uname){
+                var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";   
+            }else{
+                var sql=`SELECT uid,uname,uheadurl FROM cy_attent_user WHERE uname LIKE '%${uname}%'`;
+            }
+            pool.query(sql,(err,result)=>{
+                if(err) throw err;
+                    console.log(uname);
+                    res.send({ code: 1, data: result });
             })
         })
+                
 
         //修改用户的关注状态
 
