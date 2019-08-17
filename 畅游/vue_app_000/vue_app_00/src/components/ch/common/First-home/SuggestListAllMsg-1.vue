@@ -68,7 +68,7 @@
                 :focused="currentIndex[0].isSelect">              
                 </tabbaricon>
             </mt-tab-item>
-            <mt-tab-item id="a2" @click.native="changeState(1)">
+            <mt-tab-item id="a2" @click.native="changeState">
                 <tabbaricon
                 :normalImage="require('../../../../assets/search_normal.png')"
                 :selectedImage="require('../../../../assets/search_selected.png')"
@@ -141,6 +141,9 @@ export default {
                     this.currentIndex[i].isSelect=false;
                 }
             }
+        },
+        changeState(){
+            this.$router.push("/shop")
         },
         liaison2(){//联系人点击事件
             this.showhide2=!this.showhide2;//推荐事件页面隐藏

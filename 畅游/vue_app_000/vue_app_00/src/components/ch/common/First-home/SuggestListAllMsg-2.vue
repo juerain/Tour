@@ -26,9 +26,22 @@
                 :data-id="item.lid" 
                 :data-attention="item.attention" 
                 @click="attentions" >{{attentiontext}}</a> -->
-                <a class="suggest-a-1" @click="attentions(i)">
-                    <span v-if="item.uattention">已关注</span>
-                    <span v-else>关注</span>
+                <a
+                :data-id="item.uid"
+                :data-phone="item.uphone"
+                :data-email="item.uemail"
+                :data-pwd="item.upwd"
+                :data-name="item.uname"
+                :data-sex="item.usex"
+                :data-age="item.uage"
+                :data-headurl="item.uheadurl"
+                :data-attention="item.uattention"
+                :data-attents="item.uattents"
+                :data-address="item.uaddress"
+                class="suggest-a-1" @click="attentions">
+                    <!-- <span v-if="item.uattention">已关注</span>
+                    <span v-else>关注</span> -->
+                    {{item.uattention}}
                 </a>
             </div>
         </div>
@@ -57,8 +70,30 @@ export default {
                 this.list=list;
             })
         },
-        attentions(index){//判断是否已关注
-            this.list[index].uattention = !this.list[index].uattention
+        // attentions(index){//判断是否已关注
+        //     this.list[index].uattention = !this.list[index].uattention
+        // }
+        attentions(e){//判断是否已关注
+            // this.list[index].uattention = !this.list[index].uattention
+            var id=e.target.dataset.id;
+            var phone=e.target.dataset.phone;
+            var email=e.target.dataset.email;
+            var pwd=e.target.dataset.pwd;
+            var name=e.target.dataset.name;
+            var sex=e.target.dataset.sex;
+            var age=e.target.dataset.age;
+            var headurl=e.target.dataset.headurl;
+            var attention=e.target.dataset.attention;
+            var attents=e.target.dataset.attents;
+            var address=e.target.dataset.address;
+            console.log(id,phone,email,pwd,name,sex,age,headurl,attention,attents,address);
+            attention=1;
+            
+            var url="SuggestListAllMsg";
+            var obj={uid:id,uphone:phone,uemail:email,upwd:pwd,uname:name,usex:sex,uage:age,uheadurl:headurl,uattention:attention,uattents:attents,uaddress:address}
+            this.axios.get(url,{params:obj}).then(result=>{
+                
+            })
         }
     },
     props:{
