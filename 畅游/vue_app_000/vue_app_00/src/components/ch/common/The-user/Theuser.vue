@@ -36,9 +36,15 @@
     </div>
     <div class="userNav">
       <div>
-        <img class="user_img" width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
+        <img class="user_img" width="100px" height="100px" src="../../../../assets/ic_contacts_normal.png" alt="">
       </div>
-      <div>
+      <i @click="touxiang" class="add"><img src="../../../../assets/添加.png" alt=""></i>
+      <mt-actionsheet
+       :actions="data"
+       v-model="sheetVisible" 
+      >
+      </mt-actionsheet>
+      <div style="width:70%;">
         <ul>
           <li>
             <i>0</i>
@@ -55,18 +61,48 @@
         </ul>
       </div>
     </div>
+    <div style="margin-top:10px;">
+      <p style="margin:0">Sun Tom</p>
+      <p style="margin:0">个性签名</p>
+    </div>
+    <div>
+      <button class="zhuyeBtn">编辑主页</button>
+    </div>
+    <div>
+      <div></div>
+      <div></div>
+    </div>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      data:[{
+        name:'拍照',
+        methods:this.getCamera
+      },
+      {
+        name:'从相册中选择',
+        methods:this.getLibary
+      }      
+      ],
+      sheetVisible:false,
       //action sheet 选项内容
       popupVisible: false,
       popup2Visible:false
     }
   },
   methods: {
+    touxiang(){
+      this.sheetVisible=true;
+    },
+    getCamera(){
+      console.log("打开相机");
+    },
+    getLibary(){
+      console.log("打开相册");
+    },
     xiala(){
       var div=document.getElementById("div");
       div.style.width="100%";
@@ -112,11 +148,23 @@ export default {
   .userNav{
     display:flex;
     width:100%;
+    align-items: center;
   }
   .userNav div>ul{
-    width:70%;
     list-style: none;
     display:flex;
     justify-content: space-between;
+  }
+  .add{
+    position:absolute;
+    left:79px;top:127px;
+  }
+  .zhuyeBtn{
+    width:100%;
+    background:#fff;
+    border:1px solid #ccc;
+    border-radius:3px;
+    padding:3px 0;
+    margin:20px 0 5px 0;
   }
 </style>
