@@ -70,23 +70,25 @@
     </div>
     <div class="body">
       <mt-navbar class="page-part" v-model="selected">
-        <mt-tab-item class="tab_item" id="1"><img src="../../../../assets/九宫格.png" alt=""></mt-tab-item>
-        <mt-tab-item class="tab_item" id="2"><img src="../../../../assets/照片.png" alt=""></mt-tab-item>
+        <mt-tab-item class="tab_item" id="1"><img width="30px" height="30px" src="../../../../assets/九宫格.png" alt=""></mt-tab-item>
+        <mt-tab-item class="tab_item" id="2"><img width="30px" height="30px" src="../../../../assets/照片.png" alt=""></mt-tab-item>
       </mt-navbar>
     </div>
     <div>
       <mt-tab-container v-model="selected">
         <mt-tab-container-item id="1">
-          个人主页
+          <homepage></homepage>
         </mt-tab-container-item>
         <mt-tab-container-item id="2">
-          有你的照片和视频
+          <photosVideo></photosVideo>
         </mt-tab-container-item>
       </mt-tab-container>
     </div>
   </div>
 </template>
 <script>
+import Homepage from"./Homepage.vue" //引入子组件
+import PhotosVideo from"./PhotosVideo.vue"//引入子组件
 export default {
   data() {
     return {
@@ -129,6 +131,10 @@ export default {
         div2.style.height="100%";
       this.popup2Visible=true;
     }
+  },
+  components:{
+    "homepage":Homepage,
+    "photosVideo":PhotosVideo
   },
 }
 </script>
