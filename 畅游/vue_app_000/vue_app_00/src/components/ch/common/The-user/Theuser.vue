@@ -16,12 +16,45 @@
       <mt-popup id="div2"
       v-model="popup2Visible"
       position="right">
-        <div>
-          设置栏
+        <div class="set">
+          <div>
+            <p>suntom9</p>
+          <ul>
+            <li>私人影集</li>
+            <li>你的活动</li>
+            <li>名片</li>
+            <li>收藏夹</li>
+            <li>密友</li>
+            <li>发现用户</li>
+          </ul>
+          </div>
+          <div>
+            <p>设置</p>
+          </div>
         </div>
       </mt-popup>
     </div>
-    
+    <div class="userNav">
+      <div>
+        <img class="user_img" width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
+      </div>
+      <div>
+        <ul>
+          <li>
+            <i>0</i>
+            <p>帖子</p>
+          </li>
+          <li>
+            <i>0</i>
+            <p>粉丝</p>
+          </li>
+          <li>
+            <i>32</i>
+            <p>已关注</p>
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -43,6 +76,9 @@ export default {
       this.popupVisible=true;
     },
     youla(){
+      var div2=document.getElementById("div2");
+        div2.style.width="70%";
+        div2.style.height="100%";
       this.popup2Visible=true;
     }
   },
@@ -56,5 +92,31 @@ export default {
     display:flex;
     justify-content:space-between;
     align-items: center;
+  }
+  .set{
+    height:100%;
+    display: flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .set ul{
+    list-style: none;
+  }
+  .set ul>li{
+    margin:10px 0;
+  }
+  .user_img{
+    border:1px solid #ccc;
+    border-radius:50%;
+  }
+  .userNav{
+    display:flex;
+    width:100%;
+  }
+  .userNav div>ul{
+    width:70%;
+    list-style: none;
+    display:flex;
+    justify-content: space-between;
   }
 </style>
