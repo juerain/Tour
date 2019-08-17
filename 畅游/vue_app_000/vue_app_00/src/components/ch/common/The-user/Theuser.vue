@@ -68,9 +68,17 @@
     <div>
       <button class="zhuyeBtn">编辑主页</button>
     </div>
+    <div class="body">
+      <div class="active">
+        <img width="30px" height="30px" src="../../../../assets/九宫格.png" alt="">
+      </div>
+      <div>
+        <img width="30px" height="30px" src="../../../../assets/照片.png" alt="">
+      </div>
+    </div>
     <div>
-      <div></div>
-      <div></div>
+      <div>个人主页</div>
+      <div>有你的照片和视频</div>
     </div>
   </div>
 </template>
@@ -108,7 +116,6 @@ export default {
       div.style.width="100%";
       div.style.borderTopLeftRadius="8px";
       div.style.borderTopRightRadius="8px";
-      console.log(div)
       this.popupVisible=true;
     },
     youla(){
@@ -166,5 +173,20 @@ export default {
     border-radius:3px;
     padding:3px 0;
     margin:20px 0 5px 0;
+  }
+  .body{
+    margin-top:10px;
+    display:flex;
+    width:100%;
+    border-top: 1px solid #F2F2F2;
+    border-bottom:1px solid #F2F2F2;
+  }
+  .body>div{
+    width:50%;
+    text-align: center;
+    padding:10px 0;
+  }
+  .active{
+    border-bottom: 1px solid #000;
   }
 </style>
