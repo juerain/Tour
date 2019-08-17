@@ -69,16 +69,20 @@
       <button class="zhuyeBtn">编辑主页</button>
     </div>
     <div class="body">
-      <div class="active">
-        <img width="30px" height="30px" src="../../../../assets/九宫格.png" alt="">
-      </div>
-      <div>
-        <img width="30px" height="30px" src="../../../../assets/照片.png" alt="">
-      </div>
+      <mt-navbar class="page-part" v-model="selected">
+        <mt-tab-item class="tab_item" id="1"><img src="../../../../assets/九宫格.png" alt=""></mt-tab-item>
+        <mt-tab-item class="tab_item" id="2"><img src="../../../../assets/照片.png" alt=""></mt-tab-item>
+      </mt-navbar>
     </div>
     <div>
-      <div>个人主页</div>
-      <div>有你的照片和视频</div>
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="1">
+          个人主页
+        </mt-tab-container-item>
+        <mt-tab-container-item id="2">
+          有你的照片和视频
+        </mt-tab-container-item>
+      </mt-tab-container>
     </div>
   </div>
 </template>
@@ -98,7 +102,8 @@ export default {
       sheetVisible:false,
       //action sheet 选项内容
       popupVisible: false,
-      popup2Visible:false
+      popup2Visible:false,
+      selected:'1'
     }
   },
   methods: {
@@ -181,12 +186,18 @@ export default {
     border-top: 1px solid #F2F2F2;
     border-bottom:1px solid #F2F2F2;
   }
-  .body>div{
+  .page-part{
+    display:flex;
+    width:100%;
+  }
+  .tab_item{
     width:50%;
     text-align: center;
     padding:10px 0;
   }
-  .active{
-    border-bottom: 1px solid #000;
-  }
+ .mint-navbar .mint-tab-item.is-selected {
+   border-bottom: 1px solid #000;
+    color: #000;
+    margin:0;
+ }
 </style>
