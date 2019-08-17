@@ -6,12 +6,27 @@
         </div>
         <div id="suggestlist-list">
             <div id="suggest-msg" v-for="(item,i) of list" :key="i">
-                <img class="suggestdel" :src="suggestdelicon" />
+                <img class="suggestdel" :src="suggestdelicon" @click="deleteiconimg"/>
                 <img class="msgimg" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
                 <span class="msgname">{{item.uname}}</span>
-                <a class="suggest-a" @click="attentions(i)">
+                <!-- <a class="suggest-a" @click="attentions(i)">
                     <span v-if="item.uattention">已关注</span>
                     <span v-else>关注</span>
+                </a> -->
+                <a
+                :data-id="item.uid"
+                :data-phone="item.uphone"
+                :data-email="item.uemail"
+                :data-pwd="item.upwd"
+                :data-name="item.uname"
+                :data-sex="item.usex"
+                :data-age="item.uage"
+                :data-headurl="item.uheadurl"
+                :data-attention="item.uattention"
+                :data-attents="item.uattents"
+                :data-address="item.uaddress"
+                class="suggest-a" @click="attentions"
+                >{{attentionindex[item.uattention]}}
                 </a>
             </div>
         </div>
@@ -22,7 +37,8 @@
 export default {
     data(){// 存入初始数据，以便ajax请求发送接收
         return{       
-            list:[]// 创建一个空数组，接收后台传回的所需用户的数据
+            list:[],// 创建一个空数组，接收后台传回的所需用户的数据
+            attentionindex:["关注","已关注"]
         }
     },
     props:{//接收 SuggestList.vue 父组件数据
@@ -40,8 +56,33 @@ export default {
                 this.list=list;
             })
         },
-        attentions(index){//判断是否已关注
-            this.list[index].uattention = !this.list[index].uattention
+        // attentions(i){//判断是否已关注
+        //     this.list[i].uattention = !this.list[i].uattention
+        // }
+        attentions(e){//判断是否已关注
+            var id=e.target.dataset.id;
+            var phone=e.target.dataset.phone;
+            var email=e.target.dataset.email;
+            var pwd=e.target.dataset.pwd;
+            var name=e.target.dataset.name;
+            var sex=e.target.dataset.sex;
+            var age=e.target.dataset.age;
+            var headurl=e.target.dataset.headurl;
+            var attention=e.target.dataset.attention;
+            var attents=e.target.dataset.attents;
+            var address=e.target.dataset.address;
+            // console.log(id,phone,email,pwd,name,sex,age,headurl,attention,attents,address);
+            attention=1;//修改默认关注的状态变为1
+            var url="SuggestListAllMsg";
+            var obj={uid:id,uphone:phone,uemail:email,upwd:pwd,uname:name,usex:sex,uage:age,uheadurl:headurl,uattention:attention,uattents:attents,uaddress:address}
+            this.axios.get(url,{params:obj}).then(result=>{
+                // this.$messagebox("","关注成功");
+                 this.loadmore();
+            })
+        },
+        deleteiconimg(e){
+            var div=e.target.parentNode;//获取点击事件的父元素
+            div.style.display="none";//该元素隐藏
         }
     },
     // 自动加载页面

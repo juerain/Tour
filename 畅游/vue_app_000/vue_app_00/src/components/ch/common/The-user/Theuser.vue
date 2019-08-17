@@ -140,12 +140,17 @@ export default {
 </script>
 <style scoped>
   .alert{
+
+    width:100%;
+    height: 300px;
+
     height:200px;
   }
   .nav{
     display:flex;
     justify-content:space-between;
     align-items: center;
+
   }
   .set{
     height:100%;

@@ -218,6 +218,9 @@ export default {
         height:60px;
         background: #f3f1f1;
     }
+    #suggestlistallmsg-1-msg{
+        height:100%;
+    }
     .suggestlistallmsg-1-img{
         position: absolute;
         width: 32px;

@@ -19,13 +19,13 @@ export default {
     methods: {
         chatfunctionquit(){
             this.$router.push("/Cy");
-        }
+        },
     },
     //注册子组件并且给子组起一个名字
     components:{
         // "字符串"：子组件对象名称
         "chatfunction1":ChatFunction1,//查找好友聊天组件
-    }
+    },
 }
 </script>
 
