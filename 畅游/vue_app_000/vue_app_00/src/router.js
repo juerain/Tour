@@ -13,6 +13,8 @@ import Search from "./components/ch/common/First-home/Search.vue"//搜索用户�
 import AddTv1 from "./components/ch/common/First-home/AddTv-1.vue"//开启相册功能页面
 import Camera from "./components/ch/common/First-home/Camera.vue"//开启相机功能
 import SuggestListAllMsg from "./components/ch/common/First-home/SuggestListAllMsg.vue"//推荐网友列表主页面
+import ChatFunction from "./components/ch/common/First-home/ChatFunction.vue"//查找好友聊天页面
+
 
 
 // 淘
@@ -65,7 +67,7 @@ export default new Router({
     {path:"/Search",component:Search},//搜索用户视频界面
     {path:"/Camera",component:Camera},//开启照相直播页面
     {path:"/SuggestListAllMsg",component:SuggestListAllMsg},
-
+    {path:"/ChatFunction",component:ChatFunction},//查找好友聊天页面
 
 
     // // 李

@@ -4,7 +4,7 @@
             <img :src="photoiconImg" class="photoimgstyle" @click="photoimg"/>
             <span class="span-1">Instagram</span>
             <img :src="tviconImg" class="tvimgstyle" @click="tvimg"/>
-            <img :src="sendiconImg" class="sendimgstyle"/>
+            <img :src="sendiconImg" class="sendimgstyle" @click="sendimg"/>
         </div>
         <div id="head-2" @click="myphotos">
             <img :src="headiconImg" class="headimgstyle"/>
@@ -24,7 +24,8 @@ export default {
         sendiconImg:{default:""},//sendiconImg 默认空字符串
         photoimg:{type:Function},//进入相机界面 
         tvimg:{type:Function},//函数
-        myphotos:{type:Function}//进入相机界面
+        myphotos:{type:Function},//进入相机界面
+        sendimg:{type:Function},//进入搜索好友聊天页面
     },
     
 }
