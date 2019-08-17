@@ -88,159 +88,158 @@ server.get("/regist", (req, res) => {
         msg1 = phone;
         sql1 = "SELECT id FROM cy_user WHERE phone=?";
     }
-<<<<<<< HEAD
-    pool.query(sql1,[msg1],(err,result)=>{
-        if(err) throw err;
-        if(result.length>0){
-            result.find={code:-1,"msg":"邮箱或手机已经被注册"}
-            // console.log(result.find)
-        
-            
-         }
-        
-=======
+
     pool.query(sql1, [msg1], (err, result) => {
         if (err) throw err;
         if (result.length > 0) {
             result.find = { code: -1, "msg": "邮箱或手机已经被注册" }
-            console.log(result.find)
+            // console.log(result.find)
 
 
         }
 
->>>>>>> c2b668398009398acccdddef2d94fbfec2d3980d
+
+        pool.query(sql1, [msg1], (err, result) => {
+            if (err) throw err;
+            if (result.length > 0) {
+                result.find = { code: -1, "msg": "邮箱或手机已经被注册" }
+                console.log(result.find)
+
+
+            }
+
+
+        });
+
     });
 
 });
 
+    // 搜索页图片
+    server.get("/cy", (req, res) => {
+
+        // 创建sql语句
+        var results = {
+            result1: [],
+            result2: [],//获取所有推荐用户信息数组
+            result3: [],//获取用户详情信息数组
+
+        };
 
 
-// 搜索页图片
-server.get("/cy", (req, res) => {
+        var uid3 = req.query.uid; //获取删除推荐用户列表 // 贾
 
-    // 创建sql语句
-    var results = {
-        result1: [],
-        result2: [],//获取所有推荐用户信息数组
-        result3: [],//获取用户详情信息数组
-
-    };
-<<<<<<< HEAD
-
-    var uid3=req.query.uid; //获取删除推荐用户列表 // 贾
-
-    var sql="SELECT * FROM user_img";
-    pool.query(sql,(err,result)=>{
-        if(err) throw err;
-        results.result1=result;
-        
-=======
-    // console.log(uid);
-    var sql = "SELECT * FROM user_img";
-    pool.query(sql, (err, result) => {
-        if (err) throw err;
-        results.result1 = result;
-
->>>>>>> c2b668398009398acccdddef2d94fbfec2d3980d
-        // console.log(result);
-
-        // 贾  《---
-        // 数据库获取用户的名字和头像照片地址
-
-        var sql = "SELECT uid,uname,uheadurl,uattention FROM cy_user";
+        var sql = "SELECT * FROM user_img";
         pool.query(sql, (err, result) => {
             if (err) throw err;
-            results.result2 = result;
-            // console.log(result)
+            results.result1 = result;
+
+
+            // console.log(uid);
+            var sql = "SELECT * FROM user_img";
+            pool.query(sql, (err, result) => {
+                if (err) throw err;
+                results.result1 = result;
+
+                // console.log(result);
+
+                // 贾  《---
+                // 数据库获取用户的名字和头像照片地址
+
+                var sql = "SELECT uid,uname,uheadurl,uattention FROM cy_user";
+                pool.query(sql, (err, result) => {
+                    if (err) throw err;
+                    results.result2 = result;
+                    // console.log(result)
 
 
 
-        var sql1="SELECT * FROM cy_user_recommend";
-        pool.query(sql1,(err,result)=>{
-            if(err) throw err;
-            results.result2=result;
-            // console.log(result)  
+                    var sql1 = "SELECT * FROM cy_user_recommend";
+                    pool.query(sql1, (err, result) => {
+                        if (err) throw err;
+                        results.result2 = result;
+                        // console.log(result)  
 
-            var sql3="DELETE FROM cy_user_recommend WHERE uid=?";
-            pool.query(sql3,[uid3],(err,result)=>{
-                if(err) throw err;
+                        var sql3 = "DELETE FROM cy_user_recommend WHERE uid=?";
+                        pool.query(sql3, [uid3], (err, result) => {
+                            if (err) throw err;
 
-            //---》
-            
-<<<<<<< HEAD
-                //返回results
-                res.send({code:1,data:results});
-            })    
-=======
+                            //---》
 
-            //返回results
-            res.send({ code: 1, data: results });
+
+                            //返回results
+                            res.send({ code: 1, data: results });
+                        })
+
+
+                        //返回results
+                        // res.send({ code: 1, data: results });
+                        })
+                    })
+                })
+            });
         })
->>>>>>> c2b668398009398acccdddef2d94fbfec2d3980d
-        })
-    });
-})
 
-server.get("/detailes", (req, res) => {
-    var uid = req.query.uid;
-    var sql = "SELECT * FROM cy_user_detail WHERE uid=?";
-    pool.query(sql, [uid], (err, result) => {
-        if (err) throw err;
-        res.send(result);
-        // console.log(uid);
-    })
-})
-
-
-
-//贾
-//获取已关注用户的信息 -- 聊天页面
-server.get("/ChatFunction",(req,res)=>{
-    // 数据库获取用户的名字和头像照片地址
-    var sql="SELECT uid,uname,uheadurl,uattention FROM cy_attent_user";
-    pool.query(sql,(err,result)=>{
-        if(err) throw err;
-        // console.log(result)
-        res.send({code:1,data:result});
-    })
-})
-
-//修改用户的关注状态
-
-server.get("/SuggestListAllMsg",(req,res)=>{
-    var uid=req.query.uid;//获取事件用户的id
-    var uphone=req.query.uphone;
-    var uemail=req.query.uemail;
-    var upwd=req.query.upwd;
-    var uname=req.query.uname;
-    var usex=req.query.usex;
-    var uage=req.query.uage;
-    var uheadurl=req.query.uheadurl;
-    var uattention=req.query.uattention;
-    var uattents=req.query.uattents;
-    var uaddress=req.query.uaddress;
-
-    //修改该事件用户的关注状态，并从 cy_user_recommend 推荐列表中删除该用户，使其在推荐用户中删除
-    var sql="UPDATE cy_user_recommend SET uattention=? WHERE uid=?"
-    pool.query(sql,[uattention,uid],(err,result)=>{
-        if(err) throw err;    
-        //修改成功后，把该用户添加到 cy_attent_user 已关注用户列表中
-
-        var sql1=`INSERT INTO cy_attent_user VALUES(null,${uphone},'${uemail}','${upwd}','${uname}',${usex},${uage},'${uheadurl} ',${uattention},${uattents},'${uaddress}')`;
-        pool.query(sql1,(err,result)=>{
-                if(err) throw err;
-
-            //把用户添加成功后从 cy_user_recommend 推荐列表中删除该用户
-            var sql2="DELETE FROM cy_user_recommend WHERE uid=?";
-            pool.query(sql2,[uid],(err,result)=>{
-                if(err) throw err;
-                
-                
-                res.send({code:1,msg:"添加成功"})               
+        server.get("/detailes", (req, res) => {
+            var uid = req.query.uid;
+            var sql = "SELECT * FROM cy_user_detail WHERE uid=?";
+            pool.query(sql, [uid], (err, result) => {
+                if (err) throw err;
+                res.send(result);
+                // console.log(uid);
             })
         })
-    })
-})
+
+
+
+        //贾
+        //获取已关注用户的信息 -- 聊天页面
+        server.get("/ChatFunction", (req, res) => {
+            // 数据库获取用户的名字和头像照片地址
+            var sql = "SELECT uid,uname,uheadurl,uattention FROM cy_attent_user";
+            pool.query(sql, (err, result) => {
+                if (err) throw err;
+                // console.log(result)
+                res.send({ code: 1, data: result });
+            })
+        })
+
+        //修改用户的关注状态
+
+        server.get("/SuggestListAllMsg", (req, res) => {
+            var uid = req.query.uid;//获取事件用户的id
+            var uphone = req.query.uphone;
+            var uemail = req.query.uemail;
+            var upwd = req.query.upwd;
+            var uname = req.query.uname;
+            var usex = req.query.usex;
+            var uage = req.query.uage;
+            var uheadurl = req.query.uheadurl;
+            var uattention = req.query.uattention;
+            var uattents = req.query.uattents;
+            var uaddress = req.query.uaddress;
+
+            //修改该事件用户的关注状态，并从 cy_user_recommend 推荐列表中删除该用户，使其在推荐用户中删除
+            var sql = "UPDATE cy_user_recommend SET uattention=? WHERE uid=?"
+            pool.query(sql, [uattention, uid], (err, result) => {
+                if (err) throw err;
+                //修改成功后，把该用户添加到 cy_attent_user 已关注用户列表中
+
+                var sql1 = `INSERT INTO cy_attent_user VALUES(null,${uphone},'${uemail}','${upwd}','${uname}',${usex},${uage},'${uheadurl} ',${uattention},${uattents},'${uaddress}')`;
+                pool.query(sql1, (err, result) => {
+                    if (err) throw err;
+
+                    //把用户添加成功后从 cy_user_recommend 推荐列表中删除该用户
+                    var sql2 = "DELETE FROM cy_user_recommend WHERE uid=?";
+                    pool.query(sql2, [uid], (err, result) => {
+                        if (err) throw err;
+
+
+                        res.send({ code: 1, msg: "添加成功" })
+                    })
+                })
+            })
+        })
 
 
 

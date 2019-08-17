@@ -6,7 +6,7 @@
         </div>
         <div id="suggestlist-list">
             <div id="suggest-msg" v-for="(item,i) of list" :key="i">
-                <img class="suggestdel" :src="suggestdelicon" />
+                <img class="suggestdel" :src="suggestdelicon" @click="deleteiconimg"/>
                 <img class="msgimg" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
                 <span class="msgname">{{item.uname}}</span>
                 <!-- <a class="suggest-a" @click="attentions(i)">
@@ -54,7 +54,6 @@ export default {
             this.axios.get(url).then(result=>{
                 var list=result.data.data.result2;
                 this.list=list;
-                console.log(list)
             })
         },
         // attentions(i){//判断是否已关注
@@ -73,7 +72,7 @@ export default {
             var attents=e.target.dataset.attents;
             var address=e.target.dataset.address;
             // console.log(id,phone,email,pwd,name,sex,age,headurl,attention,attents,address);
-            
+            attention=1;//修改默认关注的状态变为1
             var url="SuggestListAllMsg";
             var obj={uid:id,uphone:phone,uemail:email,upwd:pwd,uname:name,usex:sex,uage:age,uheadurl:headurl,uattention:attention,uattents:attents,uaddress:address}
             this.axios.get(url,{params:obj}).then(result=>{
@@ -81,6 +80,10 @@ export default {
                  this.loadmore();
             })
         },
+        deleteiconimg(e){
+            var div=e.target.parentNode;//获取点击事件的父元素
+            div.style.display="none";//该元素隐藏
+        }
     },
     // 自动加载页面
     created(){

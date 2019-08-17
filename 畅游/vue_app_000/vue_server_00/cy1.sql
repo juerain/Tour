@@ -71,7 +71,11 @@ INSERT INTO cy_user_recommend VALUES
 (null,"15555555555","123456@qq.com",md5('123456'),"jack4",1,23,"image/head6.jpg",0,78,"河北"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack5",1,45,"image/head7.jpg",0,5,"新疆"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack6",1,43,"image/head8.jpg",0,99,"湖南"),
-(null,"15555555555","123456@qq.com",md5('123456'),"jack7",1,29,"image/head9.jpg",0,75,"湖北");
+(null,"15555555555","123456@qq.com",md5('123456'),"jack7",1,29,"image/head9.jpg",0,75,"湖北"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack8",1,23,"image/head10.jpg",0,78,"河北"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack9",1,45,"image/head11.jpg",0,5,"新疆"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack10",1,43,"image/head8.jpg",0,99,"湖南"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack11",1,29,"image/head9.jpg",0,75,"湖北");
 
 
 

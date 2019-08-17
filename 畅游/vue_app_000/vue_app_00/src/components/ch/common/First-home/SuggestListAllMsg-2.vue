@@ -18,12 +18,15 @@
         </div>
         <div id="allsuggestlist">
             <h4>所有推荐</h4>
-            <div id="suggest-msg-1" v-for="(item,i) of list" :key="i">
+            <div id="suggest-msg-111" v-for="(item,i) of list" :key="i">
+                <!-- 删除图片 -->
                 <img class="suggestdel-1" 
                 :src="suggestdelicon" 
                 :data-id="item.uid"
                 @click="deleterecommend"/>
+                <!-- 头像图片 -->
                 <img class="msgimg-1" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
+                <!-- 用户名字 -->
                 <span class="msgname-1">{{item.uname}}</span>
                 <!-- <a class="suggest-a" href="javascript:;" 
                 :data-id="item.lid" 
@@ -86,6 +89,7 @@ export default {
             var attention=e.target.dataset.attention;
             var attents=e.target.dataset.attents;
             var address=e.target.dataset.address;
+            attention=1;//修改默认关注的状态变为1
             // console.log(id,phone,email,pwd,name,sex,age,headurl,attention,attents,address);
             
             var url="SuggestListAllMsg";
@@ -184,11 +188,12 @@ export default {
     #allsuggestlist{
         position: relative;
         padding:10px;
+        min-height:400px;
     }
     /* 推荐网友信息 */
-    #suggest-msg-1{
+    #suggest-msg-111{
         position: relative;/*相对定位*/
-        width:100%;
+        width:337px;
         height:80px;
         background: #fff;
         margin-top:15px;
