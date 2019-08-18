@@ -141,7 +141,7 @@ server.get("/cy", (req, res) => {
 
             //返回results
             res.send({ code: 1, data: results });
-        })
+            })
         })
     });
 })

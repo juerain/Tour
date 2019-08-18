@@ -4,7 +4,7 @@
             <div class="up_head">
                 <!-- 左侧图片与文字 -->
                 <img :src="upImg" id="arrowsImg">
-                <mt-field :placeholder="upTitle" style="background:#eee; width:100%; margin-left:10px;"></mt-field>
+                <input class="search_input" type="text" placeholder="搜索">
             </div>
             <div class="down_head">
                 <!-- 右侧图片与文字 -->
@@ -68,6 +68,14 @@ export default {
         display: flex;
         align-items: center;
     }
+    /* 搜索框样式 */
+  .search_input{
+    width: 200px;
+    margin-left: 20px;
+    height: 25px;
+    border: 0px;
+    padding-left: 5px;
+  }
     /* 下面标题样式 */
     div.down_head{
         width: 100%;
@@ -76,6 +84,7 @@ export default {
         display: flex;
         justify-content: space-around;
         align-items: center;
+        
     }
     /* 箭头 */
     div.up_head img{

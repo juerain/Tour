@@ -1,14 +1,17 @@
 <template>
-    <div @click="del">
+    <div>
         <!-- 推荐用户列表子组件 -->
         <span class="reccommend">推荐</span>
         <div class="find_user_list" v-for="(item,i) of searchList" :key="i">
             <div class="user_list">
                 <img :src="'http://127.0.0.1:3000/'+item.uheadurl" alt="">
-                <h3>{{item.uname}}</h3>
-                <span>{{nickname}}</span>
+                
             </div>
-            <span>×</span>
+            <div class="user">
+                <h3>{{item.uname}}</h3>
+                <span>{{item.nickname}}</span>
+            </div>
+            <span class="del" @click="del">×</span>
         </div>
     </div>
     
@@ -18,7 +21,7 @@
 export default {
     data(){
         return{
-            searchList:[]
+            searchList:[],
         }
     },
     // 接收父组件传来的数据
@@ -57,9 +60,14 @@ export default {
     }
     /* 外层容器样式 */
     div.find_user_list{
+        float: left;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .user{
+        display: flex;
+        flex-direction: column;
     }
     /* 内层容器样式 */
     div.user_list{
@@ -73,9 +81,17 @@ export default {
     }
     /* 头像样式 */
     div.find_user_list img{
-        width: 60px;
-        height: 60px;
-        border-radius: 30px;
+        width: 70px;
+        height: 70px;
+        border-radius: 35px;
         margin: 10px;
+    }
+    /* 叉的样式 */
+    .del{
+        color: #666;
+        font-size: 20px;
+        font-weight: bolder;
+        padding-left: 170px;
+        
     }
 </style>

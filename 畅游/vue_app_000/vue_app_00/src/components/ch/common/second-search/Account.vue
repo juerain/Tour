@@ -7,20 +7,27 @@
             
             </mt-tab-container-item>
             <mt-tab-container-item id="a2">
-                <!-- 查找页 -->
-                <searchlisttitlebar
-                :upImg="require('../../../../assets/arrows.png')"
-                upTitle="搜索账户"
-                downHotSearch="热门搜索"
-                downAccount="账户"
-                downLable="标签"
-                downPlace="地点"
-                ></searchlisttitlebar>
+                <!-- 搜索用户顶部导航栏子组件 -->
+                <div class="find_user_head" @click="arrows">
+                    <div class="up_head">
+                        <!-- 左侧图片与文字 -->
+                        <img src="../../../../assets/arrows.png" id="arrowsImg">
+                        <input class="search_input" type="text" placeholder="搜索">
+                    </div>
+                    <div class="down_head">
+                        <!-- 右侧图片与文字 -->
+                        <span @click="hotSearch">热门搜索</span>
+                        <span class="account" @click="account">账户</span>
+                        <span @click="label">标签</span>
+                        <span @click="place">地点</span>
+                    </div>
+                </div>
                 <reccommendlist
                 :userListImg="require('../../../../assets/1.jpg')"
                 user="用户名"
                 nickname="用户昵称"
                 ></reccommendlist>
+                
             </mt-tab-container-item>
             <mt-tab-container-item id="a3">
                 <!-- 关注页 -->
@@ -73,7 +80,7 @@
 
 <script>
 // 引入SearchListTitleBar.vue 子组件
-import searchlisttitlebar from "./SearchListTitleBar.vue"
+// import searchlisttitlebar from "./SearchListTitleBar.vue"
 // 引入ReccommendList.vue 子组件
 import reccommendlist from "./ReccommendList.vue"
 // 引入子组件
@@ -106,6 +113,25 @@ export default {
         me(){
             this.$router.push("/cy");
         },
+        arrows(e){
+            var img=document.getElementById("arrowsImg");
+            if(e.target==img){
+                this.$router.push("/shop");
+            }
+        },
+        hotSearch(){
+            this.$router.push("hotsearch");
+
+        },
+        account(){
+            this.$router.push("account");
+        },
+        label(){
+            this.$router.push("label");
+        },
+        place(){
+            this.$router.push("place");
+        },
         changeState(n){
             //函数功能:将当前参数下标
             //对应数组值修改true其它修改false
@@ -126,7 +152,7 @@ export default {
     components:{
         // 注册子组件
         "tabbaricon":TabBaricon,//底部导航栏组件
-        "searchlisttitlebar":searchlisttitlebar,
+        // "searchlisttitlebar":searchlisttitlebar,
         "reccommendlist":reccommendlist,
 
     }
@@ -134,6 +160,54 @@ export default {
 </script>
 
 
-<style>
-
+<style scoped>
+/* 外层容器样式 */
+    div.find_user_head{
+        width: 100%;
+        height: 100px;
+        background: #eee;
+    }
+    /* 上部标题样式 */
+    div.up_head{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        
+    }
+    /* 添加下划线 */
+    .account{
+        margin-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #000;
+    }
+    /* 搜索框样式 */
+  .search_input{
+    width: 200px;
+    margin-left: 20px;
+    height: 25px;
+    border: 0px;
+    padding-left: 5px;
+  }
+    /* 下面标题样式 */
+    div.down_head{
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        
+    }
+    /* 箭头 */
+    div.up_head img{
+        width: 30px;
+        margin-right: 30px;
+    }
+    /* 下面标题样式 */
+    div.down_head span{
+        font-size: 20px;
+        color: #ccc;
+        font-weight: bolder;
+    }
 </style>

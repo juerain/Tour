@@ -5,7 +5,7 @@
             <div class="left_head" @click="search">
                 <!-- 左侧图片与文字 -->
                 <img :src=leftImg id="searchImg">
-                <mt-field placeholder="搜索" style="background:#eee;"></mt-field>
+                <input class="search_input" placeholder="搜索"/>
             </div>
             <div class="right_head" @click="addFiend">
                 <!-- 右侧图片与文字 -->
@@ -15,8 +15,8 @@
             
         </div>
         <div class="btn"  >
-            <mt-button  @click="change(0)">
-                IGTV
+            <mt-button id="tour1">
+                旅游
             </mt-button>
             <mt-button id="shop1" @click="shop">
                 购物
@@ -35,12 +35,12 @@
 
     <!-- 搜索面板图像列表子组件 -->
     <div class="imgs_list">
-        <div  class="search_img" id="2" style="display:block">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
-        </div>
-        <div class="search_img" id="1" style="display:none">
-            <img v-for="(item,i) of imglist" :key="i" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
-            <h1>111</h1>
+        <div  class="search_img"  v-for="(item,i) of imglist" :key="i">
+            <!-- 从地址栏传参数过去 -->
+            <router-link :to="`userdetailes/${item.uid}/${item.umid}/${i}`">
+            <img :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
+            </router-link>
+            
         </div>
     </div>
     </div>
@@ -68,6 +68,7 @@ export default {
     addfiend: { default: "" }
   },
   methods: {
+    
     shop(){
       this.$router.push("shop");
     },
@@ -95,26 +96,10 @@ export default {
     load() {
       this.axios("cy").then(res => {
         // console.log(res);
-        this.imglist = res.data.data.result1;
-        // console.log(this.imglist[0]);
+        this.imglist = res.data.data.result1.slice(36,47);
+        // console.log(imglist);
       });
     },
-    change(e,i) {
-      var shop1 = document.getElementById("shop1");
-      var shop = document.getElementById("1");
-      var search = document.getElementById("2");
-      var search1 = document.getElementById("search1");
-    //   console.log(i);
-        // console.log(search1)
-        // console.log(e.target)
-      if (e.target == shop1) {
-        shop.style.display = "block";
-        search.style.display = "none";
-      }else{
-          shop.style.display = "none";
-        search.style.display = "block";
-      }
-    }
   },
   created() {
     this.load();
@@ -129,7 +114,14 @@ div.search_head_box {
   height: 100px;
   background: #eee;
 }
-
+/* 搜索框样式 */
+  .search_input{
+    width: 200px;
+    margin-left: 20px;
+    height: 25px;
+    border: 0px;
+    padding-left: 5px;
+  }
 div.search_head {
   padding: 0;
   margin: 0;
@@ -172,6 +164,7 @@ div.btn {
 /* 外层容器样式 */
 div.search_img {
   width: 100%;
+  display: inline;
 }
 /* 图片样式 */
 div.search_img img {
