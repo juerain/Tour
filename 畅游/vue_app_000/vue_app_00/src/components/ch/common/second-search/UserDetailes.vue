@@ -27,7 +27,7 @@
                 <img class="point" src="../../../../assets/point.png" alt="">
                 
             </div>
-            <img class="photo" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
+            <router-link :to="`user/${item.uid}/${item.did}/${i}`"><img class="photo" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt=""></router-link>
             <div class="love">
                 <div style="display:inline"  @click="change" >
                     <img :data-did="item.did" :id="item.did" src="../../../../assets/praise.png" alt="">
@@ -66,6 +66,8 @@ export default {
             if(e.target==point){
                 // console.log(1);
                 pop.style.display="";
+            }else{
+                pop.style.display="none"
             }
         },
         // 点赞功能
@@ -119,18 +121,18 @@ export default {
       });
         },
         arrows(){
-            if(this.uid==1){
+            if(this.uid==2){
             this.$router.push(`/shop`);
-            }else if(this.uid==0){
+            }else if(this.uid==1){
             this.$router.push(`/food`);
             }
-            else if(this.uid==3){
+            else if(this.uid==4){
             this.$router.push(`/build`);
             }
-            else if(this.uid==2){
+            else if(this.uid==3){
             this.$router.push(`/houseandhome`);
             }
-            else if(this.uid==4){
+            else if(this.uid==5){
             this.$router.push(`/tour`);
             }
         },

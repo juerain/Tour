@@ -133,6 +133,30 @@ server.get("/regist", (req, res) => {
 
 });
 
+// 李
+server.get("/user",(req,res)=>{
+    // 定义返回的总的结果
+    var count={
+        user:[],
+        img:[]
+    }
+    // 获取id
+    var uid=req.query.uid;
+    // 创建sql
+    var sql="SELECT * FROM cy_user WHERE uid=?";
+    pool.query(sql,[uid],(err,result)=>{
+        if(err) throw err;
+        count.user=result;
+        // 创建sql语句
+        var sql="SELECT * FROM user_img WHERE uid=?";
+        pool.query(sql,[uid],(err,result)=>{
+            if(err) throw err;
+            count.img=result;
+            res.send(count);
+        });
+    })
+})
+
 
 // 搜索页图片
 server.get("/cy", (req, res) => {

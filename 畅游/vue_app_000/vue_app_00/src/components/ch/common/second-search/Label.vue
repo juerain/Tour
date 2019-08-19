@@ -173,11 +173,12 @@ export default {
         height: 50px;
         display: flex;
         align-items: center;
+        padding-left: 8px;
     }
     /* 搜索框样式 */
   .search_input{
     width: 200px;
-    margin-left: 20px;
+    margin-left: -16px;
     height: 25px;
     border: 0px;
     padding-left: 5px;
@@ -204,7 +205,7 @@ export default {
     }
     .label{
         left: 189px;
-        border-bottom: 2px solid #000;
+        border-bottom: 1px solid #000;
     }
     /* 添加下划线 */
     .place{

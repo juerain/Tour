@@ -10,7 +10,7 @@
             <div class="right_head" @click="addFiend">
                 <!-- 右侧图片与文字 -->
                 <span>{{rightTitle}}</span>
-                <img :src=rightImg style="margin-right:15px;"  id="addImg">
+                <router-link :to="`SuggestListAllMsg/1`"><img :src=rightImg style="margin-right:15px;"  id="addImg"></router-link>
             </div>
             
         </div>
@@ -84,7 +84,7 @@ export default {
     addFiend(e) {
       var addImg = document.getElementById("addImg");
       if (e.target == addImg) {
-        this.$router.push("/SuggestListAllMsg");
+        this.$router.push("/findfiend");
       }
     },
     search(e) {

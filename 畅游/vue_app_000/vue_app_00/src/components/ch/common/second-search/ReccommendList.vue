@@ -5,13 +5,12 @@
         <div class="find_user_list" v-for="(item,i) of searchList" :key="i">
             <div class="user_list">
                 <img :src="'http://127.0.0.1:3000/'+item.uheadurl" alt="">
-                
-            </div>
-            <div class="user">
+                <div class="user">
                 <h3>{{item.uname}}</h3>
                 <span>{{item.nickname}}</span>
+                </div>
             </div>
-            <span class="del" @click="del">×</span>
+                <span class="del" @click="del">×</span>
         </div>
     </div>
     
@@ -60,7 +59,7 @@ export default {
     }
     /* 外层容器样式 */
     div.find_user_list{
-        float: left;
+        /* float: left; */
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -91,7 +90,7 @@ export default {
         color: #666;
         font-size: 20px;
         font-weight: bolder;
-        padding-left: 170px;
+        padding-right: 10px;
         
     }
 </style>
