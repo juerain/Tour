@@ -20,7 +20,8 @@ CREATE TABLE cy_user(
 );
 
 
-INSERT INTO cy_user VALUES(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",0,78,"北京","tour"),
+INSERT INTO cy_user VALUES
+(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",0,78,"北京","tour"),
 (null,"15555555555","123456@qq.com",md5('123456'),"tom",1,22,"image/head2.jpg",0,66,"河南","tour"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack1",1,25,"image/head3.jpg",0,44,"上海","tour"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack2",1,55,"image/head4.jpg",0,102,"广州","tour"),
@@ -44,7 +45,8 @@ CREATE TABLE cy_attent_user(
   uattents INT,          #关注人数
   uaddress VARCHAR(65)      #地址
 );
-INSERT INTO cy_attent_user VALUES(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",1,78,"北京"),
+INSERT INTO cy_attent_user VALUES
+(null,"15555555555","123456@qq.com",md5('123456'),"jack",1,22,"image/head1.jpg",1,78,"北京"),
 (null,"15555555555","123456@qq.com",md5('123456'),"tom",1,22,"image/head2.jpg",1,66,"河南"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack1",1,25,"image/head3.jpg",1,44,"上海");
 
@@ -68,12 +70,24 @@ CREATE TABLE cy_user_recommend(
 
 
 INSERT INTO cy_user_recommend VALUES
+<<<<<<< HEAD
 (null,"15555555555","123456@qq.com",md5('123456'),"jack2",1,55,"image/head4.jpg",0,102,"广州","tour"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack3",1,23,"image/head5.jpg",0,64,"天津","tour"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack4",1,23,"image/head6.jpg",0,78,"河北","tour"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack5",1,45,"image/head7.jpg",0,5,"新疆","tour"),
 (null,"15555555555","123456@qq.com",md5('123456'),"jack6",1,43,"image/head8.jpg",0,99,"湖南","tour"),
-(null,"15555555555","123456@qq.com",md5('123456'),"jack7",1,29,"image/head9.jpg",0,75,"湖北","tour");
+(null,"15555555555","123456@qq.com",md5('123456'),"jack7",1,29,"image/head9.jpg",0,75,"湖北","tour"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack2",1,55,"image/head4.jpg",0,102,"广州"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack3",1,23,"image/head5.jpg",0,64,"天津"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack4",1,23,"image/head6.jpg",0,78,"河北"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack5",1,45,"image/head7.jpg",0,5,"新疆"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack6",1,43,"image/head8.jpg",0,99,"湖南"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack7",1,29,"image/head9.jpg",0,75,"湖北"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack8",1,23,"image/head10.jpg",0,78,"河北"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack9",1,45,"image/head11.jpg",0,5,"新疆"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack10",1,43,"image/head8.jpg",0,99,"湖南"),
+(null,"15555555555","123456@qq.com",md5('123456'),"jack11",1,29,"image/head9.jpg",0,75,"湖北");
+
 
 
 

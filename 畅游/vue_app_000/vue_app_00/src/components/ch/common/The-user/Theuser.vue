@@ -9,8 +9,21 @@
   v-model="popupVisible"
   position="bottom">
   <div class="alert">
-    <i class="icon"></i>
-    <p>添加账户</p>
+      <div class="one">
+        <div style="display:flex; align-items:center;">
+          <img style="border-radius:50%; border:1px solid #ccc" width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
+          <p style="margin-left:15px;">suntom9</p>
+        </div>
+        <div><i><img src="../../../../assets/选中.png" alt=""></i></div>
+      </div>
+      <div class="two">
+        <button class="my_btn">0位粉丝</button>
+        <button class="my_btn">0位密友</button>
+      </div>
+      <div class="three">
+        <i style="margin:0 25px"><img src="../../../../assets/添加(1).png" alt=""></i>
+        <p style="font-size:15px">添加账户</p>
+      </div>
   </div>
 </mt-popup>
       <mt-popup id="div2"
@@ -18,9 +31,9 @@
       position="right">
         <div class="set">
           <div>
-            <p>suntom9</p>
+            <p style="border-bottom:1px solid #ccc; padding-bottom:10px;padding-left:10px">suntom9</p>
           <ul>
-            <li>私人影集</li>
+            <li><img src="../../../../assets/电影.png" alt="">私人影集</li>
             <li>你的活动</li>
             <li>名片</li>
             <li>收藏夹</li>
@@ -68,13 +81,27 @@
     <div>
       <button class="zhuyeBtn">编辑主页</button>
     </div>
+    <div class="body">
+      <mt-navbar class="page-part" v-model="selected">
+        <mt-tab-item class="tab_item" id="1"><img width="30px" height="30px" src="../../../../assets/九宫格.png" alt=""></mt-tab-item>
+        <mt-tab-item class="tab_item" id="2"><img width="30px" height="30px" src="../../../../assets/照片.png" alt=""></mt-tab-item>
+      </mt-navbar>
+    </div>
     <div>
-      <div></div>
-      <div></div>
+      <mt-tab-container v-model="selected">
+        <mt-tab-container-item id="1">
+          <homepage></homepage>
+        </mt-tab-container-item>
+        <mt-tab-container-item id="2">
+          <photosVideo></photosVideo>
+        </mt-tab-container-item>
+      </mt-tab-container>
     </div>
   </div>
 </template>
 <script>
+import Homepage from"./Homepage.vue" //引入子组件
+import PhotosVideo from"./PhotosVideo.vue"//引入子组件
 export default {
   data() {
     return {
@@ -90,7 +117,8 @@ export default {
       sheetVisible:false,
       //action sheet 选项内容
       popupVisible: false,
-      popup2Visible:false
+      popup2Visible:false,
+      selected:'1'
     }
   },
   methods: {
@@ -108,7 +136,6 @@ export default {
       div.style.width="100%";
       div.style.borderTopLeftRadius="8px";
       div.style.borderTopRightRadius="8px";
-      console.log(div)
       this.popupVisible=true;
     },
     youla(){
@@ -118,15 +145,17 @@ export default {
       this.popup2Visible=true;
     }
   },
+  components:{
+    "homepage":Homepage,
+    "photosVideo":PhotosVideo
+  },
 }
 </script>
 <style scoped>
   .alert{
 
     width:100%;
-    height: 300px;
-
-    height:200px;
+    height:180px;
   }
   .nav{
     display:flex;
@@ -172,4 +201,53 @@ export default {
     padding:3px 0;
     margin:20px 0 5px 0;
   }
+  .body{
+    margin-top:10px;
+    display:flex;
+    width:100%;
+    border-top: 1px solid #F2F2F2;
+    border-bottom:1px solid #F2F2F2;
+  }
+  .page-part{
+    display:flex;
+    width:100%;
+  }
+  .tab_item{
+    width:50%;
+    text-align: center;
+    padding:10px 0;
+  }
+ .mint-navbar .mint-tab-item.is-selected {
+   border-bottom: 1px solid #000;
+    color: #000;
+    margin:0;
+ }
+ .one{
+   margin-top:30px;
+   display: flex;
+   width: 100%;
+   justify-content:space-between;
+   align-items: center;
+ }
+ .two{
+   margin-top:10px;
+   width:100%;
+   display: flex;
+   justify-content: space-around;
+ }
+ .my_btn{
+   width:45%;
+   border-radius:10px;
+   border:1px solid #ccc;
+   background:#fff;
+   outline: none;
+   padding:5px 0;
+ }
+ .three{
+   height:80px;
+   margin-top:10px;
+   background: #ccc;
+   display:flex;
+   align-items: center;
+ }
 </style>

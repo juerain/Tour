@@ -18,9 +18,15 @@
         </div>
         <div id="allsuggestlist">
             <h4>所有推荐</h4>
-            <div id="suggest-msg-1" v-for="(item,i) of list" :key="i">
-                <img class="suggestdel-1" :src="suggestdelicon" />
+            <div id="suggest-msg-111" v-for="(item,i) of list" :key="i">
+                <!-- 删除图片 -->
+                <img class="suggestdel-1" 
+                :src="suggestdelicon" 
+                :data-id="item.uid"
+                @click="deleterecommend"/>
+                <!-- 头像图片 -->
                 <img class="msgimg-1" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
+                <!-- 用户名字 -->
                 <span class="msgname-1">{{item.uname}}</span>
                 <!-- <a class="suggest-a" href="javascript:;" 
                 :data-id="item.lid" 
@@ -41,7 +47,7 @@
                 class="suggest-a-1" @click="attentions">
                     <!-- <span v-if="item.uattention">已关注</span>
                     <span v-else>关注</span> -->
-                    {{item.uattention}}
+                    {{attentionindex[item.uattention]}}
                 </a>
             </div>
         </div>
@@ -57,7 +63,8 @@ export default {
             suggest3:"绑定通讯录",
             suggest4:"关注认识的用户",
             suggest5:"绑定",
-            list:[]// 创建一个空数组，接收后台传回的所需用户的数据
+            list:[],// 创建一个空数组，接收后台传回的所需用户的数据
+            attentionindex:["关注","已关注"]
         }
     },
     methods: {
@@ -70,11 +77,7 @@ export default {
                 this.list=list;
             })
         },
-        // attentions(index){//判断是否已关注
-        //     this.list[index].uattention = !this.list[index].uattention
-        // }
         attentions(e){//判断是否已关注
-            // this.list[index].uattention = !this.list[index].uattention
             var id=e.target.dataset.id;
             var phone=e.target.dataset.phone;
             var email=e.target.dataset.email;
@@ -86,14 +89,27 @@ export default {
             var attention=e.target.dataset.attention;
             var attents=e.target.dataset.attents;
             var address=e.target.dataset.address;
-            console.log(id,phone,email,pwd,name,sex,age,headurl,attention,attents,address);
-            attention=1;
+            attention=1;//修改默认关注的状态变为1
+            // console.log(id,phone,email,pwd,name,sex,age,headurl,attention,attents,address);
             
             var url="SuggestListAllMsg";
             var obj={uid:id,uphone:phone,uemail:email,upwd:pwd,uname:name,usex:sex,uage:age,uheadurl:headurl,uattention:attention,uattents:attents,uaddress:address}
             this.axios.get(url,{params:obj}).then(result=>{
-                
+                // this.$messagebox("关注成功");
+                this.loadmore();//调用loadmore函数，相当于加载页面
             })
+        },
+        deleterecommend(e){//删除点击事件在推荐表中的信息
+            // var id=e.target.dataset.id;
+            // console.log(id)
+            // var url="cy";
+            // var obj={uid:id}
+            // this.axios.get(url,{params:obj}).then(result=>{
+            //     // this.$messagebox("1","删除成功");
+            //     this.loadmore();
+            // })
+            var div=e.target.parentNode;//获取点击事件的父元素
+            div.style.display="none";//该元素隐藏
         }
     },
     props:{
@@ -116,6 +132,7 @@ export default {
     }
     .suggestlistallmsg-2-nav{
         position: relative;
+        height:50px;
     }
     .suggestlistallmsg-2-nav-1,.suggestlistallmsg-2-nav-2{
         width:180px;
@@ -143,7 +160,6 @@ export default {
         border-bottom: 1px solid #0000003d;
         width:359px;
         height:65px;
-        top:60px;
     }
     #addresslist-h5{
         position: absolute;
@@ -171,13 +187,13 @@ export default {
     }
     #allsuggestlist{
         position: relative;
-        top:60px;
         padding:10px;
+        min-height:400px;
     }
     /* 推荐网友信息 */
-    #suggest-msg-1{
+    #suggest-msg-111{
         position: relative;/*相对定位*/
-        width:100%;
+        width:337px;
         height:80px;
         background: #fff;
         margin-top:15px;
