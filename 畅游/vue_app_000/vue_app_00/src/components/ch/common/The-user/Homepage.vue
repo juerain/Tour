@@ -28,6 +28,7 @@ export default {
     text-align: center;
   }
   .home{
+    height:580px;
     display:flex;
     margin-top:30px;
     flex-direction:column;
