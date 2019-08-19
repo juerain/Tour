@@ -240,6 +240,51 @@ server.get("/detailes", (req, res) => {
 })
 
 
+<<<<<<< HEAD
+        //贾
+        //获取已关注用户的信息 -- 聊天页面
+        server.get("/ChatFunction", (req, res) => {
+            // 数据库获取用户的名字和头像照片地址
+            var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";   
+            
+            pool.query(sql,(err,result)=>{
+                if(err) throw err;
+                res.send({ code: 1, data: result });
+            })
+        })
+        
+        //条件查询符合查询的用户
+        server.get("/ChatFunction2",(req,res)=>{
+            var uname=req.query.uname;//条件搜索用户
+            var sql=`SELECT uid,uname,uheadurl FROM cy_attent_user WHERE uname LIKE '%${uname}%' ORDER BY uname`;
+            pool.query(sql,[uname],(err,result)=>{
+                if(err) throw err;
+                res.send({ code: 1, data: result });
+            })
+        })
+
+        //修改用户的关注状态
+
+        server.get("/SuggestListAllMsg", (req, res) => {
+            var uid = req.query.uid;//获取事件用户的id
+            var uphone = req.query.uphone;
+            var uemail = req.query.uemail;
+            var upwd = req.query.upwd;
+            var uname = req.query.uname;
+            var usex = req.query.usex;
+            var uage = req.query.uage;
+            var uheadurl = req.query.uheadurl;
+            var uattention = req.query.uattention;
+            var uattents = req.query.uattents;
+            var uaddress = req.query.uaddress;
+
+            //修改该事件用户的关注状态，并从 cy_user_recommend 推荐列表中删除该用户，使其在推荐用户中删除
+            var sql = "UPDATE cy_user_recommend SET uattention=? WHERE uid=?"
+            pool.query(sql, [uattention, uid], (err, result) => {
+                if (err) throw err;
+                //修改成功后，把该用户添加到 cy_attent_user 已关注用户列表中
+=======
+>>>>>>> 82a8a62e7bc2217721d72e3cec36522b8f229a16
 
 //贾
 //获取已关注用户的信息 -- 聊天页面
@@ -297,6 +342,16 @@ server.get("/SuggestListAllMsg", (req, res) => {
     })
 })
 
+        //获取点击用户的信息，并加载相应的信息到对应的聊天页面
+        server.get("/ChatFunction4",(req,res)=>{
+            var uid=req.query.uid;
+            // console.log(uid);
+            var sql="SELECT * FROM cy_attent_user  WHERE uid=?"
+            pool.query(sql,[uid],(err,result)=>{
+                if(err) throw err;
+                res.send({ code : 1,data : result});
+            })
+        })
 
 
 // 陶
