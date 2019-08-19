@@ -1,5 +1,6 @@
 <template>
     <div @click="point">
+        <!-- 三个点的弹窗 -->
         <div class="pop-up-box" style="display:none">
             <div class="pop-up">
                 <p>举报...</p>
@@ -29,13 +30,15 @@
             <img class="photo" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
             <div class="love">
                 <div style="display:inline"  @click="change" >
-                    <img data-did1="item.did" id="praise" src="../../../../assets/praise.png" alt="">
-                    <img data-did2="item.did" style="display:none" src="../../../../assets/praised.png" alt="" id="praised">
+                    <img :data-did="item.did" :id="item.did" src="../../../../assets/praise.png" alt="">
+                    <img  style="display:none" src="../../../../assets/praised.png" alt=""  :data-ddid="item.ddid" :id="item.ddid">
                 </div>
                 <img src="../../../../assets/discuss.png" alt="">
                 <img src="../../../../assets/plain.png" alt="" style="height:30px;">
-                <img src="../../../../assets/label.png" class="label" id="label_normal">
-                <img style="display:none;" src="../../../../assets/label2.png" alt="" class="label" id="label_selected">
+                <div style="display:inline"  @click="label" >
+                    <img :data-ldid="item.did" :id="item.did" src="../../../../assets/label.png" alt="">
+                    <img style="display:none" src="../../../../assets/label2.png" alt=""  :data-lddid="item.ddid" :id="item.ddid">
+                </div>
             </div>
             <p class="praise"><span>{{item.uattents}}次赞</span>
             </p>
@@ -59,29 +62,59 @@ export default {
         point(e){
             var point=document.getElementsByClassName("point")[0];
             var pop=document.getElementsByClassName("pop-up-box")[0];
-                console.log(pop);
+                // console.log(pop);
             if(e.target==point){
-                console.log(1);
+                // console.log(1);
                 pop.style.display="";
             }
         },
+        // 点赞功能
         change(e){
-            var imgpraise=document.getElementById("praise");
-            var imgpraised=document.getElementById("praised");
+            var did=e.target.dataset.did;
+            var ddid=e.target.dataset.ddid;
+            var imgpraised1=document.getElementById(ddid);
+            var imgpraise=document.getElementById(did);
             if(e.target==imgpraise){
+                var imgpraised=imgpraise.nextSibling;
                 imgpraise.style.display="none";
                 imgpraised.style.display="inline-block";
+            }else if(e.target==imgpraised1){
+                var imgpraise=imgpraised1.previousSibling;
+                imgpraised1.style.display="none";
+                imgpraise.style.display="inline-block";
             }
             
-            console.log(imgpraise);
+        },
+        // 收藏功能
+        label(e){
+            var did=e.target.dataset.ldid;
+            var ddid=e.target.dataset.lddid;
+            var imglabeld1=document.getElementById(ddid);
+            var imglabeld1=imglabel.parentElement;
+            var imglabel=document.getElementById(did);
+            // console.log(did);
+            // console.log(ddid);
+            console.log(imglabel);
+            console.log(imglabeld1);
+            console.log(e.target.dataset);
+            if(e.target===imglabel){
+                console.log(111);
+                var imglabeld=imglabel.nextSibling;
+                imglabel.style.display="none";
+                imglabeld.style.display="inline-block";
+            }else if(e.target==imglabeld1){
+                var imglabel=imglabeld1.previousSibling;
+                imglabeld1.style.display="none";
+                imglabel.style.display="inline-block";
+            }
             
         },
         // 请求数据
         load(){
             var obj={uid:this.uid}
             this.axios("detailes",{params:obj}).then(res => {
-            console.log(this.umid);
-            console.log(res.data);
+            // console.log(this.umid);
+            // console.log(res.data);
             this.userlist = res.data.slice(this.i);
       });
         },
@@ -109,6 +142,7 @@ export default {
 </script>
 
 <style scoped>
+    /* p标签样式 */
     p{
         margin: 5px;
     }
@@ -125,12 +159,14 @@ export default {
     div.title_box{
         display: flex;
         justify-content: flex-start;
-        background: #eee;
+        background: #f3f1f1;
+        align-items: center;
     }
     /* 箭头 */
     .arrows{
         width: 30px;
         height: 30px;
+        margin-left: 5px;
     }
     /* 下部内容容器 */
     .detaile{
@@ -139,7 +175,7 @@ export default {
     /* 标题 */
     .title{
         font-size: 20px;
-        margin: 7px 0px 0px 20px;
+        margin: 10px;
     }
     /* 用户头像div */
     div.user_div{

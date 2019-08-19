@@ -16,10 +16,10 @@
                     </div>
                     <div class="down_head">
                         <!-- 右侧图片与文字 -->
-                        <span @click="hotSearch">热门搜索</span>
-                        <span class="account" @click="account">账户</span>
-                        <span @click="label">标签</span>
-                        <span @click="place">地点</span>
+                        <div class="hotsearch"><span @click="hotSearch">热门搜索</span></div>
+                        <div class="account"><span @click="account">账户</span></div>
+                        <div class="label"><span @click="label">标签</span></div>
+                        <div class="place"><span @click="place">地点</span></div>
                     </div>
                 </div>
                 <reccommendlist
@@ -165,7 +165,7 @@ export default {
     div.find_user_head{
         width: 100%;
         height: 100px;
-        background: #eee;
+        background: #f3f1f1;
     }
     /* 上部标题样式 */
     div.up_head{
@@ -175,12 +175,6 @@ export default {
         align-items: center;
         
     }
-    /* 添加下划线 */
-    .account{
-        margin-top: 10px;
-        padding-bottom: 10px;
-        border-bottom: 2px solid #000;
-    }
     /* 搜索框样式 */
   .search_input{
     width: 200px;
@@ -189,15 +183,34 @@ export default {
     border: 0px;
     padding-left: 5px;
   }
-    /* 下面标题样式 */
-    div.down_head{
-        width: 100%;
+   /* 下面标题样式 */
+    div.down_head div{
+        width: 85px;
         height: 50px;
-        align-items: center;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+        text-align: center;
+        line-height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        background: #f3f1f1;
+        position: absolute;
+    }
+    div.down_head div span{
+        margin-top: 10px;
+    }
+    .hotsearch{
+        width: 104px !important;
+    }
+    .account{
+        left: 103px;
+        border-bottom: 2px solid #000;
+    }
+    .label{
+        left: 189px;
         
+    }
+    /* 添加下划线 */
+    .place{
+        left: 274px;
     }
     /* 箭头 */
     div.up_head img{

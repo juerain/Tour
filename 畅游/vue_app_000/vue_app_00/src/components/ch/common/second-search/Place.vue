@@ -15,9 +15,9 @@
                     </div>
                     <div class="down_head">
                         <!-- 右侧图片与文字 -->
-                        <div><span @click="hotSearch">热门搜索</span></div>
-                        <div><span @click="account">账户</span></div>
-                        <div><span @click="label">标签</span></div>
+                        <div class="hotsearch"><span @click="hotSearch">热门搜索</span></div>
+                        <div class="account"><span @click="account">账户</span></div>
+                        <div class="label"><span @click="label">标签</span></div>
                         <div class="place"><span @click="place">地点</span></div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@ export default {
     div.find_user_head{
         width: 100%;
         height: 100px;
-        background: #eee;
+        background: #f3f1f1;
     }
     /* 上部标题样式 */
     div.up_head{
@@ -175,24 +175,39 @@ export default {
     border: 0px;
     padding-left: 5px;
   }
+  div.down_head{
+      position: relative;
+  }
+
     /* 下面标题样式 */
     div.down_head div{
-        display: flex;
-        justify-content: space-around;
-        float: left;
-        margin-left: 22px;
-        
+        width: 85px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        background: #f3f1f1;
+        position: absolute;
     }
     div.down_head div span{
         margin-top: 10px;
     }
+    .hotsearch{
+        width: 104px !important;
+    }
+    .account{
+        left: 103px;
+    }
+    .label{
+        left: 189px;
+    }
     /* 添加下划线 */
     .place{
-        float: right;
-        width: 100px;
-        padding-bottom: 10px;
+        left: 274px;
         border-bottom: 2px solid #000;
     }
+
     /* 箭头 */
     div.up_head img{
         width: 30px;
