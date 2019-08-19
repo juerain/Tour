@@ -5,7 +5,7 @@
             <div class="left_head" @click="search">
                 <!-- 左侧图片与文字 -->
                 <img :src=leftImg id="searchImg">
-                <mt-field placeholder="搜索" style="background:#eee;"></mt-field>
+                <input class="search_input" placeholder="搜索"/>
             </div>
             <div class="right_head" @click="addFiend">
                 <!-- 右侧图片与文字 -->
@@ -15,8 +15,8 @@
             
         </div>
         <div class="btn"  >
-            <mt-button  @click="igtv">
-                IGTV
+            <mt-button  @click="tour">
+                旅游
             </mt-button>
             <mt-button id="shop1">
                 购物
@@ -37,7 +37,7 @@
     <div class="imgs_list">
         <div  class="search_img"  v-for="(item,i) of imglist" :key="i">
             <!-- 从地址栏传参数过去 -->
-            <router-link :to="`userdetailes/${item.uid}/${item.umid}`">
+            <router-link :to="`userdetailes/${item.uid}/${item.umid}/${i}`">
             <img :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
             </router-link>
             
@@ -78,8 +78,8 @@ export default {
     food(){
       this.$router.push("food");
     },
-    igtv(){
-      this.$router.push("igtv");
+    tour(){
+      this.$router.push("tour");
     },
     addFiend(e) {
       var addImg = document.getElementById("addImg");
@@ -116,7 +116,14 @@ div.search_head_box {
   height: 100px;
   background: #eee;
 }
-
+/* 搜索框样式 */
+  .search_input{
+    width: 200px;
+    margin-left: 20px;
+    height: 25px;
+    border: 0px;
+    padding-left: 5px;
+  }
 div.search_head {
   padding: 0;
   margin: 0;

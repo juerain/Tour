@@ -8,13 +8,13 @@
             <mt-tab-container-item id="a2">
                 <!-- 查找页 -->
                 <!-- <sea></sea> -->
-                <igtv
+                <tour
                 :leftImg="require('../../../../assets/search_normal.png')"
                 leftTitle="搜索"
                 rightTitle="+"
                 :rightImg="require('../../../../assets/me_normal.png')"
                 :imgs="require('../../../../assets/1.jpg')"
-                ></igtv>
+                ></tour>
             </mt-tab-container-item>
             <mt-tab-container-item id="a3">
                 
@@ -67,7 +67,7 @@
 <script>
 // 搜索子组件
 
-import igtv from "./IGTV-1.vue"
+import tour from "./Tour-1.vue"
 import TabBaricon from "./TabBarIcon.vue"//底部导航栏子组件
 // 引入子组件
 
@@ -115,7 +115,7 @@ export default {
 
         // 李
         // "sea":sea,
-        "igtv":igtv,
+        "tour":tour,
         "tabbaricon":TabBaricon,//底部导航栏组件
 
 

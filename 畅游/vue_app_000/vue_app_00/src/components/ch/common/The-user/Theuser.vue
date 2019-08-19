@@ -33,16 +33,16 @@
           <div>
             <p style="border-bottom:1px solid #ccc; padding-bottom:10px;padding-left:10px">suntom9</p>
           <ul>
-            <li><img src="../../../../assets/电影.png" alt="">私人影集</li>
-            <li>你的活动</li>
-            <li>名片</li>
-            <li>收藏夹</li>
-            <li>密友</li>
-            <li>发现用户</li>
+            <li><img src="../../../../assets/电影.png" alt=""> 私人影集</li>
+            <li><img src="../../../../assets/活动.png" alt=""> 你的活动</li>
+            <li><img src="../../../../assets/名片扫描.png" alt=""> 名片</li>
+            <li><img src="../../../../assets/收藏夹.png" alt=""> 收藏夹</li>
+            <li><img src="../../../../assets/好友.png" alt=""> 密友</li>
+            <li><img src="../../../../assets/添加用户(1).png" alt=""> 发现用户</li>
           </ul>
           </div>
-          <div>
-            <p>设置</p>
+          <div style="border-top:1px solid #ccc">
+            <p style="margin:0;padding:10px 0;"><img style="vertical-align: middle;margin:0 10px;" src="../../../../assets/设置.png" alt=""> 设置</p>
           </div>
         </div>
       </mt-popup>
@@ -249,5 +249,13 @@ export default {
    background: #ccc;
    display:flex;
    align-items: center;
+ }
+ .set>div>ul>li>img{
+  vertical-align: middle;
+  width:28px;height:28px;
+  margin-right:20px;
+ }
+ .set>div>ul>li{
+   margin:20px 0;
  }
 </style>

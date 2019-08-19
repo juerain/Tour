@@ -1,11 +1,5 @@
 <template>
     <div class="location_box">
-        <mt-popup
-  v-model="popupVisible"
-  position="bottom">
-  ...
-</mt-popup>
-
         <img src="../../../../assets/location.png" alt="">
         <span class="location">周边地点</span>
     </div>

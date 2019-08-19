@@ -42,7 +42,7 @@ import login from "./components/ch/common/second-search/Login.vue"
 import houseandhome from "./components/ch/common/second-search/HouseAndHome.vue"
 import build from "./components/ch/common/second-search/Build.vue"
 import food from "./components/ch/common/second-search/Food.vue"
-import igtv from "./components/ch/common/second-search/IGTV.vue"
+import tour from "./components/ch/common/second-search/Tour.vue"
 import account from "./components/ch/common/second-search/Account.vue"
 import label from "./components/ch/common/second-search/Label.vue"
 import place from "./components/ch/common/second-search/Place.vue"
@@ -90,11 +90,11 @@ export default new Router({
     {path:'/houseandhome',component:houseandhome},
     {path:'/build',component:build},
     {path:'/food',component:food},
-    {path:'/igtv',component:igtv},
+    {path:'/tour',component:tour},
     {path:'/account',component:account},
     {path:'/label',component:label},
     {path:'/place',component:place},
-    {path:'/userdetailes/:uid/:umid',component:userdetailes,props:true},
+    {path:'/userdetailes/:uid/:umid/:i',component:userdetailes,props:true},
     // {path:"/details/:lid",component:Details,props:true},
 
     {path:"/follow",component:Follow},
