@@ -196,20 +196,23 @@ server.get("/regist", (req, res) => {
         //获取已关注用户的信息 -- 聊天页面
         server.get("/ChatFunction", (req, res) => {
             // 数据库获取用户的名字和头像照片地址
+            var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";   
             
-            var uname=req.query.uname;//条件搜索用户
-            if(!uname){
-                var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";   
-            }else{
-                var sql=`SELECT uid,uname,uheadurl FROM cy_attent_user WHERE uname LIKE '%${uname}%'`;
-            }
             pool.query(sql,(err,result)=>{
                 if(err) throw err;
-                    console.log(uname);
-                    res.send({ code: 1, data: result });
+                res.send({ code: 1, data: result });
             })
         })
-                
+        
+        //条件查询符合查询的用户
+        server.get("/ChatFunction2",(req,res)=>{
+            var uname=req.query.uname;//条件搜索用户
+            var sql=`SELECT uid,uname,uheadurl FROM cy_attent_user WHERE uname LIKE '%${uname}%' ORDER BY uname`;
+            pool.query(sql,[uname],(err,result)=>{
+                if(err) throw err;
+                res.send({ code: 1, data: result });
+            })
+        })
 
         //修改用户的关注状态
 
@@ -248,6 +251,16 @@ server.get("/regist", (req, res) => {
             })
         })
 
+        //获取点击用户的信息，并加载相应的信息到对应的聊天页面
+        server.get("/ChatFunction4",(req,res)=>{
+            var uid=req.query.uid;
+            // console.log(uid);
+            var sql="SELECT * FROM cy_attent_user  WHERE uid=?"
+            pool.query(sql,[uid],(err,result)=>{
+                if(err) throw err;
+                res.send({ code : 1,data : result});
+            })
+        })
 
 
 // 陶

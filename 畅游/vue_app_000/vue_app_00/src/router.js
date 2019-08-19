@@ -14,7 +14,9 @@ import AddTv1 from "./components/ch/common/First-home/AddTv-1.vue"//开启相册
 import Camera from "./components/ch/common/First-home/Camera.vue"//开启相机功能
 import SuggestListAllMsg from "./components/ch/common/First-home/SuggestListAllMsg.vue"//推荐网友列表主页面
 import ChatFunction from "./components/ch/common/First-home/ChatFunction.vue"//查找好友聊天页面
-
+import ChatFunction2 from "./components/ch/common/First-home/ChatFunction-2.vue"//查找好友聊天页面
+import ChatFunction4 from "./components/ch/common/First-home/ChatFunction-4.vue"//好友聊天页面1
+import ChatFunction5 from "./components/ch/common/First-home/ChatFunction-5.vue"//好友聊天页面2
 
 
 // 淘
@@ -71,7 +73,10 @@ export default new Router({
     {path:"/Search",component:Search},//搜索用户视频界面
     {path:"/Camera",component:Camera},//开启照相直播页面
     {path:"/SuggestListAllMsg",component:SuggestListAllMsg},
-    {path:"/ChatFunction",component:ChatFunction},//查找好友聊天页面
+    {path:"/ChatFunction",component:ChatFunction},//查找好友聊天页面1
+    {path:"/ChatFunction2",component:ChatFunction2},//查找好友聊天页面2
+    {path:"/ChatFunction5",component:ChatFunction5},//好友聊天页面1
+    {path:"/ChatFunction4",name:"ChatFunction4",component:ChatFunction4},//好友聊天页面2
 
 
     // // 李
