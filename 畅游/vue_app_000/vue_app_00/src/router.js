@@ -17,6 +17,7 @@ import ChatFunction from "./components/ch/common/First-home/ChatFunction.vue"//�
 import ChatFunction2 from "./components/ch/common/First-home/ChatFunction-2.vue"//查找好友聊天页面
 import ChatFunction4 from "./components/ch/common/First-home/ChatFunction-4.vue"//好友聊天页面1
 import ChatFunction5 from "./components/ch/common/First-home/ChatFunction-5.vue"//好友聊天页面2
+import PersonInformation from "./components/ch/common/First-home/PersonInformation"//个人信息页面
 
 
 // 淘
@@ -79,6 +80,7 @@ export default new Router({
     {path:"/ChatFunction2",component:ChatFunction2},//查找好友聊天页面2
     {path:"/ChatFunction5",component:ChatFunction5},//好友聊天页面1
     {path:"/ChatFunction4",name:"ChatFunction4",component:ChatFunction4},//好友聊天页面2
+    {path:"/PersonInformation",name:"PersonInformation",component:PersonInformation},//个人信息页面
 
 
     // // 李
