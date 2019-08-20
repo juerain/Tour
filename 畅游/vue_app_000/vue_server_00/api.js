@@ -63,7 +63,7 @@ server.get("/login", (req, res) => {
             //登录成功
             //1.将登录成功凭据保存session
             //result=[{id:1}]
-            req.session.uid = result[0].id;
+            req.session.uid = result[0].uid;
             // console.log(req.session);
             //2.将成功消息发送脚手架
             res.send({ code: 1, msg: "登录成功" })
@@ -136,6 +136,7 @@ server.get("/regist", (req, res) => {
 // 李
 server.get("/user",(req,res)=>{
     // 定义返回的总的结果
+    console.log(req.session.uid);
     var count={
         user:[],
         img:[]
@@ -310,3 +311,13 @@ server.get("/SuggestListAllMsg", (req, res) => {
 
 
 // 陶
+//获取当前登录的用户信息
+server.get("/theuser",(req,res)=>{
+    var uid=req.session.uid;
+    console.log(req.session.uid);
+    var sql="SELECT * FROM cy_user WHERE uid=?";
+    pool.query(sql,[uid],(err,result)=>{
+        if(err) throw err;
+        res.send({code:1,msg:"查询成功",data:result});
+    })
+})

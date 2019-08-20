@@ -99,7 +99,7 @@ export default new Router({
     {path:'/userdetailes/:uid/:umid/:i',component:userdetailes,props:true},
     {path:'/userdetailes/:uid/:umid/user/:uid/:did/:i',component:user,props:true},
     // {path:"/details/:lid",component:Details,props:true},
-
+    // // 陶
     {path:"/follow",component:Follow},
     {path:"/theuser",component:theuser},
     {path:'/editpage',component:Editpage}
