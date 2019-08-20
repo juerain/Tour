@@ -79,7 +79,7 @@
       <p style="margin:0">个性签名</p>
     </div>
     <div>
-      <button class="zhuyeBtn">编辑主页</button>
+      <button @click="jup" class="zhuyeBtn">编辑主页</button>
     </div>
     <div class="body">
       <mt-navbar class="page-part" v-model="selected">
@@ -143,6 +143,9 @@ export default {
         div2.style.width="70%";
         div2.style.height="100%";
       this.popup2Visible=true;
+    },
+    jup(){
+      this.$router.push("/editpage");
     }
   },
   components:{

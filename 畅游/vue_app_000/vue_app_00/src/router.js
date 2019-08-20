@@ -47,6 +47,8 @@ import place from "./components/ch/common/second-search/Place.vue"
 import theuser from "./components/ch/common/The-user/Theuser.vue"
 // 用户图片详情
 import userdetailes from "./components/ch/common/second-search/UserDetailes.vue"
+// 编辑主页
+import Editpage from "./components/ch/common/The-user/Editpage.vue"
 
 
 
@@ -93,6 +95,7 @@ export default new Router({
     // {path:"/details/:lid",component:Details,props:true},
 
     {path:"/follow",component:Follow},
-    {path:"/theuser",component:theuser}
+    {path:"/theuser",component:theuser},
+    {path:'/editpage',component:Editpage}
   ]
 })
