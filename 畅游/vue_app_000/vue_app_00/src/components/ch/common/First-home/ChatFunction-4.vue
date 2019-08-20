@@ -7,8 +7,8 @@
             :quitchatfunction5="quitchatfunction5"
             ></chatfunction5>
             <div id="chatfunction4-nav-4" v-for="(item,i) of list" :key="i">
-                <img class="headerimgicon" :src="'http://127.0.0.1:3000/'+item.uheadurl">
-                <span class="spanuname">{{item.uname}}</span>
+                <img :data-id="item.uid" @click="personinformation" class="headerimgicon" :src="'http://127.0.0.1:3000/'+item.uheadurl">
+                <span :data-id="item.uid" @click="personinformation" class="spanuname">{{item.uname}}</span>
                 <img class="videoiconimg1" src="../../../../img/video-icon.png" />
                 <img class="writeiconimg1" src="../../../../img/write-icon.png" />
 
@@ -34,6 +34,7 @@ export default {
     },
     methods: {
         loadmore(){
+            // 获取地址栏中上一页面传的参值uid
             var obj=this.$route.params;
             // 请求服务器网址
             var url="ChatFunction4";
@@ -47,9 +48,13 @@ export default {
         },
         quitchatfunction5(){
             this.$router.push("/ChatFunction")
+        },
+        personinformation(e){
+            var id=e.target.dataset.id;
+            this.$router.push('/PersonInformation/'+id);
         }
     },
-    created(){
+    created(){//页面加载自动执行loadmore()
         this.loadmore();
     },
      //注册子组件并且给子组起一个名字

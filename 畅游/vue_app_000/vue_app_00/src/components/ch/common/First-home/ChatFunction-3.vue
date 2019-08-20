@@ -16,7 +16,7 @@
                 <img class="phonesearch" :src="phonesearchicon" />
                 <img class="msgimg-1" :src="'http://127.0.0.1:3000/'+item.uheadurl" />
                 <span class="msgname-1">{{item.uname}}</span>
-                <span @click="chatfriend" class="textchatfunction">{{text1}}</span>
+                <span :data-id="item.uid" @click="chatfriend" class="textchatfunction">{{text1}}</span>
             </div>
         </div>
     </div>
@@ -37,8 +37,7 @@ export default {
         searchiconimg:{default:""},
         quitchatfunction2:{type:Function},
         phonesearchicon:{default:""},
-        searchdel:{default:""},
-        chatfriend:{type:Function},
+        searchdel:{default:""}
     },
     methods: {
         searchfriend(){//获取搜索框中输入的信息
@@ -61,6 +60,12 @@ export default {
         },
         searchdelicon(){//当点击x删除后，搜索内容为空，则删除照隐藏
             this.kwords="";
+        },
+        chatfriend(e){//获取点击事件的id值
+            var id=e.target.dataset.id;
+            // var obj={uid:id};
+            //路由隐藏传参
+            this.$router.push('/ChatFunction4/'+id);
         }
     },
     watch:{
