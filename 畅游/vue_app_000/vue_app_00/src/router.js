@@ -52,7 +52,7 @@ import userdetailes from "./components/ch/common/second-search/UserDetailes.vue"
 // 用户组件
 import user from "./components/ch/common/second-search/User.vue"
 
-
+import Editpage from "./components/ch/common/The-user/Editpage.vue"
 
 
 
