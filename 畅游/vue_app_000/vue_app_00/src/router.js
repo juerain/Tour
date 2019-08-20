@@ -79,8 +79,8 @@ export default new Router({
     {path:"/ChatFunction",component:ChatFunction},//查找好友聊天页面1
     {path:"/ChatFunction2",component:ChatFunction2},//查找好友聊天页面2
     {path:"/ChatFunction5",component:ChatFunction5},//好友聊天页面1
-    {path:"/ChatFunction4",name:"ChatFunction4",component:ChatFunction4},//好友聊天页面2
-    {path:"/PersonInformation",name:"PersonInformation",component:PersonInformation},//个人信息页面
+    {path:"/ChatFunction4/:uid",component:ChatFunction4},//好友聊天页面2
+    {path:"/PersonInformation/:uid",component:PersonInformation},//个人信息页面
 
 
     // // 李
@@ -104,6 +104,6 @@ export default new Router({
 
     {path:"/follow",component:Follow},
     {path:"/theuser",component:theuser},
-    {path:'/editpage',component:Editpage}
+    // {path:'/editpage',component:Editpage}
   ]
 })

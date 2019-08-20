@@ -63,9 +63,9 @@ export default {
         },
         chatfriend(e){//获取点击事件的id值
             var id=e.target.dataset.id;
-            var obj={uid:id};
+            // var obj={uid:id};
             //路由隐藏传参
-            this.$router.push({name:'ChatFunction4',params:obj});
+            this.$router.push('/ChatFunction4/'+id);
         }
     },
     watch:{

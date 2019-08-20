@@ -300,6 +300,7 @@ server.get("/SuggestListAllMsg", (req, res) => {
     var uattention = req.query.uattention;
     var uattents = req.query.uattents;
     var uaddress = req.query.uaddress;
+    var ufans=req.query.ufans;
 
     //修改该事件用户的关注状态，并从 cy_user_recommend 推荐列表中删除该用户，使其在推荐用户中删除
     var sql = "UPDATE cy_user_recommend SET uattention=? WHERE uid=?"
@@ -307,7 +308,7 @@ server.get("/SuggestListAllMsg", (req, res) => {
         if (err) throw err;
         //修改成功后，把该用户添加到 cy_attent_user 已关注用户列表中
 
-        var sql1 = `INSERT INTO cy_attent_user VALUES(null,${uphone},'${uemail}','${upwd}','${uname}',${usex},${uage},'${uheadurl} ',${uattention},${uattents},'${uaddress}')`;
+        var sql1 = `INSERT INTO cy_attent_user VALUES(null,${uphone},'${uemail}','${upwd}','${uname}',${usex},${uage},'${uheadurl} ',${uattention},${uattents},'${uaddress} ${ufans}')`;
         pool.query(sql1, (err, result) => {
             if (err) throw err;
 
@@ -334,5 +335,17 @@ server.get("/ChatFunction4", (req, res) => {
     })
 })
 
+//获取个人信息
+server.get("/personinformation",(req,res)=>{
+    var uid=req.query.uid;
+    // console.log(uid);
+    var sql="SELECT * FROM cy_user WHERE uid=?";
+    pool.query(sql,[uid],(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send({ code:1, data:result})
+    })
+
+})
 
 // 陶

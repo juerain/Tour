@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         loadmore(){
-            // 获取隐式传参的值obj
+            // 获取地址栏中上一页面传的参值uid
             var obj=this.$route.params;
             // 请求服务器网址
             var url="ChatFunction4";
@@ -50,9 +50,8 @@ export default {
             this.$router.push("/ChatFunction")
         },
         personinformation(e){
-            var uid=e.target.dataset.id;
-            console.log(uid);
-            var url="";
+            var id=e.target.dataset.id;
+            this.$router.push('/PersonInformation/'+id);
         }
     },
     created(){//页面加载自动执行loadmore()
