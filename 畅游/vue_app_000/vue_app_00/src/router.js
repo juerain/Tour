@@ -103,6 +103,7 @@ export default new Router({
     // {path:"/details/:lid",component:Details,props:true},
 
     {path:"/follow",component:Follow},
-    {path:"/theuser",component:theuser}
+    {path:"/theuser",component:theuser},
+    {path:'/editpage',component:Editpage}
   ]
 })

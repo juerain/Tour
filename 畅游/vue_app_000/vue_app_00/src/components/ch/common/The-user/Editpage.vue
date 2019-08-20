@@ -1,6 +1,6 @@
 <template>
   <div>
-    编辑主页
+    <i @click="fanhui"><img style="" src="../../../../assets/关闭.png" alt=""></i>   编辑主页
   </div>
 </template>
 <script>
@@ -10,6 +10,11 @@ export default {
       
     }
   },  
+  methods: {
+    fanhui(){
+      this.$router.push("/theuser");
+    }
+  },
 }
 </script>
 <style scoped>

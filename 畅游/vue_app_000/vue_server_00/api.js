@@ -241,6 +241,7 @@ server.get("/detailes", (req, res) => {
 
 
 
+
 //贾
 //获取已关注用户的信息 -- 聊天页面
 server.get("/ChatFunction", (req, res) => {
@@ -262,6 +263,8 @@ server.get("/ChatFunction2", (req, res) => {
         res.send({ code: 1, data: result });
     })
 })
+
+
 
 
 //贾
