@@ -14,7 +14,9 @@ import AddTv1 from "./components/ch/common/First-home/AddTv-1.vue"//开启相册
 import Camera from "./components/ch/common/First-home/Camera.vue"//开启相机功能
 import SuggestListAllMsg from "./components/ch/common/First-home/SuggestListAllMsg.vue"//推荐网友列表主页面
 import ChatFunction from "./components/ch/common/First-home/ChatFunction.vue"//查找好友聊天页面
-
+import ChatFunction2 from "./components/ch/common/First-home/ChatFunction-2.vue"//查找好友聊天页面
+import ChatFunction4 from "./components/ch/common/First-home/ChatFunction-4.vue"//好友聊天页面1
+import ChatFunction5 from "./components/ch/common/First-home/ChatFunction-5.vue"//好友聊天页面2
 
 
 // 淘
@@ -30,7 +32,7 @@ import home from "./components/ch/Home.vue"
 import searchhome from "./components/ch/common/second-search/SearchHome.vue"
 import search from "./components/ch/common/second-search/Search.vue"
 // 引入查找用户组件
-import finduser from "./components/ch/common/second-search/FindUser.vue"
+import findfiend from "./components/ch/common/second-search/FindFiend.vue"
 // 引入热门搜索组件
 import hotsearch from "./components/ch/common/second-search/SearchList.vue"
 // 引入注册组件
@@ -40,15 +42,15 @@ import login from "./components/ch/common/second-search/Login.vue"
 import houseandhome from "./components/ch/common/second-search/HouseAndHome.vue"
 import build from "./components/ch/common/second-search/Build.vue"
 import food from "./components/ch/common/second-search/Food.vue"
-import igtv from "./components/ch/common/second-search/IGTV.vue"
+import tour from "./components/ch/common/second-search/Tour.vue"
 import account from "./components/ch/common/second-search/Account.vue"
 import label from "./components/ch/common/second-search/Label.vue"
 import place from "./components/ch/common/second-search/Place.vue"
 import theuser from "./components/ch/common/The-user/Theuser.vue"
 // 用户图片详情
 import userdetailes from "./components/ch/common/second-search/UserDetailes.vue"
-// 编辑主页
-import Editpage from "./components/ch/common/The-user/Editpage.vue"
+// 用户组件
+import user from "./components/ch/common/second-search/User.vue"
 
 
 
@@ -73,13 +75,16 @@ export default new Router({
     {path:"/Search",component:Search},//搜索用户视频界面
     {path:"/Camera",component:Camera},//开启照相直播页面
     {path:"/SuggestListAllMsg",component:SuggestListAllMsg},
-    {path:"/ChatFunction",component:ChatFunction},//查找好友聊天页面
+    {path:"/ChatFunction",component:ChatFunction},//查找好友聊天页面1
+    {path:"/ChatFunction2",component:ChatFunction2},//查找好友聊天页面2
+    {path:"/ChatFunction5",component:ChatFunction5},//好友聊天页面1
+    {path:"/ChatFunction4",name:"ChatFunction4",component:ChatFunction4},//好友聊天页面2
 
 
     // // 李
     {path:'/home',component:home},
     {path:'/searchhome',component:searchhome},
-    {path:'/finduser',component:finduser},
+    {path:'/findfiend',component:findfiend},
     {path:'/shop',component:search},
     {path:'/hotsearch',component:hotsearch},
     {path:'/regist',component:regist},
@@ -87,11 +92,12 @@ export default new Router({
     {path:'/houseandhome',component:houseandhome},
     {path:'/build',component:build},
     {path:'/food',component:food},
-    {path:'/igtv',component:igtv},
+    {path:'/tour',component:tour},
     {path:'/account',component:account},
     {path:'/label',component:label},
     {path:'/place',component:place},
-    {path:'/userdetailes/:uid/:umid',component:userdetailes,props:true},
+    {path:'/userdetailes/:uid/:umid/:i',component:userdetailes,props:true},
+    {path:'/userdetailes/:uid/:umid/user/:uid/:did/:i',component:user,props:true},
     // {path:"/details/:lid",component:Details,props:true},
 
     {path:"/follow",component:Follow},

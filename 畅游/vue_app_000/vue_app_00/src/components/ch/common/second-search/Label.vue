@@ -8,14 +8,21 @@
             </mt-tab-container-item>
             <mt-tab-container-item id="a2">
                 <!-- 查找页 -->
-                <searchlisttitlebar
-                :upImg="require('../../../../assets/arrows.png')"
-                upTitle="搜索"
-                downHotSearch="热门搜索"
-                downAccount="账户"
-                downLable="标签"
-                downPlace="地点"
-                ></searchlisttitlebar>
+                <!-- 搜索用户顶部导航栏子组件 -->
+                <div class="find_user_head" @click="arrows">
+                    <div class="up_head">
+                        <!-- 左侧图片与文字 -->
+                        <img src="../../../../assets/arrows.png" id="arrowsImg">
+                        <input class="search_input" type="text" placeholder="搜索">
+                    </div>
+                    <div class="down_head">
+                        <!-- 右侧图片与文字 -->
+                        <div class="hotsearch"><span @click="hotSearch">热门搜索</span></div>
+                        <div class="account"><span @click="account">账户</span></div>
+                        <div class="label"><span @click="label">标签</span></div>
+                        <div class="place"><span @click="place">地点</span></div>
+                    </div>
+                </div>
                 <reccommendlist
                 :userListImg="require('../../../../assets/1.jpg')"
                 user="用户名"
@@ -106,6 +113,25 @@ export default {
         me(){
             this.$router.push("/cy");
         },
+        arrows(e){
+            var img=document.getElementById("arrowsImg");
+            if(e.target==img){
+                this.$router.push("/shop");
+            }
+        },
+        hotSearch(){
+            this.$router.push("hotsearch");
+
+        },
+        account(){
+            this.$router.push("account");
+        },
+        label(){
+            this.$router.push("label");
+        },
+        place(){
+            this.$router.push("place");
+        },
         changeState(n){
             //函数功能:将当前参数下标
             //对应数组值修改true其它修改false
@@ -134,6 +160,68 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
+    /* 外层容器样式 */
+    div.find_user_head{
+        width: 100%;
+        height: 100px;
+        background: #f3f1f1;
+    }
+    /* 上部标题样式 */
+    div.up_head{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        padding-left: 8px;
+    }
+    /* 搜索框样式 */
+  .search_input{
+    width: 200px;
+    margin-left: -16px;
+    height: 25px;
+    border: 0px;
+    padding-left: 5px;
+  }
+    /* 下面标题样式 */
+    div.down_head div{
+        width: 85px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+        background: #f3f1f1;
+        position: absolute;
+    }
+    div.down_head div span{
+        margin-top: 10px;
+    }
+    .hotsearch{
+        width: 104px !important;
+    }
+    .account{
+        left: 103px;
+    }
+    .label{
+        left: 189px;
+        border-bottom: 1px solid #000;
+    }
+    /* 添加下划线 */
+    .place{
+        left: 274px;
+    }
+
+    /* 箭头 */
+    div.up_head img{
+        width: 30px;
+        margin-right: 30px;
+    }
+    /* 下面标题样式 */
+    div.down_head span{
+        font-size: 20px;
+        color: #ccc;
+        font-weight: bolder;
+    }
 
 </style>
