@@ -264,7 +264,7 @@ INSERT INTO cy_user_detail VALUES
 (null,9942,9,"15555555555","123456@qq.com",md5('123456'),"jack77",1,45,"image/head7.jpg",0,5,"新疆","image/scenery7.jpg",66,188),
 (null,9943,9,"15555555555","123456@qq.com",md5('123456'),"jack78",1,43,"image/head8.jpg",0,99,"湖南","image/scenery8.jpg",66,188),
 (null,9944,9,"15555555555","123456@qq.com",md5('123456'),"jack79",1,29,"image/head9.jpg",0,75,"湖北","image/scenery9.jpg",66,188);
-=======
+
 (null,990,1,"15555555555","123456@qq.com",md5('123456'),"jack1",1,22,"image/head1.jpg",0,78,"北京","image/food1.jpg"),
 (null,991,1,"15555555555","123456@qq.com",md5('123456'),"jack2",1,22,"image/head2.jpg",0,66,"河南","image/food2.jpg"),
 (null,992,1,"155555house5","123456@qq.com",md5('123456'),"jack3",1,25,"image/head3.jpg",0,44,"上海","image/food3.jpg"),

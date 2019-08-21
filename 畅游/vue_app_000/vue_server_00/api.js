@@ -274,7 +274,6 @@ server.get("/detailes", (req, res) => {
 server.get("/ChatFunction", (req, res) => {
     // 数据库获取用户的名字和头像照片地址
     var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";
-
     pool.query(sql, (err, result) => {
         if (err) throw err;
         res.send({ code: 1, data: result });
@@ -321,7 +320,6 @@ server.get("/SuggestListAllMsg", (req, res) => {
 server.get("/ChatFunction", (req, res) => {
     // 数据库获取用户的名字和头像照片地址
     var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";
-
     pool.query(sql, (err, result) => {
         if (err) throw err;
         res.send({ code: 1, data: result });
@@ -346,7 +344,6 @@ server.get("/ChatFunction2", (req, res) => {
 //获取已关注用户的信息 -- 聊天页面
 server.get("/ChatFunction", (req, res) => {
     // 数据库获取用户的名字和头像照片地址
-
     var uname = req.query.uname;//条件搜索用户
     if (!uname) {
         var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";
@@ -355,7 +352,6 @@ server.get("/ChatFunction", (req, res) => {
     }
     pool.query(sql, (err, result) => {
         if (err) throw err;
-        console.log(uname);
         res.send({ code: 1, data: result });
     })
 })
@@ -402,7 +398,6 @@ server.get("/SuggestListAllMsg", (req, res) => {
 //获取点击用户的信息，并加载相应的信息到对应的聊天页面
 server.get("/ChatFunction4", (req, res) => {
     var uid = req.query.uid;
-    // console.log(uid);
     var sql = "SELECT * FROM cy_attent_user  WHERE uid=?"
     pool.query(sql, [uid], (err, result) => {
         if (err) throw err;
@@ -413,15 +408,36 @@ server.get("/ChatFunction4", (req, res) => {
 //获取个人信息
 server.get("/personinformation", (req, res) => {
     var uid = req.query.uid;
-    // console.log(uid);
     var sql = "SELECT * FROM cy_user WHERE uid=?";
     pool.query(sql, [uid], (err, result) => {
         if (err) throw err;
-        console.log(result);
         res.send({ code: 1, data: result })
     })
-
 })
+
+//获取全部照片
+server.get("/video",(req,res)=>{
+    var sql="SELECT * FROM cy_user_detail";
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        res.send({code :1, data: result});
+    })
+})
+
+//获取点击事件的信息
+server.get("/tvvideo2",(req,res)=>{
+    var did=req.query.did;
+    var sql="SELECT * FROM cy_user_detail WHERE did=?";
+    pool.query(sql,[did],(err,result)=>{
+        if(err) throw err;
+        res.send({code :1, data: result});
+    })
+})
+
+
+
+
+
 
 // 陶
 //获取当前登录的用户信息

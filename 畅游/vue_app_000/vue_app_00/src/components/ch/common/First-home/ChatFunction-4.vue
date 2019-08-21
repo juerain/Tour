@@ -106,7 +106,7 @@ export default {
         margin-top:1px;
     }
     .bottom-send-msg{
-        margin-top:545px;;
+        margin-top:540px;;
         border-radius: 30px;
         width:100%;
         height:40px;

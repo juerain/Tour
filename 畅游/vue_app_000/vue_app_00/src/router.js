@@ -18,6 +18,8 @@ import ChatFunction2 from "./components/ch/common/First-home/ChatFunction-2.vue"
 import ChatFunction4 from "./components/ch/common/First-home/ChatFunction-4.vue"//好友聊天页面1
 import ChatFunction5 from "./components/ch/common/First-home/ChatFunction-5.vue"//好友聊天页面2
 import PersonInformation from "./components/ch/common/First-home/PersonInformation"//个人信息页面
+import TvVideo1 from './components/ch/common/First-home/TvVideo-1'//个人信息页面
+import TvVideo2 from './components/ch/common/First-home/TvVideo-2'//个人信息页面
 
 
 // 淘
@@ -82,6 +84,8 @@ export default new Router({
     {path:"/ChatFunction5",component:ChatFunction5},//好友聊天页面1
     {path:"/ChatFunction4/:uid",component:ChatFunction4},//好友聊天页面2
     {path:"/PersonInformation/:uid",component:PersonInformation},//个人信息页面
+    {path:"/TvVideo1/:uid",component:TvVideo1},//个人信息页面
+    {path:"/TvVideo2/:did",component:TvVideo2},//个人发布视频页面
 
 
     // // 李

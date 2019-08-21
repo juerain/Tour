@@ -1,12 +1,11 @@
 <template>
-    <div>
+    <div id="tvnav">
         <div id="tv-nve" fixed>
            <img class="img-21" :src="quiticon" @click="quit1"/>
            <span class="span-21">IGTV</span>
            <img class="img-22" :src="searchicon" @click="searchmsg" />
            <img class="img-23" :src="joinicon" @click="addInstall" />
         </div>
-        <!-- <img src="../../../img/" alt=""> -->
     </div>
 </template>
 
@@ -24,9 +23,16 @@ export default {
 </script>
 
 <style>
+    #tvnav{
+        position: fixed;
+        width:355px;
+        left: 10px;
+        z-index: 999;
+    }
     #tv-nve{
         background: #000;
         height:60px;
+        width:100%;
     }
     .img-21{
         width:25px;
