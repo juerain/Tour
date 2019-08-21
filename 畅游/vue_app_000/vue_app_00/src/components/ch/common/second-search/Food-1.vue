@@ -5,12 +5,12 @@
             <div class="left_head" @click="search">
                 <!-- 左侧图片与文字 -->
                 <img :src=leftImg id="searchImg">
-                <input class="search_input" placeholder="搜索"/>
+                <span>搜索</span>
             </div>
-            <div class="right_head" @click="addFiend">
+            <div class="right_head">
                 <!-- 右侧图片与文字 -->
                 <span>{{rightTitle}}</span>
-                <img :src=rightImg style="margin-right:15px;"  id="addImg">
+                <router-link :to="`findfiend/5`"><img :src=rightImg style="margin-right:15px;"  id="addImg"></router-link>
             </div>
             
         </div>
@@ -27,7 +27,7 @@
             <mt-button id="build1" @click="build">
                 建筑
             </mt-button>
-            <mt-button id="food1" @click="change(4)">
+            <mt-button id="food1">
                 美食
             </mt-button>
         </div>
@@ -83,12 +83,6 @@ export default {
     igtv(){
       this.$router.push("igtv");
     },
-    addFiend(e) {
-      var addImg = document.getElementById("addImg");
-      if (e.target == addImg) {
-        this.$router.push("/SuggestListAllMsg");
-      }
-    },
     search(e) {
       var searchImg = document.getElementById("searchImg");
       if (e.target == searchImg) {
@@ -102,22 +96,6 @@ export default {
         // console.log(this.imglist[0]);
       });
     },
-    change(e,i) {
-      var shop1 = document.getElementById("shop1");
-      var shop = document.getElementById("1");
-      var search = document.getElementById("2");
-      var search1 = document.getElementById("search1");
-    //   console.log(i);
-        // console.log(search1)
-        // console.log(e.target)
-      if (e.target == shop1) {
-        shop.style.display = "block";
-        search.style.display = "none";
-      }else{
-          shop.style.display = "none";
-        search.style.display = "block";
-      }
-    }
   },
   created() {
     this.load();
@@ -156,6 +134,12 @@ div.left_head,
 div.right_head {
   display: flex;
   align-items: center;
+}
+#addImg{
+  margin-top: 5px;
+}
+div.left_head span{
+  font-weight: bolder;
 }
 /* 图片样式 */
 div.search_head img {

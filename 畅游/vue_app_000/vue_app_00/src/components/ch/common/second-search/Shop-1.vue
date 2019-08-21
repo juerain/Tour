@@ -5,12 +5,12 @@
             <div class="left_head" @click="search">
                 <!-- 左侧图片与文字 -->
                 <img :src=leftImg id="searchImg">
-                <input class="search_input" placeholder="搜索"/>
+                <span>搜索</span>
             </div>
-            <div class="right_head" @click="addFiend">
+            <div class="right_head">
                 <!-- 右侧图片与文字 -->
                 <span>{{rightTitle}}</span>
-                <router-link :to="`SuggestListAllMsg/1`"><img :src=rightImg style="margin-right:15px;"  id="addImg"></router-link>
+                <router-link :to="`findfiend/2`"><img :src=rightImg style="margin-right:15px;"  id="addImg"></router-link>
             </div>
             
         </div>
@@ -81,12 +81,6 @@ export default {
     tour(){
       this.$router.push("tour");
     },
-    addFiend(e) {
-      var addImg = document.getElementById("addImg");
-      if (e.target == addImg) {
-        this.$router.push("/findfiend");
-      }
-    },
     search(e) {
       var searchImg = document.getElementById("searchImg");
       if (e.target == searchImg) {
@@ -145,6 +139,13 @@ div.right_head {
 div.search_head img {
   width: 25px;
   display: inline-block;
+  
+}
+#addImg{
+  margin-top: 5px;
+}
+div.left_head span{
+  font-weight: bolder;
 }
 /* 加号样式 */
 div.search_head > div.right_head > span {

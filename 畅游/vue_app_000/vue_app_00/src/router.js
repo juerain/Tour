@@ -47,6 +47,7 @@ import tour from "./components/ch/common/second-search/Tour.vue"
 import account from "./components/ch/common/second-search/Account.vue"
 import label from "./components/ch/common/second-search/Label.vue"
 import place from "./components/ch/common/second-search/Place.vue"
+import aroundsite from "./components/ch/common/second-search/AroundSite.vue"
 import theuser from "./components/ch/common/The-user/Theuser.vue"
 // 用户图片详情
 import userdetailes from "./components/ch/common/second-search/UserDetailes.vue"
@@ -86,7 +87,7 @@ export default new Router({
     // // 李
     {path:'/home',component:home},
     {path:'/searchhome',component:searchhome},
-    {path:'/findfiend',component:findfiend},
+    {path:'/findfiend/:num',component:findfiend,props:true},
     {path:'/shop',component:search},
     {path:'/hotsearch',component:hotsearch},
     {path:'/regist',component:regist},
@@ -98,8 +99,9 @@ export default new Router({
     {path:'/account',component:account},
     {path:'/label',component:label},
     {path:'/place',component:place},
+    {path:'/aroundsite',component:aroundsite},
     {path:'/userdetailes/:uid/:umid/:i',component:userdetailes,props:true},
-    {path:'/userdetailes/:uid/:umid/user/:uid/:did/:i',component:user,props:true},
+    {path:'/userdetailes/:uid/:umid/user/:did/:i',component:user,props:true},
     // {path:"/details/:lid",component:Details,props:true},
     // // 陶
     {path:"/follow",component:Follow},

@@ -5,12 +5,12 @@
             <div class="left_head" @click="search">
                 <!-- 左侧图片与文字 -->
                 <img :src=leftImg id="searchImg">
-                <input class="search_input" placeholder="搜索"/>
+                <span>搜索</span>
             </div>
-            <div class="right_head" @click="addFiend">
+            <div class="right_head">
                 <!-- 右侧图片与文字 -->
                 <span>{{rightTitle}}</span>
-                <img :src=rightImg style="margin-right:15px;"  id="addImg">
+                <router-link :to="`findfiend/3`"><img :src=rightImg style="margin-right:15px;"  id="addImg"></router-link>
             </div>
             
         </div>
@@ -83,12 +83,6 @@ export default {
     igtv(){
       this.$router.push("igtv");
     },
-    addFiend(e) {
-      var addImg = document.getElementById("addImg");
-      if (e.target == addImg) {
-        this.$router.push("/SuggestListAllMsg");
-      }
-    },
     search(e) {
       var searchImg = document.getElementById("searchImg");
       if (e.target == searchImg) {
@@ -140,6 +134,12 @@ div.left_head,
 div.right_head {
   display: flex;
   align-items: center;
+}
+div.left_head span{
+  font-weight: bolder;
+}
+#addImg{
+  margin-top: 5px;
 }
 /* 图片样式 */
 div.search_head img {
