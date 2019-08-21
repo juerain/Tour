@@ -31,15 +31,15 @@
       position="right">
         <div class="set">
           <div>
-            <p style="border-bottom:1px solid #ccc; padding-bottom:10px;padding-left:10px">{{list.uname}}</p>
-          <ul>
+            <p style="border-bottom:1px solid #ccc; padding:10px 10px;">{{list.uname}}</p>
+          <div class="codebody">
             <li><img src="../../../../assets/电影.png" alt=""> 私人影集</li>
             <li><img src="../../../../assets/活动.png" alt=""> 你的活动</li>
             <li><img src="../../../../assets/名片扫描.png" alt=""> 名片</li>
             <li><img src="../../../../assets/收藏夹.png" alt=""> 收藏夹</li>
             <li><img src="../../../../assets/好友.png" alt=""> 密友</li>
             <li><img src="../../../../assets/添加用户(1).png" alt=""> 发现用户</li>
-          </ul>
+          </div>
           </div>
           <div style="border-top:1px solid #ccc">
             <p style="margin:0;padding:10px 0;"><img style="vertical-align: middle;margin:0 10px;" src="../../../../assets/设置.png" alt=""> 设置</p>
@@ -58,7 +58,7 @@
       >
       </mt-actionsheet>
       <div style="width:100%;">
-        <ul class="guanzhu">
+        <div class="guanzhu">
           <li>
             <i>0</i>
             <p>帖子</p>
@@ -71,7 +71,7 @@
             <i>32</i>
             <p>已关注</p>
           </li>
-        </ul>
+        </div>
       </div>
     </div>
     <div style="margin-top:10px;">
@@ -169,6 +169,12 @@ export default {
 }
 </script>
 <style scoped>
+.codebody>li{
+  margin:20px 0 20px 50px;
+}
+li{
+  list-style:none;
+}
 .guanzhu{
   width:100%;
   display: flex;
@@ -278,7 +284,7 @@ export default {
    display:flex;
    align-items: center;
  }
- .set>div>ul>li>img{
+ .codebody>li>img{
   vertical-align: middle;
   width:28px;height:28px;
   margin-right:20px;
