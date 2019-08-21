@@ -141,21 +141,33 @@ server.get("/user",(req,res)=>{
         img:[]
     }
     // 获取id
-    var uid=req.query.uid;
+    var did=req.query.did;
     // 创建sql
-    var sql="SELECT * FROM cy_user WHERE uid=?";
-    pool.query(sql,[uid],(err,result)=>{
+    var sql="SELECT * FROM cy_user_detail WHERE did=?";
+    pool.query(sql,[did],(err,result)=>{
         if(err) throw err;
         count.user=result;
         // 创建sql语句
-        var sql="SELECT * FROM user_img WHERE uid=?";
-        pool.query(sql,[uid],(err,result)=>{
+        var sql="SELECT * FROM user_images WHERE uid=?";
+        pool.query(sql,[did],(err,result)=>{
             if(err) throw err;
             count.img=result;
             res.send(count);
         });
     })
 })
+
+// 获取地点
+server.get("/place",(req,res)=>{
+    // 创建sql语句
+    var sql="SELECT * FROM cy_place";
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        res.send(result);
+    })
+})
+
+
 
 
 // 搜索页图片
@@ -240,7 +252,7 @@ server.get("/detailes", (req, res) => {
 })
 
 
-<<<<<<< HEAD
+
         //贾
         //获取已关注用户的信息 -- 聊天页面
         server.get("/ChatFunction", (req, res) => {
@@ -283,8 +295,9 @@ server.get("/detailes", (req, res) => {
             pool.query(sql, [uattention, uid], (err, result) => {
                 if (err) throw err;
                 //修改成功后，把该用户添加到 cy_attent_user 已关注用户列表中
-=======
->>>>>>> 82a8a62e7bc2217721d72e3cec36522b8f229a16
+            })
+        })
+
 
 //贾
 //获取已关注用户的信息 -- 聊天页面

@@ -13,7 +13,7 @@
                     <div class="up_head">
                         <!-- 左侧图片与文字 -->
                         <img src="../../../../assets/arrows.png" id="arrowsImg">
-                        <input class="search_input" type="text" placeholder="搜索">
+                        <input class="search_input" type="text" placeholder="搜索话题或标签">
                     </div>
                     <div class="down_head">
                         <!-- 右侧图片与文字 -->
@@ -23,11 +23,11 @@
                         <div class="place"><span @click="place">地点</span></div>
                     </div>
                 </div>
-                <reccommendlist
+                <!-- <reccommendlist
                 :userListImg="require('../../../../assets/1.jpg')"
                 user="用户名"
                 nickname="用户昵称"
-                ></reccommendlist>
+                ></reccommendlist> -->
             </mt-tab-container-item>
             <mt-tab-container-item id="a3">
                 <!-- 关注页 -->

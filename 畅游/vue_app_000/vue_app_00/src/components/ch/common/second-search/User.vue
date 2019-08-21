@@ -35,7 +35,7 @@
             <span>{{item.uname}}</span>
         </div>
         <div class="btn">
-            <mt-button size="large" type="primary">关注</mt-button>
+            <mt-button @click="focus" id="focus" size="large" type="primary">关注</mt-button>
             <mt-button size="large" type="default">发消息</mt-button>
         </div>
     </div>
@@ -57,8 +57,16 @@ export default {
     },
     props:["uid","did","i"],
     methods: {
+        focus(e){
+            var btn=document.getElementById("focus");
+            if(e.target===btn&&btn.innerHTML==="关注"){
+                btn.innerHTML="已关注"
+            }else{
+                btn.innerHTML="关注"
+            }
+        },
         load(){
-            var obj={uid:this.uid}
+            var obj={did:this.did,uid:this.uid}
             this.axios("user",{params:obj})
             .then(res=>{
                 // console.log(res);

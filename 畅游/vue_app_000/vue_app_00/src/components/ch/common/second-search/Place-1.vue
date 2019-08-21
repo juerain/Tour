@@ -1,7 +1,7 @@
 <template>
     <div class="location_box">
         <img src="../../../../assets/location.png" alt="">
-        <span class="location">周边地点</span>
+        <span class="location" @click="site">周边地点</span>
     </div>
     
 </template>
@@ -10,7 +10,11 @@
 export default {
     data(){
         return{
-           
+        }
+    },
+    methods: {
+        site(){
+            this.$router.push("/aroundsite");
         }
     },
     

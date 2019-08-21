@@ -11,7 +11,7 @@
                     <div class="up_head">
                         <!-- 左侧图片与文字 -->
                         <img src="../../../../assets/arrows.png" id="arrowsImg">
-                        <input class="search_input" type="text" placeholder="搜索">
+                        <input class="search_input" type="text" placeholder="搜索地点">
                     </div>
                     <div class="down_head">
                         <!-- 右侧图片与文字 -->

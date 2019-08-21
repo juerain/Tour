@@ -1,5 +1,6 @@
 <template>
-    <div @click="point">
+<div>
+    <div v-for="(item,i) of userlist" :key="i" @click="point">
         <!-- 三个点的弹窗 -->
         <div class="pop-up-box" style="display:none">
             <div class="pop-up">
@@ -14,12 +15,14 @@
                 <img @click="arrows"  src="../../../../assets/arrows.png" alt="" class="arrows">
                 <h3 class="title">发现</h3>
             </div>
-        <div class="detaile" v-for="(item,i) of userlist" :key="i">
+        <div class="detaile">
             <div class="head_box">
                 <div class="head">
                     <img class="head" :src="'http://127.0.0.1:3000/'+item.uheadurl" alt="">
                     <div class="user_div">
-                        <span class="user">{{item.uname}} ·<span class="reccommend">关注</span></span>
+                        <div>
+                            <router-link :to="`user/${item.did}/${i}`"><span class="user">{{item.uname}} ·</span></router-link><span class="reccommend">关注</span>
+                        </div>
                         <span class="address">{{item.uaddress}}</span>
                     </div>
                 </div>
@@ -27,25 +30,28 @@
                 <img class="point" src="../../../../assets/point.png" alt="">
                 
             </div>
-            <router-link :to="`user/${item.uid}/${item.did}/${i}`"><img class="photo" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt=""></router-link>
+            <img class="photo" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
             <div class="love">
-                <div style="display:inline"  @click="change" >
-                    <img :data-did="item.did" :id="item.did" src="../../../../assets/praise.png" alt="">
-                    <img  style="display:none" src="../../../../assets/praised.png" alt=""  :data-ddid="item.ddid" :id="item.ddid">
+                <div>
+                    <div style="display:inline"  @click="change" >
+                        <img :data-did="item.did" :id="item.did" src="../../../../assets/praise.png" alt="">
+                        <img  style="display:none" src="../../../../assets/praised.png" alt=""  :data-ddid="item.ddid" :id="item.ddid">
+                    </div>
+                    <img src="../../../../assets/discuss.png" alt="">
+                    <img src="../../../../assets/plain.png" alt="" style="height:30px;">
                 </div>
-                <img src="../../../../assets/discuss.png" alt="">
-                <img src="../../../../assets/plain.png" alt="" style="height:30px;">
-                <div style="display:inline"  @click="label" >
-                    <img :data-ldid="item.did" :id="item.did" src="../../../../assets/label.png" alt="">
-                    <img style="display:none" src="../../../../assets/label2.png" alt=""  :data-lddid="item.ddid" :id="item.ddid">
+                <div style="display:inline"  >
+                    <img  id="img1" src="../../../../assets/label.png" alt="">
+                    <img class="hiden" id="img2" src="../../../../assets/label2.png" alt="" >
                 </div>
             </div>
             <p class="praise"><span>{{item.uattents}}次赞</span>
             </p>
-            <p><span class="user">{{item.uname}}</span> jidnfdffdijfjspa <span>更多</span></p>
+            <p><router-link :to="`user/${item.uid}/${item.did}/${i}`"><span class="user">{{item.uname}}</span></router-link> jidnfdffdijfjspa <span>更多</span></p>
             <p class="similar">2天前·你赞过相似的照片</p>
         </div>
         </div>
+    </div>
     </div>
 </template>
 
@@ -55,9 +61,11 @@ export default {
     data(){
         return{
             userlist:[],
+            arr:[0,1,2,3,4,5,6,7,8,9]
         }
     },
     props:["uid","umid","i"],
+
     methods: {
         point(e){
             var point=document.getElementsByClassName("point")[0];
@@ -70,7 +78,7 @@ export default {
                 pop.style.display="none"
             }
         },
-        // 点赞功能
+        //点赞功能
         change(e){
             var did=e.target.dataset.did;
             var ddid=e.target.dataset.ddid;
@@ -87,30 +95,31 @@ export default {
             }
             
         },
+       
         // 收藏功能
-        label(e){
-            var did=e.target.dataset.ldid;
-            var ddid=e.target.dataset.lddid;
-            var imglabeld1=document.getElementById(ddid);
-            var imglabeld1=imglabel.parentElement;
-            var imglabel=document.getElementById(did);
-            // console.log(did);
-            // console.log(ddid);
-            console.log(imglabel);
-            console.log(imglabeld1);
-            console.log(e.target.dataset);
-            if(e.target===imglabel){
-                console.log(111);
-                var imglabeld=imglabel.nextSibling;
-                imglabel.style.display="none";
-                imglabeld.style.display="inline-block";
-            }else if(e.target==imglabeld1){
-                var imglabel=imglabeld1.previousSibling;
-                imglabeld1.style.display="none";
-                imglabel.style.display="inline-block";
-            }
+        // label(e){
+        //     var did=e.target.dataset.ldid;
+        //     var ddid=e.target.dataset.lddid;
+        //     var imglabeld1=document.getElementById(ddid);
+        //     var imglabeld1=imglabel.parentElement;
+        //     var imglabel=document.getElementById(did);
+        //     // console.log(did);
+        //     // console.log(ddid);
+        //     console.log(imglabel);
+        //     console.log(imglabeld1);
+        //     console.log(e.target.dataset);
+        //     if(e.target===imglabel){
+        //         console.log(111);
+        //         var imglabeld=imglabel.nextSibling;
+        //         imglabel.style.display="none";
+        //         imglabeld.style.display="inline-block";
+        //     }else if(e.target==imglabeld1){
+        //         var imglabel=imglabeld1.previousSibling;
+        //         imglabeld1.style.display="none";
+        //         imglabel.style.display="inline-block";
+        //     }
             
-        },
+        // },
         // 请求数据
         load(){
             var obj={uid:this.uid}
@@ -237,6 +246,10 @@ export default {
         width: 100%;
         height: 250px;
     }
+    .love{
+        display: flex;
+        justify-content: space-between;
+    }
     /* 照片下部样式 */
     div.love img{
         width: 30px;
@@ -262,5 +275,8 @@ export default {
     .similar>span{
         color: black;
         font-weight: bolder;
+    }
+    .hiden{
+        display:none;
     }
 </style>

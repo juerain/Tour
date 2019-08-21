@@ -23,7 +23,7 @@
             </mt-tab-container-item>
             <mt-tab-container-item id="a2">
                 <!-- 查找页 -->
-                <sea></sea>
+                <tour></tour>
             </mt-tab-container-item>
             <mt-tab-container-item id="a3">
                 <!-- 关注页 -->
@@ -74,7 +74,7 @@
 
 <script>
 // 搜索子组件
-import sea from "./common/second-search/Search.vue"//查找子组件
+import tour from "./common/second-search/Tour.vue"//查找子组件
 
 // 引入子组件
 import TabBaricon from "./common/TabBarIcon.vue"//底部导航栏子组件
@@ -139,7 +139,7 @@ export default {
 
 
         // 李
-        "sea":sea,
+        "tour":tour,
 
         "follow":Follow,
         "theuser":Theuser
