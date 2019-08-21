@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="nav">
-      <p @click="xiala">suntom9 <img src="../../../../assets/按钮_选中_o.png" alt=""></p>
+      <p @click="xiala">{{list.uname}}<img src="../../../../assets/按钮_选中_o.png" alt=""></p>
       <i @click="youla"><img src="../../../../assets/收起按钮icon.png" alt=""></i>
     </div>
     <div>
@@ -12,7 +12,7 @@
       <div class="one">
         <div style="display:flex; align-items:center;">
           <img style="border-radius:50%; border:1px solid #ccc" width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
-          <p style="margin-left:15px;">suntom9</p>
+          <p style="margin-left:15px;">{{list.uname}}</p>
         </div>
         <div><i><img src="../../../../assets/选中.png" alt=""></i></div>
       </div>
@@ -31,7 +31,7 @@
       position="right">
         <div class="set">
           <div>
-            <p style="border-bottom:1px solid #ccc; padding-bottom:10px;padding-left:10px">suntom9</p>
+            <p style="border-bottom:1px solid #ccc; padding-bottom:10px;padding-left:10px">{{list.uname}}</p>
           <ul>
             <li><img src="../../../../assets/电影.png" alt=""> 私人影集</li>
             <li><img src="../../../../assets/活动.png" alt=""> 你的活动</li>
@@ -75,11 +75,11 @@
       </div>
     </div>
     <div style="margin-top:10px;">
-      <p style="margin:0">Sun Tom</p>
+      <p style="margin:0">{{list.uname}}</p>
       <p style="margin:0">个性签名</p>
     </div>
     <div>
-      <button class="zhuyeBtn">编辑主页</button>
+      <button @click="jup" class="zhuyeBtn">编辑主页</button>
     </div>
     <div class="body">
       <mt-navbar class="page-part" v-model="selected">
@@ -105,6 +105,7 @@ import PhotosVideo from"./PhotosVideo.vue"//引入子组件
 export default {
   data() {
     return {
+      list:[],
       data:[{
         name:'拍照',
         methods:this.getCamera
@@ -122,6 +123,16 @@ export default {
     }
   },
   methods: {
+    lodeMore(){
+      //请求服务器网址
+      var url="theuser";
+      //发送ajax请求获取数据
+      this.axios(url).then(result=>{
+        this.list=result.data.data[0];
+         console.log(result.data.data[0]);
+      })
+     
+    },
     touxiang(){
       this.sheetVisible=true;
     },
@@ -143,7 +154,13 @@ export default {
         div2.style.width="70%";
         div2.style.height="100%";
       this.popup2Visible=true;
+    },
+    jup(){
+      this.$router.push("/editpage");
     }
+  },
+  created() {
+    this.lodeMore();
   },
   components:{
     "homepage":Homepage,

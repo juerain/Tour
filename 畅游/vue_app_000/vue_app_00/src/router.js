@@ -17,6 +17,7 @@ import ChatFunction from "./components/ch/common/First-home/ChatFunction.vue"//�
 import ChatFunction2 from "./components/ch/common/First-home/ChatFunction-2.vue"//查找好友聊天页面
 import ChatFunction4 from "./components/ch/common/First-home/ChatFunction-4.vue"//好友聊天页面1
 import ChatFunction5 from "./components/ch/common/First-home/ChatFunction-5.vue"//好友聊天页面2
+import PersonInformation from "./components/ch/common/First-home/PersonInformation"//个人信息页面
 
 
 // 淘
@@ -53,7 +54,7 @@ import userdetailes from "./components/ch/common/second-search/UserDetailes.vue"
 // 用户组件
 import user from "./components/ch/common/second-search/User.vue"
 
-
+import Editpage from "./components/ch/common/The-user/Editpage.vue"
 
 
 
@@ -79,7 +80,8 @@ export default new Router({
     {path:"/ChatFunction",component:ChatFunction},//查找好友聊天页面1
     {path:"/ChatFunction2",component:ChatFunction2},//查找好友聊天页面2
     {path:"/ChatFunction5",component:ChatFunction5},//好友聊天页面1
-    {path:"/ChatFunction4",name:"ChatFunction4",component:ChatFunction4},//好友聊天页面2
+    {path:"/ChatFunction4/:uid",component:ChatFunction4},//好友聊天页面2
+    {path:"/PersonInformation/:uid",component:PersonInformation},//个人信息页面
 
 
     // // 李
@@ -101,8 +103,9 @@ export default new Router({
     {path:'/userdetailes/:uid/:umid/:i',component:userdetailes,props:true},
     {path:'/userdetailes/:uid/:umid/user/:did/:i',component:user,props:true},
     // {path:"/details/:lid",component:Details,props:true},
-
+    // // 陶
     {path:"/follow",component:Follow},
-    {path:"/theuser",component:theuser}
+    {path:"/theuser",component:theuser},
+    // {path:'/editpage',component:Editpage}
   ]
 })

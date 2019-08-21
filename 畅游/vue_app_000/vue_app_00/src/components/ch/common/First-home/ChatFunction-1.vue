@@ -66,9 +66,10 @@ export default {
             this.$router.push("/ChatFunction2")
         },
         chatfriend(e){
+            //获取点击事件的id值
             var id=e.target.dataset.id;
-            var obj={uid:id}
-            this.$router.push({name:'ChatFunction4',params:obj})
+            //跳转到另一页面，地址栏的uid参数为自己设置参数
+            this.$router.push('/ChatFunction4/'+id);//地址栏返回的值 obj=this.$route.params ==> uid:id uid==> 为router.js中{path:"/ChatFunction4/:uid1",component:ChatFunction4} 的uid,
         }
     },
     // 加载页面

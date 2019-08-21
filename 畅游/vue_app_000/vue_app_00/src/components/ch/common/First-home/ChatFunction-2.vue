@@ -5,7 +5,6 @@
         :phonesearchicon="require('../../../../img/photo-icon.png')"
         :quitchatfunction2="quitchatfunction2"
         :searchdel="require('../../../../img/suggest-del-icon.png')"
-        :chatfriend="chatfriend"
         ></chatfunction3>
     </div>
 </template>
@@ -20,12 +19,6 @@ export default {
         quitchatfunction2(){
             this.$router.push("/ChatFunction")
         },
-        chatfriend(e){
-            var id=e.target.dataset.id;
-            var obj={uid:id};
-            console.log(obj);
-            // this.$router.push({name:'ChatFunction4',params:obj})
-        }
     },
     //注册子组件并且给子组起一个名字
     components:{
