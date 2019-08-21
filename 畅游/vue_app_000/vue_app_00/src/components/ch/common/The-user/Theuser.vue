@@ -11,7 +11,7 @@
   <div class="alert">
       <div class="one">
         <div style="display:flex; align-items:center;">
-          <img style="border-radius:50%; border:1px solid #ccc" width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
+          <img style="border-radius:50%; border:1px solid #ccc" width="50px" height="50px" :src="'http://127.0.0.1:3000/'+list.uheadurl" alt="">
           <p style="margin-left:15px;">{{list.uname}}</p>
         </div>
         <div><i><img src="../../../../assets/选中.png" alt=""></i></div>
@@ -49,7 +49,7 @@
     </div>
     <div class="userNav">
       <div>
-        <img class="user_img" width="100px" height="100px" src="../../../../assets/ic_contacts_normal.png" alt="">
+        <img class="user_img" width="100px" height="100px" :src="'http://127.0.0.1:3000/'+list.uheadurl" alt="">
       </div>
       <i @click="touxiang" class="add"><img src="../../../../assets/添加.png" alt=""></i>
       <mt-actionsheet
@@ -57,8 +57,8 @@
        v-model="sheetVisible" 
       >
       </mt-actionsheet>
-      <div style="width:70%;">
-        <ul>
+      <div style="width:100%;">
+        <ul class="guanzhu">
           <li>
             <i>0</i>
             <p>帖子</p>
@@ -169,6 +169,17 @@ export default {
 }
 </script>
 <style scoped>
+.guanzhu{
+  width:100%;
+  display: flex;
+  justify-content: space-around !important;
+}
+    .guanzhu>li{
+      border:none !important;
+    }
+  p{
+    margin: 0;
+  }
   .alert{
 
     width:100%;
@@ -208,7 +219,7 @@ export default {
   }
   .add{
     position:absolute;
-    left:79px;top:127px;
+    left:80px;top:94px;
   }
   .zhuyeBtn{
     width:100%;
