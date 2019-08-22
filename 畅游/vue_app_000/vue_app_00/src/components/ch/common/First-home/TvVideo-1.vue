@@ -56,7 +56,9 @@ export default {
            
         },
         quitpersoninformation(){
-            this.$router.push('/Tv');
+            var did=this.$route.params;
+            // console.log(did.uid);
+            this.$router.push('/TvVideo2/'+did.uid);
         },
         ellipsis(){
             this.download=!this.download;
