@@ -274,7 +274,6 @@ server.get("/detailes", (req, res) => {
 server.get("/ChatFunction", (req, res) => {
     // 数据库获取用户的名字和头像照片地址
     var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";
-
     pool.query(sql, (err, result) => {
         if (err) throw err;
         res.send({ code: 1, data: result });
@@ -291,28 +290,28 @@ server.get("/ChatFunction2", (req, res) => {
     })
 })
 
-//修改用户的关注状态
+// //修改用户的关注状态
 
-server.get("/SuggestListAllMsg", (req, res) => {
-    var uid = req.query.uid;//获取事件用户的id
-    var uphone = req.query.uphone;
-    var uemail = req.query.uemail;
-    var upwd = req.query.upwd;
-    var uname = req.query.uname;
-    var usex = req.query.usex;
-    var uage = req.query.uage;
-    var uheadurl = req.query.uheadurl;
-    var uattention = req.query.uattention;
-    var uattents = req.query.uattents;
-    var uaddress = req.query.uaddress;
+// server.get("/SuggestListAllMsg", (req, res) => {
+//     var uid = req.query.uid;//获取事件用户的id
+//     var uphone = req.query.uphone;
+//     var uemail = req.query.uemail;
+//     var upwd = req.query.upwd;
+//     var uname = req.query.uname;
+//     var usex = req.query.usex;
+//     var uage = req.query.uage;
+//     var uheadurl = req.query.uheadurl;
+//     var uattention = req.query.uattention;
+//     var uattents = req.query.uattents;
+//     var uaddress = req.query.uaddress;
 
-    //修改该事件用户的关注状态，并从 cy_user_recommend 推荐列表中删除该用户，使其在推荐用户中删除
-    var sql = "UPDATE cy_user_recommend SET uattention=? WHERE uid=?"
-    pool.query(sql, [uattention, uid], (err, result) => {
-        if (err) throw err;
-        //修改成功后，把该用户添加到 cy_attent_user 已关注用户列表中
-    })
-})
+//     //修改该事件用户的关注状态，并从 cy_user_recommend 推荐列表中删除该用户，使其在推荐用户中删除
+//     var sql = "UPDATE cy_user_recommend SET uattention=? WHERE uid=?"
+//     pool.query(sql, [uattention, uid], (err, result) => {
+//         if (err) throw err;
+//         //修改成功后，把该用户添加到 cy_attent_user 已关注用户列表中
+//     })
+// })
 
 
 
@@ -321,7 +320,6 @@ server.get("/SuggestListAllMsg", (req, res) => {
 server.get("/ChatFunction", (req, res) => {
     // 数据库获取用户的名字和头像照片地址
     var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";
-
     pool.query(sql, (err, result) => {
         if (err) throw err;
         res.send({ code: 1, data: result });
@@ -346,7 +344,6 @@ server.get("/ChatFunction2", (req, res) => {
 //获取已关注用户的信息 -- 聊天页面
 server.get("/ChatFunction", (req, res) => {
     // 数据库获取用户的名字和头像照片地址
-
     var uname = req.query.uname;//条件搜索用户
     if (!uname) {
         var sql = "SELECT uid,uname,uheadurl FROM cy_attent_user";
@@ -355,7 +352,6 @@ server.get("/ChatFunction", (req, res) => {
     }
     pool.query(sql, (err, result) => {
         if (err) throw err;
-        console.log(uname);
         res.send({ code: 1, data: result });
     })
 })
@@ -402,7 +398,6 @@ server.get("/SuggestListAllMsg", (req, res) => {
 //获取点击用户的信息，并加载相应的信息到对应的聊天页面
 server.get("/ChatFunction4", (req, res) => {
     var uid = req.query.uid;
-    // console.log(uid);
     var sql = "SELECT * FROM cy_attent_user  WHERE uid=?"
     pool.query(sql, [uid], (err, result) => {
         if (err) throw err;
@@ -413,15 +408,36 @@ server.get("/ChatFunction4", (req, res) => {
 //获取个人信息
 server.get("/personinformation", (req, res) => {
     var uid = req.query.uid;
-    // console.log(uid);
     var sql = "SELECT * FROM cy_user WHERE uid=?";
     pool.query(sql, [uid], (err, result) => {
         if (err) throw err;
-        console.log(result);
         res.send({ code: 1, data: result })
     })
-
 })
+
+//获取全部照片
+server.get("/video",(req,res)=>{
+    var sql="SELECT * FROM cy_user_detail";
+    pool.query(sql,(err,result)=>{
+        if(err) throw err;
+        res.send({code :1, data: result});
+    })
+})
+
+//获取点击事件的信息
+server.get("/tvvideo2",(req,res)=>{
+    var did=req.query.did;
+    var sql="SELECT * FROM cy_user_detail WHERE did=?";
+    pool.query(sql,[did],(err,result)=>{
+        if(err) throw err;
+        res.send({code :1, data: result});
+    })
+})
+
+
+
+
+
 
 // 陶
 //获取当前登录的用户信息

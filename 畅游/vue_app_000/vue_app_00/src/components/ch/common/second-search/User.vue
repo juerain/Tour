@@ -52,10 +52,10 @@ export default {
     data(){
         return{
             imgs:[],
-            user:[]
+            user:[],
         }
     },
-    props:["uid","did","i"],
+    props:["uid","did","j"],
     methods: {
         focus(e){
             var btn=document.getElementById("focus");
@@ -89,8 +89,12 @@ export default {
         },
         // 箭头
         arrows(){
+            var id=this.$route.params.umid;
+            var j=this.$route.params.j;
+            console.log(id);
+            console.log(j);
             // console.log(this.did);
-            this.$router.push(`/userdetailes/${this.uid}/${this.did}/${this.i}`);
+            this.$router.push(`/userdetailes/${j}/${id}/5`);
         }
     },
     created() {
