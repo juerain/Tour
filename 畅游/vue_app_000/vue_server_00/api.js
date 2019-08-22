@@ -431,6 +431,15 @@ server.get("/theuser", (req, res) => {
     var sql = "SELECT * FROM cy_user WHERE uid=?";
     pool.query(sql, [uid], (err, result) => {
         if (err) throw err;
-        res.send({ code: 1, msg: "查询成功", data: result });
+        var res1=result;
+        var sql="SELECT * FROM user_images WHERE uid=?";
+        pool.query(sql,[uid],(err,result)=>{
+            if(err) throw err;
+            var res2=result;
+            res.send({code:1,data:[res1,res2]});
+        })
     })
+    //获取当前用户的详情
+   
 })
+

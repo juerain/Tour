@@ -17,7 +17,7 @@
         <div><i><img src="../../../../assets/选中.png" alt=""></i></div>
       </div>
       <div class="two">
-        <button class="my_btn">0位粉丝</button>
+        <button class="my_btn">{{list.fans}}粉丝</button>
         <button class="my_btn">0位密友</button>
       </div>
       <div class="three">
@@ -60,23 +60,23 @@
       <div style="width:100%;">
         <div class="guanzhu">
           <li>
-            <i>0</i>
+            <i>{{list.post}}</i>
             <p>帖子</p>
           </li>
           <li>
-            <i>0</i>
+            <i>{{list.fans}}</i>
             <p>粉丝</p>
           </li>
           <li>
-            <i>32</i>
+            <i>{{list.uattents}}</i>
             <p>已关注</p>
           </li>
         </div>
       </div>
     </div>
     <div style="margin-top:10px;">
-      <p style="margin:0">{{list.uname}}</p>
-      <p style="margin:0">个性签名</p>
+      <p style="margin:0">{{list.nickname}}</p>
+      <p style="margin:0">个性签名:{{list.qianming}}</p>
     </div>
     <div>
       <button @click="jup" class="zhuyeBtn">编辑主页</button>
@@ -128,8 +128,8 @@ export default {
       var url="theuser";
       //发送ajax请求获取数据
       this.axios(url).then(result=>{
-        this.list=result.data.data[0];
-         console.log(result.data.data[0]);
+        this.list=result.data.data[0][0];
+         console.log(result.data.data[0][0]);
       })
      
     },

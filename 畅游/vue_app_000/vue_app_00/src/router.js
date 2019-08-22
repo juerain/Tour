@@ -106,6 +106,6 @@ export default new Router({
     // // 陶
     {path:"/follow",component:Follow},
     {path:"/theuser",component:theuser},
-    // {path:'/editpage',component:Editpage}
+     {path:'/editpage',component:Editpage}
   ]
 })
