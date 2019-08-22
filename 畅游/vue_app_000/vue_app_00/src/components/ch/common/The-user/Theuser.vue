@@ -11,7 +11,7 @@
   <div class="alert">
       <div class="one">
         <div style="display:flex; align-items:center;">
-          <img style="border-radius:50%; border:1px solid #ccc" width="50px" height="50px" src="../../../../assets/ic_contacts_normal.png" alt="">
+          <img style="border-radius:50%; border:1px solid #ccc" width="50px" height="50px" :src="'http://127.0.0.1:3000/'+list.uheadurl" alt="">
           <p style="margin-left:15px;">{{list.uname}}</p>
         </div>
         <div><i><img src="../../../../assets/选中.png" alt=""></i></div>
@@ -31,15 +31,15 @@
       position="right">
         <div class="set">
           <div>
-            <p style="border-bottom:1px solid #ccc; padding-bottom:10px;padding-left:10px">{{list.uname}}</p>
-          <ul>
+            <p style="border-bottom:1px solid #ccc; padding:10px 10px;">{{list.uname}}</p>
+          <div class="codebody">
             <li><img src="../../../../assets/电影.png" alt=""> 私人影集</li>
             <li><img src="../../../../assets/活动.png" alt=""> 你的活动</li>
             <li><img src="../../../../assets/名片扫描.png" alt=""> 名片</li>
             <li><img src="../../../../assets/收藏夹.png" alt=""> 收藏夹</li>
             <li><img src="../../../../assets/好友.png" alt=""> 密友</li>
             <li><img src="../../../../assets/添加用户(1).png" alt=""> 发现用户</li>
-          </ul>
+          </div>
           </div>
           <div style="border-top:1px solid #ccc">
             <p style="margin:0;padding:10px 0;"><img style="vertical-align: middle;margin:0 10px;" src="../../../../assets/设置.png" alt=""> 设置</p>
@@ -49,7 +49,7 @@
     </div>
     <div class="userNav">
       <div>
-        <img class="user_img" width="100px" height="100px" src="../../../../assets/ic_contacts_normal.png" alt="">
+        <img class="user_img" width="100px" height="100px" :src="'http://127.0.0.1:3000/'+list.uheadurl" alt="">
       </div>
       <i @click="touxiang" class="add"><img src="../../../../assets/添加.png" alt=""></i>
       <mt-actionsheet
@@ -57,8 +57,8 @@
        v-model="sheetVisible" 
       >
       </mt-actionsheet>
-      <div style="width:70%;">
-        <ul>
+      <div style="width:100%;">
+        <div class="guanzhu">
           <li>
             <i>0</i>
             <p>帖子</p>
@@ -71,7 +71,7 @@
             <i>32</i>
             <p>已关注</p>
           </li>
-        </ul>
+        </div>
       </div>
     </div>
     <div style="margin-top:10px;">
@@ -169,6 +169,23 @@ export default {
 }
 </script>
 <style scoped>
+.codebody>li{
+  margin:20px 0 20px 50px;
+}
+li{
+  list-style:none;
+}
+.guanzhu{
+  width:100%;
+  display: flex;
+  justify-content: space-around !important;
+}
+    .guanzhu>li{
+      border:none !important;
+    }
+  p{
+    margin: 0;
+  }
   .alert{
 
     width:100%;
@@ -208,7 +225,7 @@ export default {
   }
   .add{
     position:absolute;
-    left:79px;top:127px;
+    left:80px;top:94px;
   }
   .zhuyeBtn{
     width:100%;
@@ -267,7 +284,7 @@ export default {
    display:flex;
    align-items: center;
  }
- .set>div>ul>li>img{
+ .codebody>li>img{
   vertical-align: middle;
   width:28px;height:28px;
   margin-right:20px;
