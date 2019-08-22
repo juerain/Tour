@@ -263,68 +263,6 @@ INSERT INTO cy_user_detail VALUES
 (null,9941,9,"15555555555","123456@qq.com",md5('123456'),"jack76",1,23,"image/head6.jpg",0,78,"河北","image/scenery6.jpg",66,188),
 (null,9942,9,"15555555555","123456@qq.com",md5('123456'),"jack77",1,45,"image/head7.jpg",0,5,"新疆","image/scenery7.jpg",66,188),
 (null,9943,9,"15555555555","123456@qq.com",md5('123456'),"jack78",1,43,"image/head8.jpg",0,99,"湖南","image/scenery8.jpg",66,188),
-<<<<<<< HEAD
-(null,9944,9,"15555555555","123456@qq.com",md5('123456'),"jack79",1,29,"image/head9.jpg",0,75,"湖北","image/scenery9.jpg",66,188),
-
-(null,990,10,"15555555555","123456@qq.com",md5('123456'),"jack1",1,22,"image/head1.jpg",0,78,"北京","image/food1.jpg",66,188),
-(null,991,10,"15555555555","123456@qq.com",md5('123456'),"jack2",1,22,"image/head2.jpg",0,66,"河南","image/food2.jpg",66,188),
-(null,992,10,"155555house5","123456@qq.com",md5('123456'),"jack3",1,25,"image/head3.jpg",0,44,"上海","image/food3.jpg",66,188),
-(null,993,10,"155555house5","123456@qq.com",md5('123456'),"jack4",1,55,"image/head4.jpg",0,102,"广州","image/food4.jpg",66,188),
-(null,994,10,"15555555555","123456@qq.com",md5('123456'),"jack5",1,23,"image/head5.jpg",0,64,"天津","image/food5.jpg",66,188),
-(null,995,10,"15555555555","123456@qq.com",md5('123456'),"jack6",1,23,"image/head6.jpg",0,78,"河北","image/food6.jpg",66,188),
-(null,996,10,"15555555555","123456@qq.com",md5('123456'),"jack7",1,45,"image/head7.jpg",0,5,"新疆","image/food7.jpg",66,188),
-(null,997,10,"15555555555","123456@qq.com",md5('123456'),"jack8",1,43,"image/head8.jpg",0,99,"湖南","image/food8.jpg",66,188),
-(null,998,10,"15555555555","123456@qq.com",md5('123456'),"jack9",1,29,"image/head9.jpg",0,75,"湖北","image/food9.jpg",66,188),
-
-(null,999,11,"15555555555","123456@qq.com",md5('123456'),"tom1",1,22,"image/head1.jpg",0,78,"北京","image/shop1.jpg",66,188),
-(null,9910,11,"15555555555","123456@qq.com",md5('123456'),"tom2",1,22,"image/head2.jpg",0,66,"河南","image/shop2.jpg",66,188),
-(null,9911,11,"15555555555","123456@qq.com",md5('123456'),"tom3",1,25,"image/head3.jpg",0,44,"上海","image/shop3.jpg",66,188),
-(null,9912,11,"15555555555","123456@qq.com",md5('123456'),"tom4",1,55,"image/head4.jpg",0,102,"广州","image/shop4.jpg",66,188),
-(null,9913,11,"15555555555","123456@qq.com",md5('123456'),"tom5",1,23,"image/head5.jpg",0,64,"天津","image/shop5.jpg",66,188),
-(null,9914,11,"15555555555","123456@qq.com",md5('123456'),"tom6",1,23,"image/head6.jpg",0,78,"河北","image/shop6.jpg",66,188),
-(null,9915,11,"15555555555","123456@qq.com",md5('123456'),"tom7",1,45,"image/head7.jpg",0,5,"新疆","image/shop7.jpg",66,188),
-(null,9916,11,"15555555555","123456@qq.com",md5('123456'),"tom8",1,43,"image/head8.jpg",0,99,"湖南","image/shop8.jpg",66,188),
-(null,9917,11,"15555555555","123456@qq.com",md5('123456'),"tom9",1,29,"image/head9.jpg",0,75,"湖北","image/shop9.jpg",66,188),
-(null,9918,12,"15555555555","123456@qq.com",md5('123456'),"jack11",1,22,"image/head1.jpg",0,78,"北京","image/house1.jpg",66,188),
-(null,9919,12,"15555555555","123456@qq.com",md5('123456'),"jack12",1,22,"image/head2.jpg",0,66,"河南","image/house2.jpg",66,188),
-(null,9920,12,"15555555555","123456@qq.com",md5('123456'),"jack13",1,25,"image/head3.jpg",0,44,"上海","image/house3.jpg",66,188),
-(null,9921,12,"15555555555","123456@qq.com",md5('123456'),"jack14",1,55,"image/head4.jpg",0,102,"广州","image/house4.jpg",66,188),
-(null,9922,12,"15555555555","123456@qq.com",md5('123456'),"jack15",1,23,"image/head5.jpg",0,64,"天津","image/house5.jpg",66,188),
-(null,9923,12,"15555555555","123456@qq.com",md5('123456'),"jack16",1,23,"image/head6.jpg",0,78,"河北","image/house6.jpg",66,188),
-(null,9924,12,"15555555555","123456@qq.com",md5('123456'),"jack17",1,45,"image/head7.jpg",0,5,"新疆","image/house7.jpg",66,188),
-(null,9925,12,"15555555555","123456@qq.com",md5('123456'),"jack18",1,43,"image/head8.jpg",0,99,"湖南","image/house8.jpg",66,188),
-(null,9926,12,"15555555555","123456@qq.com",md5('123456'),"jack19",1,29,"image/head9.jpg",0,75,"湖北","image/house9.jpg",66,188),
-
-(null,9927,13,"15555555555","123456@qq.com",md5('123456'),"jack21",1,22,"image/head1.jpg",0,78,"北京","image/build1.jpg",66,188),
-(null,9928,13,"15555555555","123456@qq.com",md5('123456'),"jack22",1,22,"image/head2.jpg",0,66,"河南","image/build2.jpg",66,188),
-(null,9929,13,"15555555555","123456@qq.com",md5('123456'),"jack23",1,25,"image/head3.jpg",0,44,"上海","image/build3.jpg",66,188),
-(null,9930,13,"15555555555","123456@qq.com",md5('123456'),"jack24",1,55,"image/head4.jpg",0,102,"广州","image/build4.jpg",66,188),
-(null,9931,13,"15555555555","123456@qq.com",md5('123456'),"jack25",1,23,"image/head5.jpg",0,64,"天津","image/build5.jpg",66,188),
-(null,9932,13,"15555555555","123456@qq.com",md5('123456'),"jack26",1,23,"image/head6.jpg",0,78,"河北","image/build6.jpg",66,188),
-(null,9933,13,"15555555555","123456@qq.com",md5('123456'),"jack27",1,45,"image/head7.jpg",0,5,"新疆","image/build7.jpg",66,188),
-(null,9934,13,"15555555555","123456@qq.com",md5('123456'),"jack28",1,43,"image/head8.jpg",0,99,"湖南","image/build8.jpg",66,188),
-(null,9935,13,"15555555555","123456@qq.com",md5('123456'),"jack29",1,29,"image/head9.jpg",0,75,"湖北","image/build9.jpg",66,188),
-
-(null,9936,14,"15555555555","123456@qq.com",md5('123456'),"jack31",1,22,"image/head1.jpg",0,78,"北京","image/scenery1.jpg",66,188),
-(null,9937,14,"15555555555","123456@qq.com",md5('123456'),"jack32",1,22,"image/head2.jpg",0,66,"河南","image/scenery2.jpg",66,188),
-(null,9938,14,"15555555555","123456@qq.com",md5('123456'),"jack33",1,25,"image/head3.jpg",0,44,"上海","image/scenery3.jpg",66,188),
-(null,9939,14,"15555555555","123456@qq.com",md5('123456'),"jack34",1,55,"image/head4.jpg",0,102,"广州","image/scenery4.jpg",66,188),
-(null,9940,14,"15555555555","123456@qq.com",md5('123456'),"jack35",1,23,"image/head5.jpg",0,64,"天津","image/scenery5.jpg",66,188),
-(null,9941,14,"15555555555","123456@qq.com",md5('123456'),"jack36",1,23,"image/head6.jpg",0,78,"河北","image/scenery6.jpg",66,188),
-(null,9942,14,"15555555555","123456@qq.com",md5('123456'),"jack37",1,45,"image/head7.jpg",0,5,"新疆","image/scenery7.jpg",66,188),
-(null,9943,14,"15555555555","123456@qq.com",md5('123456'),"jack38",1,43,"image/head8.jpg",0,99,"湖南","image/scenery8.jpg",66,188),
-(null,9944,14,"15555555555","123456@qq.com",md5('123456'),"jack39",1,29,"image/head9.jpg",0,75,"湖北","image/scenery9.jpg",66,188),
-
-(null,9936,15,"15555555555","123456@qq.com",md5('123456'),"jack41",1,22,"image/head1.jpg",0,78,"北京","image/scenery1.jpg",66,188),
-(null,9937,15,"15555555555","123456@qq.com",md5('123456'),"jack42",1,22,"image/head2.jpg",0,66,"河南","image/scenery2.jpg",66,188),
-(null,9938,15,"15555555555","123456@qq.com",md5('123456'),"jack43",1,25,"image/head3.jpg",0,44,"上海","image/scenery3.jpg",66,188),
-(null,9939,15,"15555555555","123456@qq.com",md5('123456'),"jack44",1,55,"image/head4.jpg",0,102,"广州","image/scenery4.jpg",66,188),
-(null,9940,15,"15555555555","123456@qq.com",md5('123456'),"jack45",1,23,"image/head5.jpg",0,64,"天津","image/scenery5.jpg",66,188),
-(null,9941,15,"15555555555","123456@qq.com",md5('123456'),"jack46",1,23,"image/head6.jpg",0,78,"河北","image/scenery6.jpg",66,188),
-(null,9942,15,"15555555555","123456@qq.com",md5('123456'),"jack47",1,45,"image/head7.jpg",0,5,"新疆","image/scenery7.jpg",66,188),
-(null,9943,15,"15555555555","123456@qq.com",md5('123456'),"jack48",1,43,"image/head8.jpg",0,99,"湖南","image/scenery8.jpg",66,188),
-(null,9944,15,"15555555555","123456@qq.com",md5('123456'),"jack49",1,29,"image/head9.jpg",0,75,"湖北","image/scenery9.jpg",66,188);
-=======
 (null,9944,9,"15555555555","123456@qq.com",md5('123456'),"jack79",1,29,"image/head9.jpg",0,75,"湖北","image/scenery9.jpg",66,188);
 
 (null,990,1,"15555555555","123456@qq.com",md5('123456'),"jack1",1,22,"image/head1.jpg",0,78,"北京","image/food1.jpg"),
@@ -415,7 +353,6 @@ INSERT INTO cy_user_detail VALUES
 (null,9942,9,"15555555555","123456@qq.com",md5('123456'),"jack77",1,45,"image/head7.jpg",0,5,"新疆","image/scenery7.jpg"),
 (null,9943,9,"15555555555","123456@qq.com",md5('123456'),"jack78",1,43,"image/head8.jpg",0,99,"湖南","image/scenery8.jpg"),
 (null,9944,9,"15555555555","123456@qq.com",md5('123456'),"jack79",1,29,"image/head9.jpg",0,75,"湖北","image/scenery9.jpg");
->>>>>>> 808864e445adf3b595777bcd359ca59beddf64e9
 
 
 
