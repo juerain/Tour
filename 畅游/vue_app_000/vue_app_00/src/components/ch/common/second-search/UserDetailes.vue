@@ -1,6 +1,6 @@
 <template>
-<div>
-    <div v-for="(item,i) of userlist" :key="i" @click="point">
+<div class="box">
+    <div v-for="(item,j) of userlist" :key="j" @click="point">
         <!-- 三个点的弹窗 -->
         <div class="pop-up-box" style="display:none">
             <div class="pop-up">
@@ -21,19 +21,19 @@
                     <img class="head" :src="'http://127.0.0.1:3000/'+item.uheadurl" alt="">
                     <div class="user_div">
                         <div>
-                            <router-link :to="`user/${item.did}/${i}`"><span class="user">{{item.uname}} ·</span></router-link><span class="reccommend">关注</span>
+                            <router-link :to="`user/${item.did}/${j}`"><span class="user">{{item.uname}} ·</span></router-link><span class="reccommend">关注</span>
                         </div>
                         <span class="address">{{item.uaddress}}</span>
                     </div>
                 </div>
                 
-                <img class="point" src="../../../../assets/point.png" alt="">
+                <img class="point" :data-pid="item.ddid*1000" :id="item.ddid*1000" src="../../../../assets/point.png" alt="">
                 
             </div>
             <img class="photo" :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
-            <div class="love">
+            <div class="love"   @click="change">
                 <div>
-                    <div style="display:inline"  @click="change" >
+                    <div style="display:inline" >
                         <img :data-did="item.did" :id="item.did" src="../../../../assets/praise.png" alt="">
                         <img  style="display:none" src="../../../../assets/praised.png" alt=""  :data-ddid="item.ddid" :id="item.ddid">
                     </div>
@@ -41,13 +41,13 @@
                     <img src="../../../../assets/plain.png" alt="" style="height:30px;">
                 </div>
                 <div style="display:inline"  >
-                    <img  id="img1" src="../../../../assets/label.png" alt="">
-                    <img class="hiden" id="img2" src="../../../../assets/label2.png" alt="" >
+                    <img :data-did="item.did*10" :id="item.did*10" src="../../../../assets/label.png" alt="">
+                        <img  style="display:none" src="../../../../assets/label2.png" alt=""  :data-ddid="item.ddid*10" :id="item.ddid*10">
                 </div>
             </div>
             <p class="praise"><span>{{item.uattents}}次赞</span>
             </p>
-            <p><router-link :to="`user/${item.uid}/${item.did}/${i}`"><span class="user">{{item.uname}}</span></router-link> jidnfdffdijfjspa <span>更多</span></p>
+            <p><router-link :to="`user/${item.did}/${i}`"><span class="user">{{item.uname}}</span></router-link> jidnfdffdijfjspa <span>更多</span></p>
             <p class="similar">2天前·你赞过相似的照片</p>
         </div>
         </div>
@@ -67,11 +67,10 @@ export default {
 
     methods: {
         point(e){
-            var point=document.getElementsByClassName("point")[0];
+            var pid=e.target.dataset.pid;
+            var point=document.getElementById(pid);
             var pop=document.getElementsByClassName("pop-up-box")[0];
-                // console.log(pop);
             if(e.target==point){
-                // console.log(1);
                 pop.style.display="";
             }else{
                 pop.style.display="none"
@@ -93,32 +92,21 @@ export default {
                 imgpraise.style.display="inline-block";
             }
             
+
+            var did=(e.target.dataset.did);
+            var ddid=(e.target.dataset.ddid);
+            var imgpraised2=document.getElementById(ddid);
+            var imgpraise2=document.getElementById(did);
+            if(e.target==imgpraise2){
+                var imgpraised3=imgpraise2.nextSibling;
+                imgpraise2.style.display="none";
+                imgpraised3.style.display="inline-block";
+            }else if(e.target==imgpraised2){
+                var imgpraise3=imgpraised1.previousSibling;
+                imgpraised2.style.display="none";
+                imgpraise3.style.display="inline-block";
+            }
         },
-       
-        // 收藏功能
-        // label(e){
-        //     var did=e.target.dataset.ldid;
-        //     var ddid=e.target.dataset.lddid;
-        //     var imglabeld1=document.getElementById(ddid);
-        //     var imglabeld1=imglabel.parentElement;
-        //     var imglabel=document.getElementById(did);
-        //     // console.log(did);
-        //     // console.log(ddid);
-        //     console.log(imglabel);
-        //     console.log(imglabeld1);
-        //     console.log(e.target.dataset);
-        //     if(e.target===imglabel){
-        //         console.log(111);
-        //         var imglabeld=imglabel.nextSibling;
-        //         imglabel.style.display="none";
-        //         imglabeld.style.display="inline-block";
-        //     }else if(e.target==imglabeld1){
-        //         var imglabel=imglabeld1.previousSibling;
-        //         imglabeld1.style.display="none";
-        //         imglabel.style.display="inline-block";
-        //     }
-            
-        // },
         // 请求数据
         load(){
             var obj={uid:this.uid}
@@ -152,6 +140,10 @@ export default {
 </script>
 
 <style scoped>
+
+    .box{
+        position: relative;
+    }
     /* p标签样式 */
     p{
         margin: 5px;

@@ -37,7 +37,7 @@
     <div class="imgs_list">
         <div  class="search_img"  v-for="(item,i) of imglist" :key="i">
             <!-- 从地址栏传参数过去 -->
-            <router-link :to="`userdetailes/${item.uid}/${item.umid}/${i}`">
+            <router-link :to="`userdetailes/${i}/${item.umid}/${item.uid}`">
             <img :src="'http://127.0.0.1:3000/'+item.uimgurl" alt="">
             </router-link>
             

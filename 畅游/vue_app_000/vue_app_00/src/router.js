@@ -100,12 +100,12 @@ export default new Router({
     {path:'/label',component:label},
     {path:'/place',component:place},
     {path:'/aroundsite',component:aroundsite},
-    {path:'/userdetailes/:uid/:umid/:i',component:userdetailes,props:true},
-    {path:'/userdetailes/:uid/:umid/user/:did/:i',component:user,props:true},
+    {path:'/userdetailes/:i/:umid/:uid',component:userdetailes,props:true},
+    {path:'/userdetailes/:i/:umid/user/:did/:j',component:user,props:true},
     // {path:"/details/:lid",component:Details,props:true},
     // // 陶
     {path:"/follow",component:Follow},
     {path:"/theuser",component:theuser},
-    // {path:'/editpage',component:Editpage}
+    {path:'/editpage',component:Editpage}
   ]
 })
